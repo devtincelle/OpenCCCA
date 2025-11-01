@@ -4,10 +4,13 @@
 import pdfplumber
 import json
 import uuid
+import os
+import unicodedata
+import re
+
 
 class ConventionScrapper():
     
-    _pdf = None
     _bad_keys = [
         "6- Salari\u00e9s non cadres et cadres int\u00e9gr\u00e9s",
         "4- LA REDUCTION DU TEMPS DE TRAVAIL",
@@ -16,33 +19,130 @@ class ConventionScrapper():
     _bad_key_words = [
         "On ne peut employer"
     ]
+    
+    _last_category = None
 
     def __init__(self):
         ...
 
-    def parse_fonction_table(self,_output_json_path:str=None)->dict:
-        with pdfplumber.open(ConventionScrapper._pdf) as pdf:
-            # Go through each page
+    def clean_text(self,text: str) -> str:
+        """Remove unwanted characters but keep letters (with accents), numbers in words, spaces, apostrophes, commas, euro symbol."""
+        if not text:
+            return ""
+
+        # Normalize to NFC to keep accents combined
+        text = unicodedata.normalize('NFC', text)
+
+        # Remove control characters (\n, \r, \t, \x0b, \x0c)
+        text = re.sub(r"[\n\r\t\x0b\x0c]+", " ", text)
+
+        # Remove unwanted characters but keep letters, numbers (even in words), spaces, apostrophes, comma, euro
+        text = re.sub(r"[^A-Za-zÀ-ÖØ-öø-ÿ0-9' ,€]+", "", text)
+
+        # Collapse multiple spaces
+        text = re.sub(r"\s+", " ", text)
+
+        return text.strip()
+    
+    def parse_current_filieres(self,_raw_string)->list:
+        if "Filière " not in _raw_string:
+            return []
+        filieres = _raw_string.split("Filière")
+        data = []
+
+        for f in filieres[1:]:
+            # split filiere number and name
+            parts = f.split(":", 1)
+            filiere_number = int(parts[0].strip())
+            filiere_name = self.clean_text(parts[1].split("\n")[0].strip())
+            filiere_key = self.clean_text(filiere_name).replace(" ","_")
+            filiere = {
+                "name":f"{filiere_number} {filiere_name}",
+                "number":filiere_number,
+                "key":f"{filiere_number}-{filiere_key[0]}"
+            }
+            data.append(filiere) 
+        return data
+
+    def find_filiere(self,_entries:dict,_filiere_list:list)->str:
+        for key,value in _entries.items():
+            if key not in ["fonction","definition"]:
+                continue
+            for f in _filiere_list:
+                for word in f["name"].split(" "):
+                    if word in value:
+                        return f["name"]
+        return None
+
+    def parse_job_table(self, _pdf: str = None, _output_json_path: str = None) -> dict:
+        if not _pdf:
+            print("Error pdf is None")
+            return {}
+        if not os.path.exists(_pdf):
+            print("Error pdf does not exist:", _pdf)
+            return {}
+        
+        filieres = []
+        filieres_fonction_table= {}
+        data_table = {}
+        with pdfplumber.open(_pdf) as pdf:
             last_headers = None
-            data_table = {}
+            current_filiere = None
+            page_number = 0
             for page in pdf.pages:
-                # Get tables from the current page
+                
+                page_number+=1
+                pages_filieres = self.parse_current_filieres(page.extract_text())
+                
+                if len(pages_filieres)>0:
+                    current_filiere = pages_filieres[0]['name']
+
+                for f in pages_filieres:
+                    if f not in filieres:
+                        filieres.append(f)
+                        
                 tables = page.extract_table()
-                # Print the table data
                 if tables is None:
                     continue
-                parsed = self.parse_table(tables,last_headers)
-                if len(parsed["headers"])>0:
-                    last_headers = parsed["headers"]
+
+                table = self.parse_table(tables, last_headers)
+                
+                # Clean headers
+                if len(table["headers"]) > 0:
+                    last_headers = [self.clean_text(h) for h in table["headers"]]
                     headers_key = "_".join(last_headers)
+
                 if headers_key not in data_table.keys():
                     data_table[headers_key] = []
-                for entry in parsed["entries"]:
-                    data_table[headers_key] .append(entry)
-            f_table = self.parse_function_table(data_table)
-            clean_table = self.conform_function_table(f_table)
-            with open(output_json_path,"w") as file:
-                file.write(json.dumps(clean_table))
+
+                # Clean each entry
+                for entry in table["entries"]:
+                    
+                    cleaned_entry = {k: self.clean_text(v) if isinstance(v, str) else v for k, v in entry.items()}
+                    if len(pages_filieres)>1:
+                        found = self.find_filiere(cleaned_entry,pages_filieres)
+                        if found:
+                            current_filiere = found
+                    if "fonction" in cleaned_entry.keys() :
+                        if cleaned_entry["fonction"] not in filieres_fonction_table.keys():
+                            filieres_fonction_table[cleaned_entry["fonction"]] = current_filiere
+                        else:
+                            current_filiere = filieres_fonction_table[cleaned_entry["fonction"]] 
+                    cleaned_entry["filiere"] = current_filiere
+                    cleaned_entry["page_number"] = str(page_number)
+                    data_table[headers_key].append(cleaned_entry)
+                    
+
+        f_table = self.parse_function_table(data_table)
+        clean_table = self.conform_function_table(f_table)
+        
+
+        # Save JSON with UTF-8 encoding
+        if _output_json_path:
+            with open(_output_json_path, "w", encoding="utf-8") as file:
+                json.dump(clean_table, file, ensure_ascii=False, indent=2)
+
+        return clean_table
 
 
     def check_key(self,_key:str)->bool:
@@ -77,6 +177,7 @@ class ConventionScrapper():
         return False
 
 
+
     def filter_key(self,_key):
         if 'AU 1ER MARS' in _key:
             return 'salaire_brut'
@@ -100,7 +201,7 @@ class ConventionScrapper():
             fem_split = el.split("(")
             if  len(fem_split)>1 :
                 filtered.append( self.filter_key(fem_split[0]))
-                filtered.append("version féminisée")
+                filtered.append("version_feminisee")
                 continue
             key = self.filter_key(el)
             filtered.append(key)
@@ -144,6 +245,8 @@ class ConventionScrapper():
     def parse_table(self,_table,_last_header=None)->dict:
         headers = _last_header or []
         entries = []
+        if not _table:
+            return{}
         for row in _table:
             if self.is_header(row):
                 headers = self.filter_headers(row)
@@ -161,35 +264,136 @@ class ConventionScrapper():
         }
 
     # Open the PDF file
+    
 
+    def remove_special_chars(self,text: str) -> str:
+        if type(text) != str:
+            return text
+        # Keep letters (including accents), spaces, and apostrophes
+        # [\p{L}] is not natively supported in Python, so use \w with re.UNICODE
+        # But \w includes digits and underscore, so we explicitly use a negated pattern to remove unwanted chars
+        cleaned = re.sub(r"[^A-Za-zÀ-ÖØ-öø-ÿ0-9' ]+", "", text)
+        return cleaned
+
+
+    
+    def strip_name(self,_name:str)->str:
+        replace_table= {
+            "é":"e",
+            "è":"e",
+            "à":"a",
+            "'":"_",
+            "\'":"_",
+            "ô":"o",
+            "ç":"c",
+            "\n":"_",
+            "/":"_",
+            " ":"_",
+        }
+        clean = ""
+        for char in _name:
+            if not replace_table.get(char):
+                clean+=char
+                continue
+            clean+=replace_table.get(char)
+        return clean
+    
+    
+    def filter_fonction_key(self,_name:str)->bool:
+        if "OUS_FORME_DE_JOURS_DE_REPOS_SUR" in _name:
+            return False
+        if "LA_REDUCTION_DU_TEMPS_DE_TRAVAIL" in _name:
+            return False        
+        if "alaries_non_cadres_et_cadres_inte" in _name:
+            return False        
+        if "(*)_On_ne_peut_employer_de_salarie_" in _name:
+            return False        
+        if "On_ne_peut_employer_de" in _name:
+            return False
+        return True
+
+    def conform_data(self,_data:dict):
+        definition = _data.get("defintion")
+        categorie = _data.get("category")
+        if definition and categorie:
+            if len(categorie) < 5:
+                self._last_category = categorie
+            return _data
+        if categorie and not definition:
+            if len(categorie) > 5:
+                _data["definition"] = categorie
+                _data["category"] = self._last_category or ""
+        return _data
 
     def parse_function_table(self,_data_table):
         table = {}
         for key,datas in _data_table.items():
-            print(key)
             for data in datas:
-                function_data = {}
                 if "fonction" not in data.keys():
+                    continue                
+                function_nice_name = data["fonction"].replace("\n"," ")
+                function_key = self.strip_name(data["fonction"])
+                data["nom"] = function_nice_name
+                if self.filter_fonction_key(function_key)==False:
                     continue
-                function_name = data["fonction"].replace("\n"," ")
-                if function_name not in table.keys():
-                    table[function_name] = {}
+                if "*" in function_key:
+                    ...
+                    #continue
+                if function_key not in table.keys():
+                    table[function_key] = {}
                 for key,value in data.items():
-
                     if value == "":
                         continue
-
                     if "€" in value and len(value)>4:
                         key = "salaire_brut_mensuel"
                         value = self.parse_salary(value)
                     if key == "salaire_brut":
                         key = "salaire_brut_journalier"
                         value = self.parse_salary(value)
-                    table[function_name][key] = value
-                table[function_name]["fonction"] = function_name
-        return table
+                    clean_key = self.strip_name(key)
+                    table[function_key][clean_key] = self.remove_special_chars(value)
+                self.conform_data(table[function_key])
+                
+        optimised_table = self.merge_starred_entries(table)
+                
+        return optimised_table
 
     def parse_salary(self,_string):
         clean = _string.replace(",",".").replace("€","").replace(" ","")
         return float(clean)
 
+
+    def merge_starred_entries(self,data: dict) -> dict:
+        """
+        Merge entries in a dictionary whose keys differ only by a trailing '*'.
+        Keeps all unique fields and merges overlapping ones intelligently.
+        """
+        merged_data = {}
+        processed = set()
+
+        for key in list(data.keys()):
+            base_key = key.rstrip("*")
+            if base_key in processed:
+                continue
+
+            # find the potential pair (with or without *)
+            alt_key = base_key + "*" if not key.endswith("*") else base_key
+            entry1 = data[key]
+            entry2 = data.get(alt_key)
+
+            if alt_key in data and alt_key != key:
+                # merge both entries
+                merged_entry = {**entry2, **entry1}  # right side overwrites on duplicates
+                
+                merged_data[base_key] = merged_entry
+                processed.add(base_key)
+            else:
+                merged_data[key] = entry1
+                processed.add(base_key)
+                
+        clean_table = {}
+        for key,value in merged_data.items():
+            clean_key = key.replace("*","")
+            clean_table[clean_key] = value
+
+        return clean_table
