@@ -197,6 +197,16 @@ class ConventionScrapper2021():
         for _,article in article_parser._articles.items():
             print("    ")
             article.print()
+            
+        final_data =  article_parser.get_dict()
+            
+        # Save JSON with UTF-8 encoding
+        if _output_json_path:
+            with open(_output_json_path, "w", encoding="utf-8") as file:
+                json.dump(final_data, file, ensure_ascii=False, indent=2)
+
+        return final_data
+            
 
 
 
