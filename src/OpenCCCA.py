@@ -1,19 +1,21 @@
 
 
 from PathManager import PathManager
-from ConventionScrapper import ConventionScrapper
+from ConventionScrapper2015 import ConventionScrapper2015
+from ConventionScrapper2021 import ConventionScrapper2021
 from ConventionViewBuilder import ConventionViewBuilder
 import os
 
 class OpenCCCA():
     
-    _scrapper:ConventionScrapper= ConventionScrapper()
+    _scrapper:ConventionScrapper2021= ConventionScrapper2021()
     _builder:ConventionViewBuilder= ConventionViewBuilder()
     _paths:PathManager = PathManager()
     
 
     def __init__(self):
         self._pdf = self._paths.get_data_folder()+"/CCN_production_animation_consolidee_01032015.pdf"
+        self._pdf = self._paths.get_data_folder()+"/la-convention-collective-nationale-de-lanimation-et-la-grille-des-minima.pdf"
         ...
 
     
