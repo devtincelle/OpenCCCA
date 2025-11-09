@@ -10,7 +10,8 @@ import re
 from datetime import datetime
 from TableParser import TableParser
 from ArticleParser import ArticleParser
-
+import re
+from typing import List
 
 class ConventionScrapper2021():
     
@@ -191,12 +192,10 @@ class ConventionScrapper2021():
             for page in pdf.pages:
                 page_number+=1
                 article_parser.parse_page(page,page_number)
-                if page_number==100:
+                if page_number>50 :
                     break 
         article_parser.parse_sub_articles()
-        for _,article in article_parser._articles.items():
-            print("    ")
-            article.print()
+        article_parser.parse_tables()
             
         final_data =  article_parser.get_dict()
             
@@ -206,8 +205,7 @@ class ConventionScrapper2021():
                 json.dump(final_data, file, ensure_ascii=False, indent=2)
 
         return final_data
-            
-
+    
 
 
     def is_category(self,text):

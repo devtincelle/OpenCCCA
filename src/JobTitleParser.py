@@ -1,12 +1,9 @@
 from ValueParser import ValueParser
-import json
+
 
 import pandas as pd
 from typing import List, Any
 import re
-
-import hashlib
-
 
 class Table:
     """A simple container for table data."""
@@ -118,7 +115,6 @@ class TableParser():
 
     def parse_raw_tables(self, _raw_tables: List[Any]) -> List[Table]:
 
-        clean_tables = []
         for table in _raw_tables:
             print("--------TABLE---------")
 
@@ -126,6 +122,11 @@ class TableParser():
             if not table:
                 continue
             
+            df = self.parse_complex_table(table)
+            
+            
+            continue
+        
             # Flatten one level if needed
             if isinstance(table[0], list) and all(isinstance(r, list) for r in table[0]):
                 table = table[0]
@@ -133,93 +134,32 @@ class TableParser():
             # Skip empty again after flattening
             if len(table) == 0:
                 continue
-            
-            
-            clean_tables.append(table)
-            
-            
-        df = self.parse_complex_tables(clean_tables)   
-        return 
+
+            # Replace None/newlines, trim spaces
+            cleaned = [[(cell or "").replace("\n", " ").strip() for cell in row] for row in table]
+
+            # Drop empty rows
+            cleaned = [row for row in cleaned if any(cell.strip() for cell in row)]
+
+            # Extract header and rows safely
+            header = cleaned[0] if cleaned else []
+            rows = cleaned[1:] if len(cleaned) > 1 else []
+
+            print("Header:", header)
+            print("Rows:")
+            for row in rows:
+                print(row)
+
+            parsed_tables.append(Table(header, rows))
+
+            return parsed_tables
         
-
-
-        
-    def _hash(self,_thing)->str:
-        return str(int(hashlib.sha1(_thing.encode("utf-8")).hexdigest(), 16) % (10 ** 8))
-
-
-        
-    def parse_complex_tables(self,tables: List) -> pd.DataFrame:
+    def parse_complex_table(self,all_raw_tables: List[List[List[str]]]) -> pd.DataFrame:
         """
         Parse messy multi-row tables from pdfplumber into a clean DataFrame.
         Expected logical columns: Secteur, Fonction, Position, Catégorie, Définition.
         """
-
-
-
-        job_table = {}
-        current_key = None
-        last_job_title = None
-        last_category = None
-        
-        
-        for table in tables:
-            # Clean up
-            cleaned = [[(cell or '').replace('\n', ' ').strip() for cell in row] for row in table]
-            cleaned = [r for r in cleaned if any(c.strip() for c in r)]
-            
-            last_sector = None
-            for row in cleaned: 
-                tslice = self.parse_slice(row)
-                job_title = tslice.get("job_title")
-                position= tslice.get("position")
-                sector= tslice.get("sector")
-                category= tslice.get("category")
-
-                # apply last values if None 
-                tslice["sector"]= sector or last_sector
-                tslice["category"] = category or last_category
-                
-                # remember if not None
-                if sector and sector!="Secteur":
-                    last_sector = sector
-                if category:
-                    last_category = category
-                last_job_title = job_title or last_job_title
-                
-                if position and not job_title:
-                    job_title = last_job_title
-
-                definition = tslice.get("definition") 
-                if job_title  and definition:
-                    job_key = self._hash(definition)
-                    tslice["job_title"] = job_title or ""
-                    job_table[job_key] = tslice
-                    current_key = job_key
-                if current_key and job_title:
-                    job_table[job_key]["job_title"]+=" "+job_title
-                    
-        for key,job in job_table.items():
-            for key,value in job.items():
-                job[key] = self._parser.conform(key,value)
-
-        print(json.dumps(job_table,indent=4))
-            
-            
-            
-    def parse_slice(self,row:list)->dict:
-        data = {}
-        value_index=0
-        for value in row:
-            value_index+=1
-            if not value or value=="":
-                continue
-            key = self._parser.guess_key(value,value_index)
-            if key:
-                data[key]=value
-            else:
-                data[str(value_index)] = value
-        return data
+        print(all_raw_tables)
         
     def merge_split_rows(self,raw_rows: List[List[str]]) -> List[List[str]]:
         """

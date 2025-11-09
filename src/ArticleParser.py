@@ -1,5 +1,6 @@
 
 import re
+from TableParser import TableParser
 
 class Article():
     def __init__(self,_start_line=None):
@@ -53,6 +54,7 @@ class ArticleParser():
     _last_article_key = None
     _document_lines = []
     _line = -1
+    _table_parser=TableParser()
 
 
     def extraire_articles(self,texte: str,_start_line=None):
@@ -126,8 +128,6 @@ class ArticleParser():
                 self._articles[current_key].body.append(line)
         
         if self._articles.get(current_key):
-            print(self._articles.get(current_key))
-            print(raw_tables)
             self._articles[current_key].tables.append(raw_tables)
                     
     def parse_sub_articles(self):
@@ -152,8 +152,10 @@ class ArticleParser():
                     
     def parse_tables(self):
         for key,article in self._articles.items():
-            if len(article.table)>0:
-                ...
+            if len(article.tables)==0:
+                continue
+            article.table = self._table_parser.parse_raw_tables(article.tables)
+            
                 
                     
     def get_dict(self)->dict:

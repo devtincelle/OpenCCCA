@@ -22,7 +22,7 @@ class ValueParser():
             "is_cadre":[self._is_NC_or_C],
             "definition":[self._is_paragraph],
             "position":[self._is_chef_or_confirme],
-            "sector":[self._is_short_name],
+            "sector":[self._is_sector],
             "monthly_salary":[self._is_salary,self._greater_than_900],
             "daily_salary":[self._is_salary,self._lower_than_300]
         }
@@ -40,7 +40,7 @@ class ValueParser():
         if match:
             return float(match.group())
         return None
-    def _matches_job_pattern_general(self,s):
+    def _matches_job_pattern_general(self,s,index=None):
         """
         Returns True if the string is likely a job title pattern:
         - Mostly uppercase letters
@@ -57,7 +57,7 @@ class ValueParser():
         
         return bool(re.match(pattern, s_clean))
     
-    def _is_paragraph(self,s):
+    def _is_paragraph(self,s,index=None):
         """
         Returns True if the string looks like a paragraph:
         - Contains multiple sentences ('.', '!', or '?')
@@ -70,12 +70,30 @@ class ValueParser():
             return False
         
         # Check if there is at least one sentence-ending punctuation
-        if re.search(r'[.!?]', s_clean):
+        if re.search(r'[.!?()]', s_clean):
             return True
         
         return False
     
-    def _is_uppercase_job(self,s):
+
+    def guess_key(self,value,index=None)->str:
+        if value is None:
+            return 
+        found = None
+        for key,check_list in self._content_guess_table.items():
+            for check in check_list:
+                if check(value,index) ==False:
+                    continue
+                if check(value,index) ==True:
+                    found=key
+                    break
+        return found    
+    import re
+
+    def _is_salary(self,value: str,index=None) -> bool:
+        pattern = re.compile(r'^\s*\d{1,3}(?:[\s.,]\d{3})*(?:,\d{2})?\s*€\s*$')
+        return bool(pattern.match(value))
+    def _is_uppercase_job(self,s,index=None):
         """
         Returns True if the string contains only uppercase letters, spaces, slashes, or line breaks.
         """
@@ -87,49 +105,40 @@ class ValueParser():
         
         return bool(re.match(pattern, s_clean))
     
-    def guess_key(self,value)->str:
-        if value is None:
-            return 
-        found = None
-        for key,check_list in self._content_guess_table.items():
-            for check in check_list:
-                if check(value) ==False:
-                    continue
-                if check(value) ==True:
-                    found=key
-                    break
-        return found    
-    import re
-
-    def _is_salary(self,value: str) -> bool:
-        pattern = re.compile(r'^\s*\d{1,3}(?:[\s.,]\d{3})*(?:,\d{2})?\s*€\s*$')
-        return bool(pattern.match(value))
-    
-    def _is_long_upper_case(self,value)->bool:
+    def _is_long_upper_case(self,value,index=None)->bool:
         return self.is_upper(value) and len(value) > 8 and len(value) < 30
-    def _is_roman_AB(self,value)->bool:
+    def _is_roman_AB(self,value,index=None)->bool:
         return value in ["I","II","III","IV","V","IIIA","III A","IIIB","III B","Hors catégorie"]
-    def _is_NC_or_C(self,value)->bool:
+    def _is_NC_or_C(self,value,index=None)->bool:
         return value in ["NC","C"]  
-    def _is_phrase(self,value)->bool:
+    def _is_phrase(self,value,index=None)->bool:
         return self.is_upper(value)==False and len(value) > 30
-    def _is_short_name(self,value)->bool:
-        return self.is_upper(value)==False and len(value) < 30
-    def _has_euro_sign(self,value)->bool:
+    def _is_short_name(self,value,index=None)->bool:
+        return self.is_upper(value,index=None)==False and len(value) < 30    
+    def _is_sector(self,value,index=None)->bool:
+        if len(value)<3:
+            return False
+        return (
+            self.is_upper(value[0])==True 
+            and index==0 or index==1
+            and self.is_upper(value[1])==False 
+            and len(value) < 30
+            )
+    def _has_euro_sign(self,value,index=None)->bool:
         return "€" in value
-    def _greater_than_900(self,value)->bool:
+    def _greater_than_900(self,value,index=None)->bool:
         num = self._extract_number(value)
         if not num:
             return False
         return num > 900    
-    def _lower_than_300(self,value)->bool:
+    def _lower_than_300(self,value,index=None)->bool:
         num = self._extract_number(value)
         if not num:
             return False
         return num < 300    
-    def _is_chef_or_confirme(self,value)->bool:
-        return value.lower() in ["chef","confirme","assistant"]
-    def is_upper(self,text):
+    def _is_chef_or_confirme(self,value,index=None)->bool:
+        return value.lower() in ["chef","confirme"]
+    def is_upper(self,text,index=None):
         """
         Check if the input string is fully uppercase (letters, including accented, and spaces).
 
