@@ -2208,30 +2208,16 @@
       "31-31.4_les"
     ],
     "filieres": [
-      "1 administrative et commerciale",
-      "2 Tronc Commun",
-      "3 Animation 2D",
-      "4 Animation 3D",
-      "5 Volume",
-      "6 Motion Capture",
-      "7 Artiste de complément"
+      "1 administrative et commerciale(1109)",
+      "2 Tronc Commun(1193)",
+      "3 Animation 2D(1678)",
+      "4 Animation 3D(1768)",
+      "5 Volume(1959)",
+      "6 Motion Capture(2108)",
+      "7 Artiste de complément(2186)"
     ],
     "tables": {
-      "81649449": {
-        "definition": "FONCTION (EN ITALIQUE LA VERSION FÉMINISÉE) Directeur général (non-mandataire social) Directeur général délégué (non-mandataire social) Fonction (suivi de la version féminisée)",
-        "job_title": {
-          "male": "Catégorie iii a iii b",
-          "female": ""
-        },
-        "row_number": 0,
-        "table_number": 1,
-        "sector": null,
-        "category": "V",
-        "article": "31_filieres",
-        "filiere": "1 administrative et commerciale"
-      },
       "76940910": {
-        "sector": "Réalisation",
         "job_title": {
           "male": "Realisateur",
           "female": "Realisatrice"
@@ -2240,6 +2226,7 @@
         "definition": "Maître d'œuvre de l'adaptation, du style et du découpage, il dirige et coordonne en collaboration avec les responsables des équipes artistiques et techniques les opérations d'étude, de préparation et de réalisation d'une œuvre dans le respect des contraintes de production dont il a été informé.",
         "row_number": 1,
         "table_number": 4,
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2251,7 +2238,7 @@
         "definition": "Conçoit l'esthétique de l'image sur un projet, sous la responsabilité du réalisateur et/ou de la production.",
         "row_number": 2,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "category": "I",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -2264,7 +2251,7 @@
         "definition": "Conçoit et veille au respect du style et des critères artistiques et graphiques d'une œuvre sous la direction du réalisateur et/ou de la production.",
         "row_number": 6,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "category": "I",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -2277,7 +2264,7 @@
         "definition": "Encadre et supervise le travail des scénaristes conformément à la bible, en collaboration avec le réalisateur et / ou la production.",
         "row_number": 7,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "category": "I",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -2290,7 +2277,7 @@
         "definition": "Encadre et supervise, artistiquement et techniquement, les travaux des équipes en charge d'un projet.",
         "row_number": 8,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "category": "I",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -2303,7 +2290,7 @@
         "definition": "Partage une partie de l'encadrement et de la supervision, artistique et technique, du directeur / superviseur de projet.",
         "row_number": 14,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "category": "I",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -2317,21 +2304,21 @@
         "definition": "Encadre une équipe de storyboarders. Participe à l'élaboration des storyboards. Veille au respect de l'unité de l'œuvre sous la direction du réalisateur.",
         "row_number": 20,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "category": "I",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
       "98382723": {
         "position": "Confirme",
-        "category": "II",
+        "category": "V",
         "definition": "Assure l'adaptation graphique, le développement du découpage et le timing du storyboard sous la direction du réalisateur et/ou du chef storyboarder. Assure la mise au net du storyboard.",
         "row_number": 21,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "job_title": {
           "male": "Storyboarder",
-          "female": "Storyboardeuse assistant storyboarder assistante storyboardeuse"
+          "female": "Storyboardeuse exécute la mise au net du storyboard"
         },
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -2345,7 +2332,7 @@
         "definition": "Assiste le réalisateur et coordonne le suivi de la réalisation à tous les stades d'exécution.",
         "row_number": 23,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2389,7 +2376,6 @@
         "filiere": "1 administrative et commerciale"
       },
       "2357486": {
-        "1": "Conception / Fabrication des éléments",
         "job_title": {
           "male": "Directeur decor",
           "female": "Directrice decor"
@@ -2473,13 +2459,13 @@
       "24573860": {
         "job_title": {
           "male": "Directeur effets dynamiques et des simulations",
-          "female": "Directrice effets dynamiques et des simulations designer"
+          "female": "Directrice effets dynamiques et des simulations décline le style d'éléments, de personnages ou"
         },
         "definition": "Encadre et supervise le travail des équipes d'infographistes dans un ou plusieurs départements. Veille au suivi et à la bonne exécution des différents éléments à produire.",
         "row_number": 17,
         "table_number": 12,
         "sector": null,
-        "category": "I",
+        "category": "II",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2551,15 +2537,15 @@
         "filiere": "1 administrative et commerciale"
       },
       "1197465": {
-        "sector": "Lay out",
         "job_title": {
           "male": "Directeur / superviseur lay out",
-          "female": "Directrice / superviseuse lay out infographiste lay out infographiste lay out"
+          "female": "Directrice / superviseuse lay out encadre une équipe d'infographistes lay-out"
         },
-        "category": "I",
+        "category": "II",
         "definition": "Encadre et supervise le travail artistique et technique des équipes de lay-out sur une production. sur une production. Prépare les travaux de décors et de l'animation. Contrôle les lay-outs",
         "row_number": 5,
         "table_number": 6,
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2569,10 +2555,10 @@
         "definition": "Assure l'adaptation du storyboard par la mise en place, plan par plan et aux normes techniques usitées, des décors, des personnages, des effets spéciaux, des cadrages et mouvements de caméra en veillant à valoriser les partis pris artistiques. Peut assurer le report du son et des codes-bouches du plan.",
         "row_number": 13,
         "table_number": 6,
-        "sector": "Lay out",
+        "sector": null,
         "job_title": {
-          "male": "Infographiste lay out",
-          "female": "Infographiste lay out"
+          "male": "Encadre une équipe d'infographistes lay-out",
+          "female": ""
         },
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -2586,12 +2572,11 @@
         "definition": "Participe à la fabrication de tout ou d'une partie des travaux de mise en place technique des plans.",
         "row_number": 14,
         "table_number": 6,
-        "sector": "Lay out",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
       "713118": {
-        "sector": "Animation",
         "job_title": {
           "male": "Directeur / superviseur d'animation",
           "female": "Directrice / superviseuse d'animation"
@@ -2600,6 +2585,7 @@
         "definition": "Encadre et supervise le travail artistique et technique des équipes d'animation sur une production en servant la direction du réalisateur.",
         "row_number": 15,
         "table_number": 6,
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2612,17 +2598,17 @@
         "definition": "Encadre et assure la cohérence artistique du travail d'une équipe d'assistants animateurs et d'intervallistes sur une production. Il contrôle également le travail effectué par des studios tiers.",
         "row_number": 16,
         "table_number": 6,
-        "sector": "Animation",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
       "32487971": {
         "job_title": {
           "male": "Animateur",
-          "female": "Animatrice animateur animatrice"
+          "female": "Animatrice porte à l'écran le « jeu » des personnages, des éléments et / ou des effets visuels numériques à animer qui constituent le plan dans le respect du storyboard et de la mise en place technique"
         },
         "position": "Chef",
-        "category": "II",
+        "category": "IIIB",
         "definition": "Dirige le « jeu » des personnages et / ou des effets spéciaux ou supervise l'animation d'une séquence. Assure la cohérence du rythme, de la continuité ainsi que le travail d'animation et de synchronisation d'une équipe d'animateurs.",
         "row_number": 0,
         "table_number": 7,
@@ -2644,15 +2630,15 @@
         "filiere": "1 administrative et commerciale"
       },
       "18399070": {
-        "sector": "Compositing",
         "job_title": {
           "male": "Directeur / superviseur compositing",
-          "female": "Directrice / superviseuse compositing infographiste compositing infographiste compositing infographiste compositing infographiste compositing"
+          "female": "Directrice / superviseuse compositing encadre les équipes chargées des opérations assure la composition de l'ensemble des"
         },
-        "category": "I",
+        "category": "IIIB",
         "definition": "Encadre et supervise le travail artistique et technique des équipes de compositing sur une production, sous la responsabilité du réalisateur. de compositing. Assure l'unité et la cohérence pour constituer l'image finale d'un plan.",
         "row_number": 3,
         "table_number": 7,
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2665,12 +2651,11 @@
         "definition": "Participe à la préparation et à la fabrication des travaux de compositing.",
         "row_number": 11,
         "table_number": 7,
-        "sector": "Compositing",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
       "34361808": {
-        "sector": "Post production",
         "job_title": {
           "male": "Directeur technique post prod",
           "female": "Directrice technique post prod"
@@ -2679,6 +2664,7 @@
         "definition": "Définit et assure la mise en place d'un processus technique des opérations de post- production jusqu'au support final.",
         "row_number": 17,
         "table_number": 7,
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2691,7 +2677,7 @@
         "definition": "Assure pour tout programme la préparation, la mise en œuvre et l’exploitation des moyens techniques et artistiques nécessaires à la prise et au traitement du son et à sa transmission. Est capable de mixer le son de tout programme et d’assurer tout report nécessaire. Met en œuvre des connaissances en acoustique et musique",
         "row_number": 18,
         "table_number": 7,
-        "sector": "Post production",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2703,7 +2689,7 @@
         "definition": "Assure la coordination et l'exécution des travaux de montage, de son et de mastérisation.",
         "row_number": 19,
         "table_number": 7,
-        "sector": "Post production",
+        "sector": null,
         "category": "II",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -2711,13 +2697,13 @@
       "94572762": {
         "job_title": {
           "male": "Bruiteur",
-          "female": "Bruiteuse directeur"
+          "female": "Bruiteuse encadre et supervise les équipes de"
         },
-        "category": "IIIA",
+        "category": "I",
         "definition": "Produit les bruitages, éléments sonores complémentaires de la bande son, à partir d'instruments de musique ou de divers objets usuels.",
         "row_number": 20,
         "table_number": 7,
-        "sector": "Post production",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2757,7 +2743,7 @@
         "sector": null,
         "job_title": {
           "male": "Stereographe",
-          "female": "Stereographe"
+          "female": "Stereographe règle les effets de profondeur et de"
         },
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -2806,10 +2792,10 @@
       "21392054": {
         "job_title": {
           "male": "Etalonneur numerique",
-          "female": "Etalonneuse numerique etalonneur numerique etalonneuse numerique"
+          "female": "Etalonneuse numerique assure la colorimétrie des images."
         },
         "position": "Chef",
-        "category": "II",
+        "category": "IIIB",
         "definition": "Encadre et supervise le travail artistique et technique d'une équipe d'étalonneurs numériques.",
         "row_number": 17,
         "table_number": 8,
@@ -2820,7 +2806,7 @@
       "72627220": {
         "job_title": {
           "male": "Assistant etalonneur numerique",
-          "female": "Assistante etalonneuse numerique operateur son operatrice son assistant operateur son assistante operatrice son"
+          "female": "Assistante etalonneuse numerique assure la détection et le report du son et des codes bouches sur les feuilles d'exposition assure la mise en œuvre et l'exploitation des prépare et aide à la mise en œuvre et à peut réaliser divers travaux de transfert sur"
         },
         "category": "V",
         "definition": "Participe à la préparation et à la coordination nécessaires au travail de l'étalonnage numérique. moyens techniques du son. Réaliser divers travaux de transfert sur tout support. Assure l’exploitation des moyens techniques du son. tout support. Assure l’entretien courant du",
@@ -2831,7 +2817,6 @@
         "filiere": "1 administrative et commerciale"
       },
       "50389562": {
-        "sector": "Technique",
         "job_title": {
           "male": "Infographiste developpeur",
           "female": "Infographiste developpeuse"
@@ -2840,6 +2825,7 @@
         "definition": "Conçoit des modules complémentaires aux logiciels de création et de production d'images utilisés dans le cadre de la production, par le biais d’une interface de programmation ou d'un langage de commande.",
         "row_number": 0,
         "table_number": 9,
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2852,7 +2838,7 @@
         "definition": "Assure la gestion et la maintenance du parc et des outils de transfert de données affectés à la production. Supervise la gestion et la maintenance du parc et des réseaux informatiques et des logiciels d'exploitation et de production affectés à la production. Il négocie avec les prestataires dédiés.",
         "row_number": 1,
         "table_number": 9,
-        "sector": "Technique",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2865,7 +2851,7 @@
         "definition": "Assure la maintenance du parc et des réseaux informatiques et des logiciels d'exploitation et de production.",
         "row_number": 3,
         "table_number": 9,
-        "sector": "Technique",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2878,7 +2864,7 @@
         "definition": "Participe à l'installation et à la maintenance des équipements.",
         "row_number": 9,
         "table_number": 9,
-        "sector": "Technique",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2891,20 +2877,20 @@
         "definition": "Supervise les opérations de transferts et de calcul de données et d'archivage.",
         "row_number": 15,
         "table_number": 9,
-        "sector": "Technique",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
       "39091479": {
         "job_title": {
           "male": "Operateur data et calcul",
-          "female": "Operatrice data et calcul directeur de production directrice de production"
+          "female": "Operatrice data et calcul encadre, planifie, budgétise, recrute et peut"
         },
-        "category": "IIIB",
+        "category": "I",
         "definition": "Assure le stockage, le calcul et la circulation des données au sein des studios.",
         "row_number": 19,
         "table_number": 9,
-        "sector": "Technique",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2917,7 +2903,7 @@
         "definition": "Délégué par la production auprès de studios tiers chargés de tout ou partie de l'exécution des étapes de production.",
         "row_number": 28,
         "table_number": 9,
-        "sector": "Production",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2930,7 +2916,7 @@
         "definition": "Assure la gestion administrative et comptable de la production.",
         "row_number": 32,
         "table_number": 9,
-        "sector": "Production",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -2942,7 +2928,7 @@
         "definition": "Assure la coordination entre les équipes artistiques/techniques et peut-être amené à négocier avec les prestataires sur un projet et / ou une phase spécifique de production dans le respect du budget et du planning.",
         "row_number": 33,
         "table_number": 9,
-        "sector": "Production",
+        "sector": null,
         "category": "IIIA",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -3027,7 +3013,6 @@
         "filiere": "1 administrative et commerciale"
       },
       "72012661": {
-        "sector": "Lay out",
         "job_title": {
           "male": "Dessinateur lay out",
           "female": "Dessinatrice lay out"
@@ -3037,6 +3022,7 @@
         "definition": "Encadre une équipe sur une production. Prépare les travaux de mise en place technique et s'assure de leur cohérence avec les directives du storyboard pour engager les étapes de fabrication des décors et de l'animation. Contrôle les lay-outs produits par des studios tiers.",
         "row_number": 0,
         "table_number": 11,
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3046,10 +3032,10 @@
         "definition": "Assure la mise en place, plan par plan, des éléments de décor, du posing des personnages, des effets spéciaux, des cadrages et mouvements de caméra en veillant à valoriser les partis pris artistiques, en conformité avec le storyboard. Veille à l'unité des feuilles d'exposition. les feuilles d'exposition. Assure et / ou",
         "row_number": 1,
         "table_number": 11,
-        "sector": "Lay out",
+        "sector": null,
         "job_title": {
           "male": "Dessinateur lay out",
-          "female": "Dessinatrice lay out animateur feuilles d'exposition animatrice feuilles d'exposition animateur feuilles d'exposition animatrice feuilles d'exposition"
+          "female": "Dessinatrice lay out encadre et dirige l'équipe chargée de la décompose le rythme de l'animation sur"
         },
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -3063,12 +3049,11 @@
         "definition": "Exécute les dessins intermédiaires selon la cadence définie par l'animateur et les dessins de l'assistant animateur.",
         "row_number": 9,
         "table_number": 11,
-        "sector": "Animation",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
       "49038889": {
-        "sector": "Traçage, scan et colorisation",
         "job_title": {
           "male": "Verificateur d'animation",
           "female": "Verificatrice d'animation"
@@ -3078,6 +3063,7 @@
         "definition": "Encadre une équipe de vérificateurs et veille à la cohérence des références usitées : storyboard, modèles, lay-out, animation.",
         "row_number": 10,
         "table_number": 11,
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3087,7 +3073,7 @@
         "definition": "Assure la vérification, l'exhaustivité et la cohérence technique des éléments d'animation composant un plan.",
         "row_number": 11,
         "table_number": 11,
-        "sector": "Traçage, scan et colorisation",
+        "sector": null,
         "job_title": {
           "male": "Verificateur d'animation",
           "female": "Verificatrice d'animation"
@@ -3105,7 +3091,7 @@
         "definition": "Encadre une équipe de traceurs et / ou de gouacheurs et veille à la cohérence des références usitées : storyboard, modèles couleurs, feuilles d'exposition.",
         "row_number": 12,
         "table_number": 11,
-        "sector": "Traçage, scan et colorisation",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3115,7 +3101,7 @@
         "definition": "Assure la vérification et l'exhaustivité des éléments tracés, scannés et colorisés composant un plan.",
         "row_number": 13,
         "table_number": 11,
-        "sector": "Traçage, scan et colorisation",
+        "sector": null,
         "job_title": {
           "male": "Verificateur trace colorisation",
           "female": "Verificatrice trace colorisation"
@@ -3132,7 +3118,7 @@
         "definition": "Encadre une équipe d'opérateurs scan et veille à la qualité technique, à la conformité et à l'exhaustivité des éléments scannés.",
         "row_number": 14,
         "table_number": 11,
-        "sector": "Traçage, scan et colorisation",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3145,7 +3131,7 @@
         "definition": "Reproduit au trait les dessins d'animation dans le caractère et le style imposés.",
         "row_number": 15,
         "table_number": 11,
-        "sector": "Traçage, scan et colorisation",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3157,7 +3143,7 @@
         "definition": "Exécute la mise en couleur des éléments graphiques en respectant les modèles couleurs.",
         "row_number": 16,
         "table_number": 11,
-        "sector": "Traçage, scan et colorisation",
+        "sector": null,
         "category": "V",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -3167,33 +3153,33 @@
           "male": "Operateur scan",
           "female": "Operatrice scan"
         },
-        "definition": "Exécute la numérisation des éléments graphiques. Fonction (suivi de la version féminisée)",
+        "definition": "Exécute la numérisation des éléments graphiques.",
         "row_number": 17,
         "table_number": 11,
-        "sector": "Traçage, scan et colorisation",
+        "sector": null,
         "category": "V",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
       "41920033": {
         "job_title": {
-          "male": "Designeuse sculpteur 3d sculpteuse 3d confir me",
+          "male": "Designeuse encadre une équipe de sculpteurs, de modèles assure le modelage et la sculpture, de modèles",
           "female": ""
         },
         "definition": "de décors, en se basant sur un concept existant.",
         "row_number": 28,
         "table_number": 12,
         "sector": null,
-        "category": "II",
+        "category": "IIIB",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
       "29936750": {
         "job_title": {
           "male": "Assistant sculpteur 3d",
-          "female": "Assistante scupteuse 3d infographist modelisation"
+          "female": "Assistante scupteuse 3d encadre une équipe d'infographistes de modelisation"
         },
-        "category": "V",
+        "category": "II",
         "definition": "Participe au modelage et à la sculpture, de modèles d'études, de personnages ou d'objets, avec pour intention d'en définir le design.",
         "row_number": 35,
         "table_number": 12,
@@ -3217,10 +3203,10 @@
       "50697909": {
         "job_title": {
           "male": "Assistant infographist modelisation",
-          "female": "Assistante infographist modelisation infographist textures et shading infographist confir shading"
+          "female": "Assistante infographist modelisation encadre une équipe d'infographistes texture et textures et shading infographist assure la mise en matière et couleurs de shading"
         },
         "4": "E E",
-        "category": "V",
+        "category": "IIIB",
         "definition": "Participe à la modélisation de personnages, d'éléments ou de décors.",
         "row_number": 45,
         "table_number": 12,
@@ -3231,10 +3217,10 @@
       "98345425": {
         "job_title": {
           "male": "Assistant infographist textures et shading",
-          "female": "Assistante infographist texture et shading infographist d'effets dynamiques /"
+          "female": "Assistante infographist texture et shading encadre une équipe d'infographistes d'effets d'effets dynamiques /"
         },
         "4": "E E",
-        "category": "V",
+        "category": "II",
         "definition": "Participe à la mise en matière et couleurs de personnages, d'éléments ou de décors.",
         "row_number": 6,
         "table_number": 13,
@@ -3244,14 +3230,14 @@
       },
       "52969258": {
         "job_title": {
-          "male": "Simulations infographist confir me",
+          "male": "Simulations infographist assure la fabrication et la mise en place des",
           "female": ""
         },
         "definition": "effets dynamiques (drapés, fluides, poils,",
         "row_number": 17,
         "table_number": 13,
         "sector": null,
-        "category": "II",
+        "category": "IIIB",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3270,8 +3256,8 @@
       },
       "83225998": {
         "job_title": {
-          "male": "Assistant infographist dynamiques simulations",
-          "female": "Assistante infographist dynamiques / simulations"
+          "male": "Assistant infographist d’effets dynamiques simulations",
+          "female": "Assistante infographist d’effets dynamiques / simulations"
         },
         "4": "E E",
         "5": "/",
@@ -3284,43 +3270,43 @@
         "filiere": "1 administrative et commerciale"
       },
       "93738878": {
-        "sector": "Rendu et éclairage",
         "job_title": {
-          "male": "Directeur / superviseur rendu eclairage",
-          "female": "Directrice / superviseuse rendu eclairage"
+          "male": "Directeur / superviseur eclairage",
+          "female": "Directrice / superviseuse eclairage"
         },
         "category": "I",
         "definition": "Encadre et supervise les équipes d'infographistes rendu / éclairage. Est responsable de la partie artistique et de la mise en place technique de l'éclairage tout autant que du compositing du plan.",
         "row_number": 32,
         "table_number": 13,
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
       "21957994": {
         "job_title": {
-          "male": "Infographist rendu eclairage",
-          "female": "Infographist rendu eclairage"
+          "male": "Infographist eclairage",
+          "female": "Infographist eclairage"
         },
         "4": "E E",
         "category": "IIIB",
         "definition": "Ajuste l'ensemble des paramètres liés au rendu (lumières, textures, couleurs) des personnages, des accessoires et des décors. Assure la mise au point et la continuité de l'éclairage. Il peut assurer le compositing du plan.",
         "row_number": 40,
         "table_number": 13,
-        "sector": "Rendu et éclairage",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
       "37474797": {
         "job_title": {
-          "male": "Assistant infographist rendu eclairage",
-          "female": "Assistante infographist eclairage directeur"
+          "male": "Assistant infographist eclairage",
+          "female": "Assistante infographist eclairage encadre et supervise les équipes"
         },
         "4": "E E",
-        "category": "V",
+        "category": "I",
         "definition": "Participe à la mise en place de l'éclairage dans l'ensemble du plan ou du compositing d'un ensemble de plan.",
         "row_number": 46,
         "table_number": 13,
-        "sector": "Rendu et éclairage",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3340,7 +3326,7 @@
       "89079045": {
         "job_title": {
           "male": "Infographiste matte painter",
-          "female": "Infographiste matte painteuse"
+          "female": "Infographiste painteuse"
         },
         "category": "IIIB",
         "definition": "Assure la production et la retouche, manuellement ou sur palette, des décors intérieurs et extérieurs, s'intégrant dans un espace 2D ou 3D.",
@@ -3364,15 +3350,15 @@
         "filiere": "1 administrative et commerciale"
       },
       "10344434": {
-        "sector": "Effets visuels numériques",
         "job_title": {
           "male": "Directeur des effets visuels numeriques",
-          "female": "Directrice des effets visuels numeriques infographiste des effets"
+          "female": "Directrice des effets visuels numeriques encadre une équipe d'infographistes des effets des effets"
         },
-        "category": "I",
+        "category": "II",
         "definition": "Encadre et supervise les équipes chargées de la fabrication d'effets visuels numériques sur une production.",
         "row_number": 15,
         "table_number": 14,
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3386,7 +3372,7 @@
         "definition": "Assure la fabrication d'effets visuels numériques.",
         "row_number": 23,
         "table_number": 14,
-        "sector": "Effets visuels numériques",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3396,10 +3382,10 @@
           "female": "Assistante infographiste des effets visuels numerique"
         },
         "category": "V",
-        "definition": "Participe à la fabrication d'effets visuels numériques. Fonction (suivi de la version féminisée)",
+        "definition": "Participe à la fabrication d'effets visuels numériques.",
         "row_number": 29,
         "table_number": 14,
-        "sector": "Effets visuels numériques",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3693,10 +3679,10 @@
       "70043685": {
         "job_title": {
           "male": "Assistant mecanicien volume",
-          "female": "Assistante mecanicienne volume superviseur mocap superviseuse mocap"
+          "female": "Assistante mecanicienne volume supervise la mocap, le pipeline, la préparation superviseuse"
         },
-        "category": "V",
-        "definition": "Assiste le mécanicien dans la préparation et la fabrication des marionnettes. Fonction (suivi de la version féminisée)",
+        "category": "I",
+        "definition": "Assiste le mécanicien dans la préparation et la fabrication des marionnettes.",
         "row_number": 10,
         "table_number": 16,
         "sector": null,
@@ -3712,7 +3698,7 @@
         "definition": "Assure l'enregistrement des données numériques liées à la capture de mouvement.",
         "row_number": 5,
         "table_number": 17,
-        "sector": "Tournage mocap",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3725,7 +3711,7 @@
         "definition": "Participe à l'enregistrement des données numériques liées à la capture de mouvement.",
         "row_number": 11,
         "table_number": 17,
-        "sector": "Tournage mocap",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3738,7 +3724,7 @@
         "definition": "Assure la mise en conformité des courbes de trajectoire après la capture de mouvement.",
         "row_number": 19,
         "table_number": 17,
-        "sector": "Tournage mocap",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3751,7 +3737,7 @@
         "definition": "Participe à la mise en conformité des courbes de trajectoire après la capture de mouvement.",
         "row_number": 25,
         "table_number": 17,
-        "sector": "Tournage mocap",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3765,7 +3751,7 @@
         "definition": "Assure, sous la supervision du superviseur Mocap, le traitement et l'intégration des données post tournage.",
         "row_number": 33,
         "table_number": 17,
-        "sector": "Tournage mocap",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3779,7 +3765,7 @@
         "definition": "Participe, sous la supervision du superviseur Mocap, au traitement et à l'intégration des données post tournage.",
         "row_number": 39,
         "table_number": 17,
-        "sector": "Tournage mocap",
+        "sector": null,
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
       },
@@ -3791,7 +3777,7 @@
         "definition": "S'assure de l'enregistrement des données liées aux headcams (prise de vue du visage des figurants mocap lors du tournage)",
         "row_number": 47,
         "table_number": 17,
-        "sector": "Tournage mocap",
+        "sector": null,
         "category": "V",
         "article": "31_filieres",
         "filiere": "1 administrative et commerciale"
@@ -5925,67 +5911,113 @@
       "32-7.3_5"
     ],
     "filieres": [
-      "1 administrative et commerciale",
-      "2 Tronc commun",
-      "3 Animation 2D",
-      "4 Animation 3D",
-      "5 Volume",
-      "6 Motion Capture",
-      "7 Artistes de complément",
-      "2 Tronc commun",
-      "3 Animation 2D",
-      "4 Animation 3D",
-      "5 Volume",
-      "6 Motion capture",
-      "7 Artistes de complément"
+      "1 administrative et commerciale(2242)",
+      "2 Tronc commun(2368)",
+      "3 Animation 2D(2587)",
+      "4 Animation 3D(2614)",
+      "5 Volume(2705)",
+      "6 Motion Capture(2747)",
+      "7 Artistes de complément(2790)",
+      "2 Tronc commun(2809)",
+      "3 Animation 2D(3088)",
+      "4 Animation 3D(3134)",
+      "5 Volume(3246)",
+      "6 Motion capture(3312)",
+      "7 Artistes de complément(3353)"
     ],
     "tables": {
-      "81649449": {
-        "definition": "FONCTION (EN ITALIQUE LA VERSION FÉMINISÉE) Directeur général (non mandataire social) Directeur général délégué (non-mandataire social)",
+      "4561860": {
         "job_title": {
-          "male": "Cadre / non",
-          "female": "Cadre"
+          "male": "Responsable administrative et financière",
+          "female": ""
         },
-        "5": "Minima 1er janvier 2021",
-        "row_number": 0,
-        "table_number": 0,
+        "monthly_salary": 3134.0,
+        "row_number": 6,
+        "table_number": 1,
         "sector": null,
-        "category": null,
+        "category": "I",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "1415792": {
+        "job_title": {
+          "male": "Ingénieur rd nouvelle fonction",
+          "female": ""
+        },
+        "monthly_salary": 2648.0,
+        "row_number": 0,
+        "table_number": 2,
+        "sector": null,
+        "category": "II",
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
       "41255415": {
-        "sector": "Chef de projet vidéo / vod",
-        "2": "Chef de projet vidéo / VOD",
         "job_title": {
-          "male": "Iii a",
+          "male": "Attachée de presse",
           "female": ""
         },
-        "is_cadre": true,
         "monthly_salary": 2344.0,
-        "row_number": 1,
+        "row_number": 7,
         "table_number": 2,
-        "category": "II",
+        "sector": null,
+        "category": "IIIA",
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
       "87204507": {
-        "sector": "Contrôleur de gestion junior",
-        "2": "Contrôleuse de gestion junior",
         "job_title": {
-          "male": "Iii b",
+          "male": "Adjointe du directeur de studio",
           "female": ""
         },
-        "is_cadre": false,
         "monthly_salary": 2208.0,
-        "row_number": 8,
+        "row_number": 14,
         "table_number": 2,
-        "category": "II",
+        "sector": null,
+        "category": "IIIB",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "52871963": {
+        "job_title": {
+          "male": "Assistante comptable",
+          "female": ""
+        },
+        "monthly_salary": 1732.0,
+        "row_number": 5,
+        "table_number": 3,
+        "sector": null,
+        "category": "IV",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "95413959": {
+        "job_title": {
+          "male": "Hôtesse standardiste",
+          "female": ""
+        },
+        "monthly_salary": 1635.0,
+        "row_number": 9,
+        "table_number": 3,
+        "sector": null,
+        "category": "V",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "47454381": {
+        "job_title": {
+          "male": "Agente d'entretien",
+          "female": ""
+        },
+        "monthly_salary": 1580.0,
+        "row_number": 12,
+        "table_number": 3,
+        "sector": null,
+        "category": "V",
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
       "26159142": {
-        "sector": "Réalisation",
         "job_title": {
           "male": "Realisateur",
           "female": "Realisatrice"
@@ -5995,6 +6027,7 @@
         "monthly_salary": 3502.0,
         "row_number": 1,
         "table_number": 4,
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6006,13 +6039,12 @@
         "monthly_salary": 2978.0,
         "row_number": 6,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "category": "I",
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
       "36282502": {
-        "sector": "Animation",
         "job_title": {
           "male": "Directeur / superviseur d'animation",
           "female": "Directrice / superviseuse d'animation"
@@ -6022,6 +6054,7 @@
         "monthly_salary": 2994.0,
         "row_number": 12,
         "table_number": 5,
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6032,7 +6065,7 @@
         "monthly_salary": 2702.0,
         "row_number": 8,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "job_title": {
           "male": "Storyboarder",
           "female": "Storyboardeuse"
@@ -6064,7 +6097,7 @@
         "monthly_salary": 2301.0,
         "row_number": 10,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6078,7 +6111,7 @@
         "monthly_salary": 1759.0,
         "row_number": 7,
         "table_number": 7,
-        "sector": "Production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6107,7 +6140,7 @@
         "monthly_salary": 2832.0,
         "row_number": 4,
         "table_number": 9,
-        "sector": "Rendu et éclairage",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6122,7 +6155,7 @@
         "monthly_salary": 2593.0,
         "row_number": 15,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6133,7 +6166,7 @@
         "monthly_salary": 1904.0,
         "row_number": 16,
         "table_number": 4,
-        "sector": "Réalisation",
+        "sector": null,
         "job_title": {
           "male": "Dessinateur d'animation",
           "female": "Dessinatrice d'animation"
@@ -6165,7 +6198,7 @@
         "monthly_salary": 2047.0,
         "row_number": 11,
         "table_number": 7,
-        "sector": "Production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6179,7 +6212,7 @@
         "monthly_salary": 1704.0,
         "row_number": 10,
         "table_number": 9,
-        "sector": "Effets visuels numériques",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6208,12 +6241,11 @@
         "monthly_salary": 2540.0,
         "row_number": 9,
         "table_number": 5,
-        "sector": "Lay out",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
       "8198383": {
-        "sector": "Technique",
         "job_title": {
           "male": "Infographiste developpeur",
           "female": "Infographiste developpeuse"
@@ -6223,11 +6255,11 @@
         "monthly_salary": 1937.0,
         "row_number": 16,
         "table_number": 6,
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
       "9261315": {
-        "sector": "Effets visuels numériques",
         "job_title": {
           "male": "Directeur des effets visuels numeriques",
           "female": "Directrice des effets visuels numeriques"
@@ -6237,6 +6269,7 @@
         "monthly_salary": 2917.0,
         "row_number": 7,
         "table_number": 9,
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6247,7 +6280,7 @@
         "monthly_salary": 1914.0,
         "row_number": 10,
         "table_number": 5,
-        "sector": "Lay out",
+        "sector": null,
         "job_title": {
           "male": "Infographiste lay out",
           "female": "Infographiste lay out"
@@ -6265,7 +6298,7 @@
         "monthly_salary": 2225.0,
         "row_number": 13,
         "table_number": 5,
-        "sector": "Animation",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6280,7 +6313,7 @@
         "monthly_salary": 2691.0,
         "row_number": 8,
         "table_number": 9,
-        "sector": "Effets visuels numériques",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6291,7 +6324,7 @@
         "monthly_salary": 2258.0,
         "row_number": 15,
         "table_number": 5,
-        "sector": "Animation",
+        "sector": null,
         "job_title": {
           "male": "Animateur",
           "female": "Animatrice"
@@ -6309,7 +6342,7 @@
         "monthly_salary": 1855.0,
         "row_number": 16,
         "table_number": 5,
-        "sector": "Animation",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6324,7 +6357,7 @@
         "monthly_salary": 2409.0,
         "row_number": 18,
         "table_number": 5,
-        "sector": "Compositing",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6438,7 +6471,7 @@
         "monthly_salary": 2280.0,
         "row_number": 17,
         "table_number": 6,
-        "sector": "Technique",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6452,7 +6485,7 @@
         "monthly_salary": 2885.0,
         "row_number": 10,
         "table_number": 7,
-        "sector": "Production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6466,7 +6499,7 @@
         "monthly_salary": 2572.0,
         "row_number": 4,
         "table_number": 7,
-        "sector": "Production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6493,7 +6526,7 @@
         "monthly_salary": 1941.0,
         "row_number": 6,
         "table_number": 7,
-        "sector": "Production",
+        "sector": null,
         "category": "IIIA",
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
@@ -6521,7 +6554,7 @@
         "monthly_salary": 2380.0,
         "row_number": 5,
         "table_number": 9,
-        "sector": "Rendu et éclairage",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6532,7 +6565,7 @@
         "monthly_salary": 2368.0,
         "row_number": 9,
         "table_number": 9,
-        "sector": "Effets visuels numériques",
+        "sector": null,
         "job_title": {
           "male": "Infographiste des effets visuels numeriques",
           "female": "Infographiste des effets visuels numeriques"
@@ -6598,8 +6631,23 @@
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
+      "33064192": {
+        "job_title": {
+          "male": "Minima 2021",
+          "female": ""
+        },
+        "definition": "Postes (en Italique la version féminisée)",
+        "7": "hebdo 35 h",
+        "8": "hebdo 39h",
+        "10": "mensuel",
+        "row_number": 0,
+        "table_number": 12,
+        "sector": null,
+        "category": "V",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
       "82047702": {
-        "sector": "Réalisation",
         "job_title": {
           "male": "Realisateur",
           "female": "Realisatrice"
@@ -6610,11 +6658,11 @@
         "monthly_salary": 4135.0,
         "row_number": 3,
         "table_number": 12,
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
       "87177841": {
-        "sector": "Effets visuels numériques",
         "job_title": {
           "male": "Directeur des effets visuels numeriques",
           "female": "Directrice des effets visuels numeriques"
@@ -6626,6 +6674,7 @@
         "monthly_salary": 3541.0,
         "row_number": 4,
         "table_number": 18,
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6642,7 +6691,7 @@
         "monthly_salary": 3184.0,
         "row_number": 6,
         "table_number": 14,
-        "sector": "Post production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6674,7 +6723,7 @@
         "monthly_salary": 2943.0,
         "row_number": 12,
         "table_number": 12,
-        "sector": "Réalisation",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6690,7 +6739,7 @@
         "monthly_salary": 2103.0,
         "row_number": 10,
         "table_number": 15,
-        "sector": "Production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6723,7 +6772,7 @@
         "monthly_salary": 3065.0,
         "row_number": 17,
         "table_number": 12,
-        "sector": "Réalisation",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6771,7 +6820,7 @@
         "monthly_salary": 2445.0,
         "row_number": 14,
         "table_number": 15,
-        "sector": "Production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6788,7 +6837,7 @@
         "monthly_salary": 2994.0,
         "row_number": 5,
         "table_number": 18,
-        "sector": "Effets visuels numériques",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6801,7 +6850,7 @@
         "monthly_salary": 2592.0,
         "row_number": 6,
         "table_number": 18,
-        "sector": "Effets visuels numériques",
+        "sector": null,
         "job_title": {
           "male": "Infographiste des effets visuels numeriques",
           "female": "Infographiste des effets visuels numeriques"
@@ -6838,12 +6887,11 @@
         "monthly_salary": 1918.0,
         "row_number": 15,
         "table_number": 14,
-        "sector": "Post production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
       "16027937": {
-        "sector": "Lay out",
         "job_title": {
           "male": "Directeur / superviseur lay out",
           "female": "Directrice / superviseuse lay out"
@@ -6855,6 +6903,7 @@
         "monthly_salary": 3446.0,
         "row_number": 9,
         "table_number": 13,
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6867,7 +6916,7 @@
         "monthly_salary": 2445.0,
         "row_number": 11,
         "table_number": 13,
-        "sector": "Lay out",
+        "sector": null,
         "job_title": {
           "male": "Infographiste lay out nfographiste lay out",
           "female": ""
@@ -6887,7 +6936,7 @@
         "monthly_salary": 2663.0,
         "row_number": 14,
         "table_number": 13,
-        "sector": "Animation",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6900,7 +6949,7 @@
         "monthly_salary": 2690.0,
         "row_number": 7,
         "table_number": 14,
-        "sector": "Post production",
+        "sector": null,
         "job_title": {
           "male": "Stereographe",
           "female": "Stereographe"
@@ -6920,7 +6969,7 @@
         "monthly_salary": 2198.0,
         "row_number": 17,
         "table_number": 13,
-        "sector": "Animation",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6937,7 +6986,7 @@
         "monthly_salary": 2851.0,
         "row_number": 19,
         "table_number": 13,
-        "sector": "Compositing",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6971,7 +7020,7 @@
         "monthly_salary": 2946.0,
         "row_number": 12,
         "table_number": 14,
-        "sector": "Post production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -6987,7 +7036,7 @@
         "monthly_salary": 2947.0,
         "row_number": 2,
         "table_number": 14,
-        "sector": "Post production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -7020,7 +7069,7 @@
         "monthly_salary": 2747.0,
         "row_number": 4,
         "table_number": 14,
-        "sector": "Post production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -7036,7 +7085,7 @@
         "monthly_salary": 2230.0,
         "row_number": 8,
         "table_number": 14,
-        "sector": "Post production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -7052,7 +7101,7 @@
         "monthly_salary": 4396.0,
         "row_number": 9,
         "table_number": 14,
-        "sector": "Post production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -7065,7 +7114,7 @@
         "monthly_salary": 3032.0,
         "row_number": 10,
         "table_number": 14,
-        "sector": "Post production",
+        "sector": null,
         "job_title": {
           "male": "Monteur d'image / son / animatique",
           "female": "Monteuse d'image / son / animatique"
@@ -7085,7 +7134,7 @@
         "monthly_salary": 1954.0,
         "row_number": 17,
         "table_number": 14,
-        "sector": "Post production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -7101,7 +7150,7 @@
         "monthly_salary": 2650.0,
         "row_number": 16,
         "table_number": 14,
-        "sector": "Post production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -7138,7 +7187,6 @@
         "filiere": "1 administrative et commerciale"
       },
       "25131597": {
-        "sector": "Production",
         "job_title": {
           "male": "Directeur de production",
           "female": "Directrice de production"
@@ -7150,6 +7198,7 @@
         "monthly_salary": 3398.0,
         "row_number": 6,
         "table_number": 15,
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -7165,7 +7214,7 @@
         "monthly_salary": 3026.0,
         "row_number": 7,
         "table_number": 15,
-        "sector": "Production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -7181,7 +7230,7 @@
         "monthly_salary": 2637.0,
         "row_number": 8,
         "table_number": 15,
-        "sector": "Production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -7197,7 +7246,7 @@
         "monthly_salary": 2314.0,
         "row_number": 9,
         "table_number": 15,
-        "sector": "Production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -7213,7 +7262,7 @@
         "monthly_salary": 1901.0,
         "row_number": 11,
         "table_number": 15,
-        "sector": "Production",
+        "sector": null,
         "article": "32_dispositio",
         "filiere": "1 administrative et commerciale"
       },
@@ -7320,7 +7369,7 @@
       "90242395": {
         "job_title": {
           "male": "Assistant operateur headcam",
-          "female": "Assistante operatrice headcam"
+          "female": "Assistante operatrice headcam signataires a partir de 10 ans d’ancienneté, ajout de 2/10e de mois par année d’ancienneté a partir de 10 ans d’ancienneté, ajout de 2/15e de mois de salaire par année d’ancienneté"
         },
         "category": "V",
         "is_cadre": false,
@@ -9343,13 +9392,13 @@
     ],
     "sub_articles": [],
     "filieres": [
-      "1 administrative et commerciale",
-      "2 Tronc Commun",
-      "3 Animation 2D",
-      "4 Animation 3D",
-      "5 Volume",
-      "6 Motion Capture",
-      "7 Artiste de complément"
+      "1 administrative et commerciale(1109)",
+      "2 Tronc Commun(1193)",
+      "3 Animation 2D(1678)",
+      "4 Animation 3D(1768)",
+      "5 Volume(1959)",
+      "6 Motion Capture(2108)",
+      "7 Artiste de complément(2186)"
     ],
     "tables": []
   },
@@ -9920,13 +9969,13 @@
     ],
     "sub_articles": [],
     "filieres": [
-      "1 administrative et commerciale",
-      "2 Tronc commun",
-      "3 Animation 2D",
-      "4 Animation 3D",
-      "5 Volume",
-      "6 Motion Capture",
-      "7 Artistes de complément"
+      "1 administrative et commerciale(2242)",
+      "2 Tronc commun(2368)",
+      "3 Animation 2D(2587)",
+      "4 Animation 3D(2614)",
+      "5 Volume(2705)",
+      "6 Motion Capture(2747)",
+      "7 Artistes de complément(2790)"
     ],
     "tables": []
   },
@@ -10507,12 +10556,12 @@
     ],
     "sub_articles": [],
     "filieres": [
-      "2 Tronc commun",
-      "3 Animation 2D",
-      "4 Animation 3D",
-      "5 Volume",
-      "6 Motion capture",
-      "7 Artistes de complément"
+      "2 Tronc commun(2809)",
+      "3 Animation 2D(3088)",
+      "4 Animation 3D(3134)",
+      "5 Volume(3246)",
+      "6 Motion capture(3312)",
+      "7 Artistes de complément(3353)"
     ],
     "tables": []
   },

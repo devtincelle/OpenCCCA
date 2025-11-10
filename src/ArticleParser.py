@@ -203,7 +203,7 @@ class ArticleParser():
             filiere = Filiere(
                 name=f"{filiere_number} {filiere_name}",
                 number=filiere_number,
-                line_number=line_number,
+                start_line=line_number,
                 key=f"{filiere_number}-{filiere_key[0]}",
                 article=article.get_key()
             )

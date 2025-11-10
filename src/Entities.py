@@ -7,7 +7,7 @@ class Filiere():
     start_line:int=None
     name:str=None
     number:str=None
-    line_number:int=None
+    start_line:int=None
     key:str=None
     article:str=None
     

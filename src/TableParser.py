@@ -64,7 +64,7 @@ class TableParser():
         Expected logical columns: Secteur, Fonction, Position, Catégorie, Définition.
         """
 
-
+        # todo change parsing method based on number of columns
 
         job_table = {}
         current_key = None
@@ -82,19 +82,23 @@ class TableParser():
             row_number = -1
             last_sector = None
             for row in cleaned: 
+
                 row_number+=1
                 
                 tslice = self.parse_slice(row)
+                
+                if not tslice:
+                    continue
                 tslice["row_number"] = row_number
                 tslice["table_number"] = table_number
                 
                 job_title = tslice.get("job_title")
+                female_job_title = tslice.get("female_job_title")
                 position= tslice.get("position")
                 sector= tslice.get("sector")
                 category= tslice.get("category")
                 daily_salary= tslice.get("daily_salary")
                 monthly_salary= tslice.get("monthly_salary")
-                is_cadre= tslice.get("is_cadre")
 
                 # apply last values if None 
                 tslice["sector"]= sector or last_sector
@@ -112,8 +116,18 @@ class TableParser():
 
                 definition = tslice.get("definition") 
                 
+                if not category:
+                    category = last_category
             
                 if job_title:
+                    if female_job_title and not definition :
+                        print(job_title)
+                        # new entry 
+                        job_key = self._hash(job_title+category)
+                        tslice["job_title"] = job_title or female_job_title
+                        job_table[job_key] = tslice
+                        current_key = job_key
+                        continue                    
                     if definition:
                         # new entry 
                         job_key = self._hash(definition)
@@ -132,8 +146,10 @@ class TableParser():
                 if current_key and definition and not job_title:
                     if job_table[current_key].get("definition"):
                         job_table[current_key]["definition"]+=" "+definition
+                    
                 if current_key and job_title:
                     job_table[current_key]["job_title"]+=" "+job_title
+                    job_table[current_key]["category"]=category
 
                     
                     
@@ -144,19 +160,26 @@ class TableParser():
             if len(filieres) > 0:
                 job["filiere"] = self._find_filiere(job,filieres).name 
                 
-
-        print(json.dumps(job_table,indent=4))
         return job_table
     
     def _find_filiere(self,job,filieres:List[Filiere])->Filiere:
         # wip
         return filieres[0]
     
+    def is_header(self,_name)->bool:
+        return _name in [
+            'FONCTION (EN ITALIQUE LA VERSION FÉMINISÉE)',
+            'Définition',
+            'Catégorie',
+        ]
+    
 
     def parse_slice(self,row:list)->dict:
         data = {}
         value_index=0
         for value in row:
+            if self.is_header(value):
+                return None
             value_index+=1
             if not value or value=="":
                 continue

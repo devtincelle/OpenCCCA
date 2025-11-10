@@ -17,7 +17,7 @@ class ValueParser():
             "is_cadre":self._cadre_to_bool
         }
         self._content_guess_table:dict = {
-            "job_title":[self._is_uppercase_job],
+            "job_title":[self._is_job_title],
             "category":[self._is_roman_AB],
             "is_cadre":[self._is_NC_or_C],
             "definition":[self._is_paragraph],
@@ -72,6 +72,10 @@ class ValueParser():
         if len(s_clean) < 40:
             return False
         
+        if index:
+            if index < 2:
+             return False
+        
         # Check if there is at least one sentence-ending punctuation
         if re.search(r'[.!?()]', s_clean):
             return True
@@ -105,7 +109,10 @@ class ValueParser():
         pattern = re.compile(r'^\s*\d{1,3}(?:[\s.,]\d{3})*(?:,\d{2})?\s*€\s*$')
         return bool(pattern.match(value))
     
-    def _is_uppercase_job(self,s,index=None):
+    def _is_index2(self,s,index=None):
+        return index==2
+        
+    def _is_job_title(self,s,index=None):
         
         """
         Returns True if the string contains only uppercase letters, spaces, slashes, or line breaks.
@@ -116,12 +123,20 @@ class ValueParser():
         # Regex: uppercase letters (including accented), spaces, slashes, line breaks
         pattern = r'^[A-ZÀ-Ÿ0-9\' /\\\n]+$'
         
+        if len(s_clean)<2:
+            return False
+        
+        is_uppercase =  re.match(pattern, s_clean) 
+        is_capitalised = bool(self.is_upper(s_clean[0]) and self.is_upper(s_clean[1])==False)
+        
+        like = (is_uppercase or is_capitalised)
         
         return bool(
-            re.match(pattern, s_clean) 
-            and len(s)>4 
+            like
+            and len(s)>5
             and self._is_chef_or_confirme(s)==False
             and self._is_sector(s)==False
+            and self._is_paragraph(s)==False
             and self._is_NC_or_C(s)==False
             )
     
