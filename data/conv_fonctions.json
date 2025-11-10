@@ -57,9 +57,10 @@
       "9"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": {}
   },
-  "2_durée,": {
+  "2_duree": {
     "start_line": 264,
     "title": "Durée, révision, dénonciation",
     "coord": "2",
@@ -108,12 +109,13 @@
       "10"
     ],
     "sub_articles": [
-      "2-2.1_durée",
-      "2-2.2_révision"
+      "2-2.1_duree",
+      "2-2.2_revision"
     ],
+    "filieres": [],
     "tables": {}
   },
-  "3_adhésion": {
+  "3_adhesion": {
     "start_line": 303,
     "title": "Adhésion",
     "coord": "3",
@@ -132,6 +134,7 @@
       "signataires."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "4_droits": {
@@ -151,9 +154,10 @@
       "salarié s’appliquera."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "5_entrée": {
+  "5_entree": {
     "start_line": 319,
     "title": "Entrée en vigueur",
     "coord": "5",
@@ -169,6 +173,7 @@
       "du travail et de l’emploi de Paris."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "6_extension": {
@@ -207,6 +212,7 @@
       "et réglementaires qui s’y rapportent."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": {}
   },
   "8_institutio": {
@@ -336,15 +342,16 @@
       "ou l’adjonction de nouvelles dispositions. 4 »"
     ],
     "sub_articles": [
-      "8-8.1_délégués",
-      "8-8.2_comité",
-      "8-8.3_comité",
-      "8-8.4_délégués",
+      "8-8.1_delegues",
+      "8-8.2_comite",
+      "8-8.3_comite",
+      "8-8.4_delegues",
       "8-9.2_1",
       "8-9.2_2",
       "8-9.2_3",
       "8-9.2_4"
     ],
+    "filieres": [],
     "tables": {}
   },
   "10_calendrier": {
@@ -368,9 +375,10 @@
       "des fonctions et négocier sur la formation professionnelle.5 »"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "11_activités": {
+  "11_activites": {
     "start_line": 479,
     "title": "Activités de représentation et de négociation",
     "coord": "11",
@@ -393,6 +401,7 @@
       "pourrait apporter à la marche normale de l’entreprise."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": {}
   },
   "12_financemen": {
@@ -693,19 +702,20 @@
       "supporté une précédente indemnisation.18 »"
     ],
     "sub_articles": [
-      "12-13.1_négociatio",
-      "12-13.2_négociatio",
-      "12-13.3_négociatio",
-      "12-13.4_négociatio",
+      "12-13.1_negociatio",
+      "12-13.2_negociatio",
+      "12-13.3_negociatio",
+      "12-13.4_negociatio",
       "12-15.1_obligation",
       "12-15.2_calcul",
       "12-15.2.1_date",
-      "12-15.2.2_salariés",
-      "12-15.3_exécution"
+      "12-15.2.2_salaries",
+      "12-15.3_execution"
     ],
+    "filieres": [],
     "tables": {}
   },
-  "19_période": {
+  "19_periode": {
     "start_line": 780,
     "title": "Période d’essai",
     "coord": "19",
@@ -962,21 +972,22 @@
       "Titre VI : Grille de classification et fonctions"
     ],
     "sub_articles": [
-      "19-19.1_salarié",
-      "19-19.2_salarié",
-      "19-21.1_préavis",
-      "19-21.2_indemnité",
+      "19-19.1_salarie",
+      "19-19.2_salarie",
+      "19-21.1_preavis",
+      "19-21.2_indemnite",
       "19-21.2.1_licencieme",
       "19-21.2.2_licencieme",
-      "19-21.3_départ",
-      "19-21.3.1_départ",
+      "19-21.3_depart",
+      "19-21.3.1_depart",
       "19-21.3.2_mise",
       "19-22.1_visite",
       "19-22.2_visites"
     ],
+    "filieres": [],
     "tables": {}
   },
-  "31_filières,": {
+  "31_filieres": {
     "start_line": 1027,
     "title": "Filières, grille de classification et fonctions",
     "coord": "31",
@@ -2196,15 +2207,28 @@
       "31-31.2_constructi",
       "31-31.4_les"
     ],
+    "filieres": [
+      "1 administrative et commerciale",
+      "2 Tronc Commun",
+      "3 Animation 2D",
+      "4 Animation 3D",
+      "5 Volume",
+      "6 Motion Capture",
+      "7 Artiste de complément"
+    ],
     "tables": {
       "81649449": {
         "definition": "FONCTION (EN ITALIQUE LA VERSION FÉMINISÉE) Directeur général (non-mandataire social) Directeur général délégué (non-mandataire social) Fonction (suivi de la version féminisée)",
         "job_title": {
-          "male": "Catégorie vi",
+          "male": "Catégorie iii a iii b",
           "female": ""
         },
+        "row_number": 0,
+        "table_number": 1,
         "sector": null,
-        "category": "V"
+        "category": "V",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "76940910": {
         "sector": "Réalisation",
@@ -2213,7 +2237,11 @@
           "female": "Realisatrice"
         },
         "category": "I",
-        "definition": "Maître d'œuvre de l'adaptation, du style et du découpage, il dirige et coordonne en collaboration avec les responsables des équipes artistiques et techniques les opérations d'étude, de préparation et de réalisation d'une œuvre dans le respect des contraintes de production dont il a été informé."
+        "definition": "Maître d'œuvre de l'adaptation, du style et du découpage, il dirige et coordonne en collaboration avec les responsables des équipes artistiques et techniques les opérations d'étude, de préparation et de réalisation d'une œuvre dans le respect des contraintes de production dont il a été informé.",
+        "row_number": 1,
+        "table_number": 4,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "907531": {
         "job_title": {
@@ -2221,8 +2249,12 @@
           "female": "Directrice de l'image/photo"
         },
         "definition": "Conçoit l'esthétique de l'image sur un projet, sous la responsabilité du réalisateur et/ou de la production.",
+        "row_number": 2,
+        "table_number": 4,
         "sector": "Réalisation",
-        "category": "I"
+        "category": "I",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "30444830": {
         "job_title": {
@@ -2230,8 +2262,12 @@
           "female": "Directrice artistique"
         },
         "definition": "Conçoit et veille au respect du style et des critères artistiques et graphiques d'une œuvre sous la direction du réalisateur et/ou de la production.",
+        "row_number": 6,
+        "table_number": 4,
         "sector": "Réalisation",
-        "category": "I"
+        "category": "I",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "57606463": {
         "job_title": {
@@ -2239,8 +2275,12 @@
           "female": "Directrice d'ecriture"
         },
         "definition": "Encadre et supervise le travail des scénaristes conformément à la bible, en collaboration avec le réalisateur et / ou la production.",
+        "row_number": 7,
+        "table_number": 4,
         "sector": "Réalisation",
-        "category": "I"
+        "category": "I",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "79144261": {
         "job_title": {
@@ -2248,8 +2288,12 @@
           "female": "Directrice /superviseuse de projet"
         },
         "definition": "Encadre et supervise, artistiquement et techniquement, les travaux des équipes en charge d'un projet.",
+        "row_number": 8,
+        "table_number": 4,
         "sector": "Réalisation",
-        "category": "I"
+        "category": "I",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "45361334": {
         "job_title": {
@@ -2257,8 +2301,12 @@
           "female": "Directrice / superviseuse de projet adjointe"
         },
         "definition": "Partage une partie de l'encadrement et de la supervision, artistique et technique, du directeur / superviseur de projet.",
+        "row_number": 14,
+        "table_number": 4,
         "sector": "Réalisation",
-        "category": "I"
+        "category": "I",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "13876880": {
         "job_title": {
@@ -2267,18 +2315,39 @@
         },
         "position": "Chef",
         "definition": "Encadre une équipe de storyboarders. Participe à l'élaboration des storyboards. Veille au respect de l'unité de l'œuvre sous la direction du réalisateur.",
+        "row_number": 20,
+        "table_number": 4,
         "sector": "Réalisation",
-        "category": "I"
+        "category": "I",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "98382723": {
         "position": "Confirme",
         "category": "II",
-        "definition": "Assure l'adaptation graphique, le développement du découpage et le timing du storyboard sous la direction du réalisateur et/ou du chef storyboarder. Assure la mise au net du storyboard. Assiste le réalisateur et coordonne le suivi de la réalisation à tous les stades d'exécution.",
+        "definition": "Assure l'adaptation graphique, le développement du découpage et le timing du storyboard sous la direction du réalisateur et/ou du chef storyboarder. Assure la mise au net du storyboard.",
+        "row_number": 21,
+        "table_number": 4,
         "sector": "Réalisation",
         "job_title": {
           "male": "Storyboarder",
           "female": "Storyboardeuse assistant storyboarder assistante storyboardeuse"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
+      },
+      "26017250": {
+        "job_title": {
+          "male": "1er assistant realisateur",
+          "female": "1er assistante realisatrice"
+        },
+        "category": "II",
+        "definition": "Assiste le réalisateur et coordonne le suivi de la réalisation à tous les stades d'exécution.",
+        "row_number": 23,
+        "table_number": 4,
+        "sector": "Réalisation",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "12278400": {
         "job_title": {
@@ -2286,8 +2355,25 @@
           "female": "Scripte"
         },
         "category": "IIIB",
-        "definition": "Assure la continuité du storyboard, pendant le tournage, sous la direction du réalisateur dans le cadre des productions en volume ou en MOCAP. Exécute les travaux de préparation, de coordination de la réalisation.",
-        "sector": null
+        "definition": "Assure la continuité du storyboard, pendant le tournage, sous la direction du réalisateur dans le cadre des productions en volume ou en MOCAP.",
+        "row_number": 0,
+        "table_number": 5,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
+      },
+      "41989600": {
+        "job_title": {
+          "male": "2 eme assistant",
+          "female": "Realisateur 2 eme assistante realisatrice"
+        },
+        "category": "IV",
+        "definition": "Exécute les travaux de préparation, de coordination de la réalisation.",
+        "row_number": 1,
+        "table_number": 5,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "79790594": {
         "job_title": {
@@ -2295,8 +2381,12 @@
           "female": "Coordinatrice d'ecriture"
         },
         "definition": "Assiste le ou les directeurs d'écriture dans le suivi et la coordination des travaux d'écriture.",
+        "row_number": 2,
+        "table_number": 5,
         "sector": null,
-        "category": "IV"
+        "category": "IV",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "2357486": {
         "1": "Conception / Fabrication des éléments",
@@ -2306,7 +2396,11 @@
         },
         "category": "I",
         "definition": "Encadre et supervise le travail artistique et technique des équipes de décorateurs sur une production.",
-        "sector": null
+        "row_number": 3,
+        "table_number": 5,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "92940863": {
         "job_title": {
@@ -2315,18 +2409,26 @@
         },
         "position": "Chef",
         "definition": "Encadre une équipe de dessinateurs d'animation. Participe et veille à la cohérence des planches de modèles, personnages, accessoires, lieux et effets spéciaux.",
+        "row_number": 4,
+        "table_number": 5,
         "sector": null,
-        "category": "I"
+        "category": "I",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "31718942": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure et adapte techniquement les modèles des personnages, accessoires, lieux et effets spéciaux.",
+        "row_number": 5,
+        "table_number": 5,
         "sector": null,
         "job_title": {
           "male": "Dessinateur d'animation",
           "female": "Dessinatrice d'animation"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "21447285": {
         "job_title": {
@@ -2335,7 +2437,11 @@
         },
         "category": "IIIA",
         "definition": "Encadre une équipe d'infographistes pipeline. Gère la bonne transmission des différents éléments d'un département à l'autre et contrôle leur assemblage. Veille à l'application d'une nomenclature et d'un classement.",
-        "sector": null
+        "row_number": 6,
+        "table_number": 5,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "14701881": {
         "job_title": {
@@ -2345,7 +2451,11 @@
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure et vérifie l'assemblage et la transmission des différents éléments d'un département à l'autre.",
-        "sector": null
+        "row_number": 7,
+        "table_number": 5,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "26981773": {
         "job_title": {
@@ -2354,7 +2464,11 @@
         },
         "category": "V",
         "definition": "Participe à l'assemblage et à la transmission des différents éléments d'un département à l'autre.",
-        "sector": null
+        "row_number": 8,
+        "table_number": 5,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "24573860": {
         "job_title": {
@@ -2362,8 +2476,12 @@
           "female": "Directrice effets dynamiques et des simulations designer"
         },
         "definition": "Encadre et supervise le travail des équipes d'infographistes dans un ou plusieurs départements. Veille au suivi et à la bonne exécution des différents éléments à produire.",
+        "row_number": 17,
+        "table_number": 12,
         "sector": null,
-        "category": "I"
+        "category": "I",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "6899602": {
         "job_title": {
@@ -2372,7 +2490,11 @@
         },
         "category": "V",
         "definition": "Participe à la mise en place technique des squelettes, des systèmes d'actorisation et des contrôleurs d'animation.",
-        "sector": null
+        "row_number": 0,
+        "table_number": 6,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "38689012": {
         "job_title": {
@@ -2382,17 +2504,25 @@
         "position": "Chef",
         "category": "II",
         "definition": "Encadre une équipe de décorateurs. Traduit par l'exécution de maquettes « décor » et de décors clés les directions de la réalisation. Participe à l'élaboration des modèles couleurs.",
-        "sector": null
+        "row_number": 1,
+        "table_number": 6,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "50040046": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure l'exécution des éléments constituant un décor : traits, couleurs, ambiances, lumières.",
+        "row_number": 2,
+        "table_number": 6,
         "sector": null,
         "job_title": {
           "male": "Decorateur",
           "female": "Decoratrice"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "62389664": {
         "job_title": {
@@ -2401,7 +2531,11 @@
         },
         "category": "V",
         "definition": "Participe à la fabrication de tout ou partie des éléments du décor à mettre en couleur.",
-        "sector": null
+        "row_number": 3,
+        "table_number": 6,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "54738039": {
         "job_title": {
@@ -2410,7 +2544,11 @@
         },
         "category": "IV",
         "definition": "Exécute les modèles couleurs et textures des personnages et accessoires.",
-        "sector": null
+        "row_number": 4,
+        "table_number": 6,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "1197465": {
         "sector": "Lay out",
@@ -2419,17 +2557,25 @@
           "female": "Directrice / superviseuse lay out infographiste lay out infographiste lay out"
         },
         "category": "I",
-        "definition": "Encadre et supervise le travail artistique et technique des équipes de lay-out sur une production. sur une production. Prépare les travaux de décors et de l'animation. Contrôle les lay-outs"
+        "definition": "Encadre et supervise le travail artistique et technique des équipes de lay-out sur une production. sur une production. Prépare les travaux de décors et de l'animation. Contrôle les lay-outs",
+        "row_number": 5,
+        "table_number": 6,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "93561630": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure l'adaptation du storyboard par la mise en place, plan par plan et aux normes techniques usitées, des décors, des personnages, des effets spéciaux, des cadrages et mouvements de caméra en veillant à valoriser les partis pris artistiques. Peut assurer le report du son et des codes-bouches du plan.",
+        "row_number": 13,
+        "table_number": 6,
         "sector": "Lay out",
         "job_title": {
           "male": "Infographiste lay out",
           "female": "Infographiste lay out"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "51582851": {
         "job_title": {
@@ -2438,7 +2584,11 @@
         },
         "category": "V",
         "definition": "Participe à la fabrication de tout ou d'une partie des travaux de mise en place technique des plans.",
-        "sector": "Lay out"
+        "row_number": 14,
+        "table_number": 6,
+        "sector": "Lay out",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "713118": {
         "sector": "Animation",
@@ -2447,7 +2597,11 @@
           "female": "Directrice / superviseuse d'animation"
         },
         "category": "I",
-        "definition": "Encadre et supervise le travail artistique et technique des équipes d'animation sur une production en servant la direction du réalisateur."
+        "definition": "Encadre et supervise le travail artistique et technique des équipes d'animation sur une production en servant la direction du réalisateur.",
+        "row_number": 15,
+        "table_number": 6,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "63545227": {
         "job_title": {
@@ -2456,7 +2610,11 @@
         },
         "category": "IIIA",
         "definition": "Encadre et assure la cohérence artistique du travail d'une équipe d'assistants animateurs et d'intervallistes sur une production. Il contrôle également le travail effectué par des studios tiers.",
-        "sector": "Animation"
+        "row_number": 16,
+        "table_number": 6,
+        "sector": "Animation",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "32487971": {
         "job_title": {
@@ -2466,7 +2624,11 @@
         "position": "Chef",
         "category": "II",
         "definition": "Dirige le « jeu » des personnages et / ou des effets spéciaux ou supervise l'animation d'une séquence. Assure la cohérence du rythme, de la continuité ainsi que le travail d'animation et de synchronisation d'une équipe d'animateurs.",
-        "sector": null
+        "row_number": 0,
+        "table_number": 7,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "47842636": {
         "job_title": {
@@ -2475,7 +2637,11 @@
         },
         "category": "IV",
         "definition": "Participe à la mise en mouvement des personnages, des éléments et / ou des effets visuels numériques à animer.",
-        "sector": null
+        "row_number": 2,
+        "table_number": 7,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "18399070": {
         "sector": "Compositing",
@@ -2484,7 +2650,11 @@
           "female": "Directrice / superviseuse compositing infographiste compositing infographiste compositing infographiste compositing infographiste compositing"
         },
         "category": "I",
-        "definition": "Encadre et supervise le travail artistique et technique des équipes de compositing sur une production, sous la responsabilité du réalisateur. de compositing. Assure l'unité et la cohérence pour constituer l'image finale d'un plan."
+        "definition": "Encadre et supervise le travail artistique et technique des équipes de compositing sur une production, sous la responsabilité du réalisateur. de compositing. Assure l'unité et la cohérence pour constituer l'image finale d'un plan.",
+        "row_number": 3,
+        "table_number": 7,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "75415825": {
         "job_title": {
@@ -2493,7 +2663,11 @@
         },
         "category": "V",
         "definition": "Participe à la préparation et à la fabrication des travaux de compositing.",
-        "sector": "Compositing"
+        "row_number": 11,
+        "table_number": 7,
+        "sector": "Compositing",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "34361808": {
         "sector": "Post production",
@@ -2502,7 +2676,11 @@
           "female": "Directrice technique post prod"
         },
         "category": "I",
-        "definition": "Définit et assure la mise en place d'un processus technique des opérations de post- production jusqu'au support final."
+        "definition": "Définit et assure la mise en place d'un processus technique des opérations de post- production jusqu'au support final.",
+        "row_number": 17,
+        "table_number": 7,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "44659851": {
         "job_title": {
@@ -2511,7 +2689,11 @@
         },
         "category": "II",
         "definition": "Assure pour tout programme la préparation, la mise en œuvre et l’exploitation des moyens techniques et artistiques nécessaires à la prise et au traitement du son et à sa transmission. Est capable de mixer le son de tout programme et d’assurer tout report nécessaire. Met en œuvre des connaissances en acoustique et musique",
-        "sector": "Post production"
+        "row_number": 18,
+        "table_number": 7,
+        "sector": "Post production",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "12421028": {
         "job_title": {
@@ -2519,8 +2701,12 @@
           "female": "Responsable technique post prod"
         },
         "definition": "Assure la coordination et l'exécution des travaux de montage, de son et de mastérisation.",
+        "row_number": 19,
+        "table_number": 7,
         "sector": "Post production",
-        "category": "II"
+        "category": "II",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "94572762": {
         "job_title": {
@@ -2529,7 +2715,11 @@
         },
         "category": "IIIA",
         "definition": "Produit les bruitages, éléments sonores complémentaires de la bande son, à partir d'instruments de musique ou de divers objets usuels.",
-        "sector": "Post production"
+        "row_number": 20,
+        "table_number": 7,
+        "sector": "Post production",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "53019270": {
         "job_title": {
@@ -2537,8 +2727,12 @@
           "female": "Stereographe"
         },
         "definition": "stéréographes. Veille à la mise en relief",
+        "row_number": 1,
+        "table_number": 8,
         "sector": null,
-        "category": "I"
+        "category": "I",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "82918930": {
         "job_title": {
@@ -2548,17 +2742,25 @@
         "position": "Chef",
         "category": "II",
         "definition": "Encadre une équipe de stéréographes. Veille à",
-        "sector": null
+        "row_number": 4,
+        "table_number": 8,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "47337338": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure la mise en relief technique des plans.",
+        "row_number": 7,
+        "table_number": 8,
         "sector": null,
         "job_title": {
           "male": "Stereographe",
           "female": "Stereographe"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "25221092": {
         "job_title": {
@@ -2567,7 +2769,11 @@
         },
         "category": "V",
         "definition": "Assiste le stéréographe dans la mise en relief technique des plans.",
-        "sector": null
+        "row_number": 10,
+        "table_number": 8,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "36272376": {
         "job_title": {
@@ -2577,17 +2783,25 @@
         "position": "Chef",
         "category": "II",
         "definition": "Encadre et supervise le travail artistique et technique d'une équipe de monteurs sous la direction du réalisateur.",
-        "sector": null
+        "row_number": 14,
+        "table_number": 8,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "40160269": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure dans l'esprit du storyboard le montage des images et / ou des éléments de la bande sonore sous la direction du réalisateur. Prépare l'ensemble ou une partie des travaux de montage image. Il assure la mise en place des animations numériques et l'intégration des corrections dans le montage image.",
+        "row_number": 15,
+        "table_number": 8,
         "sector": null,
         "job_title": {
           "male": "Monteur d'image / son / animatique",
           "female": "Monteuse d'image / son / animatique"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "21392054": {
         "job_title": {
@@ -2597,7 +2811,11 @@
         "position": "Chef",
         "category": "II",
         "definition": "Encadre et supervise le travail artistique et technique d'une équipe d'étalonneurs numériques.",
-        "sector": null
+        "row_number": 17,
+        "table_number": 8,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "72627220": {
         "job_title": {
@@ -2606,7 +2824,11 @@
         },
         "category": "V",
         "definition": "Participe à la préparation et à la coordination nécessaires au travail de l'étalonnage numérique. moyens techniques du son. Réaliser divers travaux de transfert sur tout support. Assure l’exploitation des moyens techniques du son. tout support. Assure l’entretien courant du",
-        "sector": null
+        "row_number": 19,
+        "table_number": 8,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "50389562": {
         "sector": "Technique",
@@ -2615,7 +2837,11 @@
           "female": "Infographiste developpeuse"
         },
         "category": "IIIB",
-        "definition": "Conçoit des modules complémentaires aux logiciels de création et de production d'images utilisés dans le cadre de la production, par le biais d’une interface de programmation ou d'un langage de commande."
+        "definition": "Conçoit des modules complémentaires aux logiciels de création et de production d'images utilisés dans le cadre de la production, par le biais d’une interface de programmation ou d'un langage de commande.",
+        "row_number": 0,
+        "table_number": 9,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "17397111": {
         "job_title": {
@@ -2624,7 +2850,11 @@
         },
         "category": "II",
         "definition": "Assure la gestion et la maintenance du parc et des outils de transfert de données affectés à la production. Supervise la gestion et la maintenance du parc et des réseaux informatiques et des logiciels d'exploitation et de production affectés à la production. Il négocie avec les prestataires dédiés.",
-        "sector": "Technique"
+        "row_number": 1,
+        "table_number": 9,
+        "sector": "Technique",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "58554086": {
         "job_title": {
@@ -2633,7 +2863,11 @@
         },
         "category": "IIIB",
         "definition": "Assure la maintenance du parc et des réseaux informatiques et des logiciels d'exploitation et de production.",
-        "sector": "Technique"
+        "row_number": 3,
+        "table_number": 9,
+        "sector": "Technique",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "51089304": {
         "job_title": {
@@ -2642,7 +2876,11 @@
         },
         "category": "V",
         "definition": "Participe à l'installation et à la maintenance des équipements.",
-        "sector": "Technique"
+        "row_number": 9,
+        "table_number": 9,
+        "sector": "Technique",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "30658965": {
         "job_title": {
@@ -2651,7 +2889,11 @@
         },
         "category": "IIIA",
         "definition": "Supervise les opérations de transferts et de calcul de données et d'archivage.",
-        "sector": "Technique"
+        "row_number": 15,
+        "table_number": 9,
+        "sector": "Technique",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "39091479": {
         "job_title": {
@@ -2660,7 +2902,11 @@
         },
         "category": "IIIB",
         "definition": "Assure le stockage, le calcul et la circulation des données au sein des studios.",
-        "sector": "Technique"
+        "row_number": 19,
+        "table_number": 9,
+        "sector": "Technique",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "95674898": {
         "job_title": {
@@ -2669,7 +2915,11 @@
         },
         "category": "II",
         "definition": "Délégué par la production auprès de studios tiers chargés de tout ou partie de l'exécution des étapes de production.",
-        "sector": "Production"
+        "row_number": 28,
+        "table_number": 9,
+        "sector": "Production",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "89063151": {
         "job_title": {
@@ -2678,7 +2928,11 @@
         },
         "category": "IIIA",
         "definition": "Assure la gestion administrative et comptable de la production.",
-        "sector": "Production"
+        "row_number": 32,
+        "table_number": 9,
+        "sector": "Production",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "11617728": {
         "job_title": {
@@ -2686,8 +2940,12 @@
           "female": "Chargee de production"
         },
         "definition": "Assure la coordination entre les équipes artistiques/techniques et peut-être amené à négocier avec les prestataires sur un projet et / ou une phase spécifique de production dans le respect du budget et du planning.",
+        "row_number": 33,
+        "table_number": 9,
         "sector": "Production",
-        "category": "IIIA"
+        "category": "IIIA",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "5135275": {
         "job_title": {
@@ -2696,7 +2954,11 @@
         },
         "category": "IIIB",
         "definition": "Assure la comptabilité et l'établissement de la paye de la production.",
-        "sector": null
+        "row_number": 0,
+        "table_number": 10,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "2529659": {
         "job_title": {
@@ -2705,7 +2967,11 @@
         },
         "category": "IV",
         "definition": "Assure et coordonne les échanges des éléments de production entre différentes équipes et/ou les prestataires dans le respect du planning.",
-        "sector": null
+        "row_number": 1,
+        "table_number": 10,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "26412200": {
         "job_title": {
@@ -2714,7 +2980,11 @@
         },
         "category": "V",
         "definition": "Exécute les travaux de préparation et la vérification des éléments permettant le suivi de production.",
-        "sector": null
+        "row_number": 2,
+        "table_number": 10,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "32897211": {
         "job_title": {
@@ -2723,7 +2993,11 @@
         },
         "category": "I",
         "definition": "Encadre et supervise l'équipe de suivi technique des logiciels et/ou les prestataires sur un projet. Travaille en liaison avec le département recherche et développement. Assure le suivi et le maintien des outils créés tout au long du projet.",
-        "sector": null
+        "row_number": 3,
+        "table_number": 10,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "15113013": {
         "job_title": {
@@ -2733,7 +3007,11 @@
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure le suivi technique des logiciels. Aide à résoudre ou contourner les limitations techniques liées à un ou des logiciels, parfois en développant des outils accessoires.",
-        "sector": null
+        "row_number": 4,
+        "table_number": 10,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "18510308": {
         "job_title": {
@@ -2742,7 +3020,11 @@
         },
         "category": "V",
         "definition": "Participe au suivi technique des logiciels sur un projet. Aide à résoudre ou contourner les limitations techniques liées à un ou des logiciels, parfois en développant des outils accessoires.",
-        "sector": null
+        "row_number": 5,
+        "table_number": 10,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "72012661": {
         "sector": "Lay out",
@@ -2752,17 +3034,25 @@
         },
         "position": "Chef",
         "category": "II",
-        "definition": "Encadre une équipe sur une production. Prépare les travaux de mise en place technique et s'assure de leur cohérence avec les directives du storyboard pour engager les étapes de fabrication des décors et de l'animation. Contrôle les lay-outs produits par des studios tiers."
+        "definition": "Encadre une équipe sur une production. Prépare les travaux de mise en place technique et s'assure de leur cohérence avec les directives du storyboard pour engager les étapes de fabrication des décors et de l'animation. Contrôle les lay-outs produits par des studios tiers.",
+        "row_number": 0,
+        "table_number": 11,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "9488761": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure la mise en place, plan par plan, des éléments de décor, du posing des personnages, des effets spéciaux, des cadrages et mouvements de caméra en veillant à valoriser les partis pris artistiques, en conformité avec le storyboard. Veille à l'unité des feuilles d'exposition. les feuilles d'exposition. Assure et / ou",
+        "row_number": 1,
+        "table_number": 11,
         "sector": "Lay out",
         "job_title": {
           "male": "Dessinateur lay out",
           "female": "Dessinatrice lay out animateur feuilles d'exposition animatrice feuilles d'exposition animateur feuilles d'exposition animatrice feuilles d'exposition"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "18750461": {
         "job_title": {
@@ -2771,7 +3061,11 @@
         },
         "category": "V",
         "definition": "Exécute les dessins intermédiaires selon la cadence définie par l'animateur et les dessins de l'assistant animateur.",
-        "sector": "Animation"
+        "row_number": 9,
+        "table_number": 11,
+        "sector": "Animation",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "49038889": {
         "sector": "Traçage, scan et colorisation",
@@ -2781,17 +3075,25 @@
         },
         "position": "Chef",
         "category": "IIIA",
-        "definition": "Encadre une équipe de vérificateurs et veille à la cohérence des références usitées : storyboard, modèles, lay-out, animation."
+        "definition": "Encadre une équipe de vérificateurs et veille à la cohérence des références usitées : storyboard, modèles, lay-out, animation.",
+        "row_number": 10,
+        "table_number": 11,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "16147504": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure la vérification, l'exhaustivité et la cohérence technique des éléments d'animation composant un plan.",
+        "row_number": 11,
+        "table_number": 11,
         "sector": "Traçage, scan et colorisation",
         "job_title": {
           "male": "Verificateur d'animation",
           "female": "Verificatrice d'animation"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "39973115": {
         "job_title": {
@@ -2801,17 +3103,25 @@
         "position": "Chef",
         "category": "IIIA",
         "definition": "Encadre une équipe de traceurs et / ou de gouacheurs et veille à la cohérence des références usitées : storyboard, modèles couleurs, feuilles d'exposition.",
-        "sector": "Traçage, scan et colorisation"
+        "row_number": 12,
+        "table_number": 11,
+        "sector": "Traçage, scan et colorisation",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "90399368": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure la vérification et l'exhaustivité des éléments tracés, scannés et colorisés composant un plan.",
+        "row_number": 13,
+        "table_number": 11,
         "sector": "Traçage, scan et colorisation",
         "job_title": {
           "male": "Verificateur trace colorisation",
           "female": "Verificatrice trace colorisation"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "66542296": {
         "job_title": {
@@ -2820,7 +3130,11 @@
         },
         "category": "IV",
         "definition": "Encadre une équipe d'opérateurs scan et veille à la qualité technique, à la conformité et à l'exhaustivité des éléments scannés.",
-        "sector": "Traçage, scan et colorisation"
+        "row_number": 14,
+        "table_number": 11,
+        "sector": "Traçage, scan et colorisation",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "25018176": {
         "job_title": {
@@ -2829,7 +3143,11 @@
         },
         "category": "V",
         "definition": "Reproduit au trait les dessins d'animation dans le caractère et le style imposés.",
-        "sector": "Traçage, scan et colorisation"
+        "row_number": 15,
+        "table_number": 11,
+        "sector": "Traçage, scan et colorisation",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "62467724": {
         "job_title": {
@@ -2837,8 +3155,12 @@
           "female": "Gouacheuse"
         },
         "definition": "Exécute la mise en couleur des éléments graphiques en respectant les modèles couleurs.",
+        "row_number": 16,
+        "table_number": 11,
         "sector": "Traçage, scan et colorisation",
-        "category": "V"
+        "category": "V",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "38420013": {
         "job_title": {
@@ -2846,64 +3168,79 @@
           "female": "Operatrice scan"
         },
         "definition": "Exécute la numérisation des éléments graphiques. Fonction (suivi de la version féminisée)",
+        "row_number": 17,
+        "table_number": 11,
         "sector": "Traçage, scan et colorisation",
-        "category": "V"
+        "category": "V",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "41920033": {
         "job_title": {
-          "male": "Designeuse",
+          "male": "Designeuse sculpteur 3d sculpteuse 3d confir me",
           "female": ""
         },
         "definition": "de décors, en se basant sur un concept existant.",
+        "row_number": 28,
+        "table_number": 12,
         "sector": null,
-        "category": "II"
-      },
-      "65579202": {
-        "daily_salary": 3.0,
-        "position": "Chef",
         "category": "II",
-        "8": "Encadre une équipe de sculpteurs, de modèles",
-        "sector": null,
-        "job_title": {
-          "male": "Designeuse confir me",
-          "female": ""
-        }
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "29936750": {
         "job_title": {
-          "male": "Assistant",
-          "female": "Assistante e e de modelisation"
+          "male": "Assistant sculpteur 3d",
+          "female": "Assistante scupteuse 3d infographist modelisation"
         },
         "category": "V",
         "definition": "Participe au modelage et à la sculpture, de modèles d'études, de personnages ou d'objets, avec pour intention d'en définir le design.",
-        "sector": null
+        "row_number": 35,
+        "table_number": 12,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "62355958": {
         "job_title": {
-          "male": "Confir me de modelisation",
+          "male": "Confir me modelisation",
           "female": ""
         },
         "category": "IIIB",
         "definition": "Assure la modélisation de personnage, d'éléments ou de décors.",
-        "sector": null
+        "row_number": 42,
+        "table_number": 12,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "50697909": {
         "job_title": {
-          "male": "E e infographist modelisation assistante",
-          "female": "Infographist modelisation e e textures et shading infographist confir me"
+          "male": "Assistant infographist modelisation",
+          "female": "Assistante infographist modelisation infographist textures et shading infographist confir shading"
         },
+        "4": "E E",
         "category": "V",
         "definition": "Participe à la modélisation de personnages, d'éléments ou de décors.",
-        "sector": null
+        "row_number": 45,
+        "table_number": 12,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "98345425": {
         "job_title": {
-          "male": "E e infographist textures et shading assistante",
-          "female": "Infographist texture et shading e e d'effets dynamiques /"
+          "male": "Assistant infographist textures et shading",
+          "female": "Assistante infographist texture et shading infographist d'effets dynamiques /"
         },
+        "4": "E E",
         "category": "V",
         "definition": "Participe à la mise en matière et couleurs de personnages, d'éléments ou de décors.",
-        "sector": null
+        "row_number": 6,
+        "table_number": 13,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "52969258": {
         "job_title": {
@@ -2911,8 +3248,12 @@
           "female": ""
         },
         "definition": "effets dynamiques (drapés, fluides, poils,",
+        "row_number": 17,
+        "table_number": 13,
         "sector": null,
-        "category": "II"
+        "category": "II",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "86900136": {
         "job_title": {
@@ -2920,17 +3261,27 @@
           "female": ""
         },
         "definition": "différents effets dynamiques (drapés, fluides,",
+        "row_number": 20,
+        "table_number": 13,
         "sector": null,
-        "category": "IIIB"
+        "category": "IIIB",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "83225998": {
         "job_title": {
-          "male": "/ infographist dynamiques simulations assistante",
-          "female": "Infographist dynamiques / simulations"
+          "male": "Assistant infographist dynamiques simulations",
+          "female": "Assistante infographist dynamiques / simulations"
         },
+        "4": "E E",
+        "5": "/",
         "category": "V",
         "definition": "Participe à la fabrication et la mise en place des différents effets dynamiques (drapés, fluides, poils, plumes, muscles….).",
-        "sector": null
+        "row_number": 22,
+        "table_number": 13,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "93738878": {
         "sector": "Rendu et éclairage",
@@ -2939,25 +3290,39 @@
           "female": "Directrice / superviseuse rendu eclairage"
         },
         "category": "I",
-        "definition": "Encadre et supervise les équipes d'infographistes rendu / éclairage. Est responsable de la partie artistique et de la mise en place technique de l'éclairage tout autant que du compositing du plan."
+        "definition": "Encadre et supervise les équipes d'infographistes rendu / éclairage. Est responsable de la partie artistique et de la mise en place technique de l'éclairage tout autant que du compositing du plan.",
+        "row_number": 32,
+        "table_number": 13,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "21957994": {
         "job_title": {
-          "male": "E e rendu eclairage infographist",
-          "female": "Rendu eclairage"
+          "male": "Infographist rendu eclairage",
+          "female": "Infographist rendu eclairage"
         },
+        "4": "E E",
         "category": "IIIB",
         "definition": "Ajuste l'ensemble des paramètres liés au rendu (lumières, textures, couleurs) des personnages, des accessoires et des décors. Assure la mise au point et la continuité de l'éclairage. Il peut assurer le compositing du plan.",
-        "sector": "Rendu et éclairage"
+        "row_number": 40,
+        "table_number": 13,
+        "sector": "Rendu et éclairage",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "37474797": {
         "job_title": {
-          "male": "E e infographist rendu eclairage assistante",
-          "female": "Infographist eclairage directeur"
+          "male": "Assistant infographist rendu eclairage",
+          "female": "Assistante infographist eclairage directeur"
         },
+        "4": "E E",
         "category": "V",
         "definition": "Participe à la mise en place de l'éclairage dans l'ensemble du plan ou du compositing d'un ensemble de plan.",
-        "sector": "Rendu et éclairage"
+        "row_number": 46,
+        "table_number": 13,
+        "sector": "Rendu et éclairage",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "31613909": {
         "job_title": {
@@ -2965,8 +3330,12 @@
           "female": "Matte painting"
         },
         "definition": "d'infographistes matte painter. Veille au suivi",
+        "row_number": 1,
+        "table_number": 14,
         "sector": null,
-        "category": "I"
+        "category": "I",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "89079045": {
         "job_title": {
@@ -2974,8 +3343,12 @@
           "female": "Infographiste matte painteuse"
         },
         "category": "IIIB",
-        "daily_salary": 2.0,
-        "sector": null
+        "definition": "Assure la production et la retouche, manuellement ou sur palette, des décors intérieurs et extérieurs, s'intégrant dans un espace 2D ou 3D.",
+        "row_number": 4,
+        "table_number": 14,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "40664313": {
         "job_title": {
@@ -2984,7 +3357,11 @@
         },
         "category": "V",
         "definition": "Participe à la production et la retouche, manuellement ou sur palette, des décors intérieurs et extérieurs.",
-        "sector": null
+        "row_number": 9,
+        "table_number": 14,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "10344434": {
         "sector": "Effets visuels numériques",
@@ -2993,7 +3370,11 @@
           "female": "Directrice des effets visuels numeriques infographiste des effets"
         },
         "category": "I",
-        "definition": "Encadre et supervise les équipes chargées de la fabrication d'effets visuels numériques sur une production."
+        "definition": "Encadre et supervise les équipes chargées de la fabrication d'effets visuels numériques sur une production.",
+        "row_number": 15,
+        "table_number": 14,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "73617502": {
         "job_title": {
@@ -3003,7 +3384,11 @@
         "position": "Confirme",
         "category": "IIIA",
         "definition": "Assure la fabrication d'effets visuels numériques.",
-        "sector": "Effets visuels numériques"
+        "row_number": 23,
+        "table_number": 14,
+        "sector": "Effets visuels numériques",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "73736894": {
         "job_title": {
@@ -3012,7 +3397,11 @@
         },
         "category": "V",
         "definition": "Participe à la fabrication d'effets visuels numériques. Fonction (suivi de la version féminisée)",
-        "sector": "Effets visuels numériques"
+        "row_number": 29,
+        "table_number": 14,
+        "sector": "Effets visuels numériques",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "47687952": {
         "job_title": {
@@ -3022,17 +3411,25 @@
         "position": "Chef",
         "category": "II",
         "definition": "Encadre les équipes d'animation en volume. Dirige le « jeu » d'un ou plusieurs personnages ou supervise l'animation d'une séquence. Assure la cohérence du rythme, de la continuité ainsi que le travail d'animation et de synchronisation.",
-        "sector": null
+        "row_number": 1,
+        "table_number": 15,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "73264357": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Porte à l'écran le « jeu » requis et défini par le réalisateur par une succession de positions données à un modèle inanimé.",
+        "row_number": 2,
+        "table_number": 15,
         "sector": null,
         "job_title": {
           "male": "Animateur volume",
           "female": "Animatrice volume"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "8701182": {
         "job_title": {
@@ -3041,7 +3438,11 @@
         },
         "category": "IV",
         "definition": "Assiste l'animateur dans les déplacements des personnages et objets.",
-        "sector": null
+        "row_number": 3,
+        "table_number": 15,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "93437418": {
         "job_title": {
@@ -3051,17 +3452,25 @@
         "position": "Chef",
         "category": "II",
         "definition": "Encadre les équipes de décorateurs volume et conçoit les décors à l'échelle requise. Supervise leur installation sur les plateaux de tournage.",
-        "sector": null
+        "row_number": 4,
+        "table_number": 15,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "67037023": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Fabrique les décors à l'échelle requise. Assure leur installation sur les plateaux de tournage.",
+        "row_number": 5,
+        "table_number": 15,
         "sector": null,
         "job_title": {
           "male": "Decorateur volume",
           "female": "Decoratrice volume"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "65231666": {
         "job_title": {
@@ -3070,7 +3479,11 @@
         },
         "category": "V",
         "definition": "Assiste le décorateur dans la fabrication des décors, leur montage sur le(s) plateau(x) et leur entretien.",
-        "sector": null
+        "row_number": 6,
+        "table_number": 15,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "91424097": {
         "job_title": {
@@ -3080,17 +3493,25 @@
         "position": "Chef",
         "category": "II",
         "definition": "Encadre les opérations de tournage sur le(s) plateau(x).",
-        "sector": null
+        "row_number": 7,
+        "table_number": 15,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "10325380": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure les opérations de tournage sur le(s) plateau(x).",
+        "row_number": 8,
+        "table_number": 15,
         "sector": null,
         "job_title": {
           "male": "Operateur volume",
           "female": "Operatrice volume"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "69245747": {
         "job_title": {
@@ -3099,7 +3520,11 @@
         },
         "category": "V",
         "definition": "Assiste l'opérateur pour le tournage sur le(s) plateau(x).",
-        "sector": null
+        "row_number": 9,
+        "table_number": 15,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "46545897": {
         "job_title": {
@@ -3109,17 +3534,25 @@
         "position": "Chef",
         "category": "II",
         "definition": "Encadre une équipe de plasticien volume. Traduit par l‘exécution de prototypes de personnages en volume les directions de la réalisation. Participe à la réalisation de modèles couleur.",
-        "sector": null
+        "row_number": 10,
+        "table_number": 15,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "15430912": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Assure l’exécution des éléments constituant la marionnette : modelage, sculpture, peinture, costume. Assure leur maintenance pendant le tournage.",
+        "row_number": 11,
+        "table_number": 15,
         "sector": null,
         "job_title": {
           "male": "Plasticien volume",
           "female": "Plasticienne volume"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "95352008": {
         "job_title": {
@@ -3128,7 +3561,11 @@
         },
         "category": "V",
         "definition": "Assiste le plasticien dans la fabrication des personnages en volume.",
-        "sector": null
+        "row_number": 0,
+        "table_number": 16,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "42512036": {
         "job_title": {
@@ -3138,17 +3575,25 @@
         "position": "Chef",
         "category": "IIIA",
         "definition": "Encadre les équipes d'accessoiristes et conçoit l'ensemble des accessoires requis par le chef décorateur.",
-        "sector": null
+        "row_number": 1,
+        "table_number": 16,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "38064416": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Fabrique l'ensemble des accessoires requis.",
+        "row_number": 2,
+        "table_number": 16,
         "sector": null,
         "job_title": {
           "male": "Accessoiriste volume",
           "female": "Accessoiriste volume"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "25873085": {
         "job_title": {
@@ -3157,7 +3602,11 @@
         },
         "category": "V",
         "definition": "Assiste l'accessoiriste dans la fabrication des accessoires, leur mise à disposition et leur entretien.",
-        "sector": null
+        "row_number": 3,
+        "table_number": 16,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "92751374": {
         "job_title": {
@@ -3166,7 +3615,11 @@
         },
         "category": "IIIB",
         "definition": "Conçoit et fabrique les systèmes mécaniques et armatures spéciales.",
-        "sector": null
+        "row_number": 4,
+        "table_number": 16,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "97840158": {
         "job_title": {
@@ -3176,17 +3629,25 @@
         "position": "Chef",
         "category": "IIIA",
         "definition": "Encadre les équipes de moulage. Supervise et prépare les moules et les versions définitives des objets et personnages dans les matériaux retenus.",
-        "sector": null
+        "row_number": 5,
+        "table_number": 16,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "26100427": {
         "position": "Confirme",
         "category": "IV",
         "definition": "Fabrique les moules et les versions définitives des objets et personnages dans les matériaux retenus.",
+        "row_number": 6,
+        "table_number": 16,
         "sector": null,
         "job_title": {
           "male": "Mouleur volume",
           "female": "Mouleuse volume"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "93623744": {
         "job_title": {
@@ -3195,7 +3656,11 @@
         },
         "category": "V",
         "definition": "Assiste le mouleur dans la préparation et la fabrication des moules et des versions définitives des objets et personnages.",
-        "sector": null
+        "row_number": 7,
+        "table_number": 16,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "46211855": {
         "job_title": {
@@ -3205,17 +3670,25 @@
         "position": "Chef",
         "category": "IIIA",
         "definition": "Conçoit les squelettes des marionnettes. Encadre les équipes de mécaniciens. Supervise et prépare les travaux d’articulation et de dynamique des marionnettes.",
-        "sector": null
+        "row_number": 8,
+        "table_number": 16,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "36972030": {
         "position": "Confirme",
         "category": "IIIB",
         "definition": "Fabrique les squelettes des marionnettes et participe à la préparation des travaux d’articulation et de dynamique des marionnettes.",
+        "row_number": 9,
+        "table_number": 16,
         "sector": null,
         "job_title": {
           "male": "Mecanicien volume",
           "female": "Mecanicienne volume"
-        }
+        },
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "70043685": {
         "job_title": {
@@ -3224,7 +3697,11 @@
         },
         "category": "V",
         "definition": "Assiste le mécanicien dans la préparation et la fabrication des marionnettes. Fonction (suivi de la version féminisée)",
-        "sector": null
+        "row_number": 10,
+        "table_number": 16,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "31071794": {
         "job_title": {
@@ -3233,7 +3710,11 @@
         },
         "category": "IIIB",
         "definition": "Assure l'enregistrement des données numériques liées à la capture de mouvement.",
-        "sector": "Tournage mocap"
+        "row_number": 5,
+        "table_number": 17,
+        "sector": "Tournage mocap",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "4497410": {
         "job_title": {
@@ -3242,7 +3723,11 @@
         },
         "category": "V",
         "definition": "Participe à l'enregistrement des données numériques liées à la capture de mouvement.",
-        "sector": "Tournage mocap"
+        "row_number": 11,
+        "table_number": 17,
+        "sector": "Tournage mocap",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "51489487": {
         "job_title": {
@@ -3251,7 +3736,11 @@
         },
         "category": "IIIB",
         "definition": "Assure la mise en conformité des courbes de trajectoire après la capture de mouvement.",
-        "sector": "Tournage mocap"
+        "row_number": 19,
+        "table_number": 17,
+        "sector": "Tournage mocap",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "31919360": {
         "job_title": {
@@ -3260,25 +3749,39 @@
         },
         "category": "V",
         "definition": "Participe à la mise en conformité des courbes de trajectoire après la capture de mouvement.",
-        "sector": "Tournage mocap"
+        "row_number": 25,
+        "table_number": 17,
+        "sector": "Tournage mocap",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "69117502": {
         "job_title": {
-          "male": "T t traitement e integration operatrice",
-          "female": "Traitement e integration"
+          "male": "Operateur traitement e integration",
+          "female": "Operatrice traitement e integration"
         },
+        "4": "T T",
         "category": "IIIB",
         "definition": "Assure, sous la supervision du superviseur Mocap, le traitement et l'intégration des données post tournage.",
-        "sector": "Tournage mocap"
+        "row_number": 33,
+        "table_number": 17,
+        "sector": "Tournage mocap",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "83503488": {
         "job_title": {
-          "male": "T t operateur traitement e integration assistante",
-          "female": "Operatrice triatement e integration"
+          "male": "Assistant operateur traitement e integration",
+          "female": "Assistante operatrice triatement e integration"
         },
+        "4": "T T",
         "category": "V",
         "definition": "Participe, sous la supervision du superviseur Mocap, au traitement et à l'intégration des données post tournage.",
-        "sector": "Tournage mocap"
+        "row_number": 39,
+        "table_number": 17,
+        "sector": "Tournage mocap",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "30164931": {
         "job_title": {
@@ -3286,8 +3789,12 @@
           "female": "Operatrice headcam"
         },
         "definition": "S'assure de l'enregistrement des données liées aux headcams (prise de vue du visage des figurants mocap lors du tournage)",
+        "row_number": 47,
+        "table_number": 17,
         "sector": "Tournage mocap",
-        "category": "V"
+        "category": "V",
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       },
       "92965482": {
         "job_title": {
@@ -3296,7 +3803,11 @@
         },
         "category": "V",
         "definition": "Participe à l'enregistrement des données liées aux headcams (prise de vue du visage des figurants mocap lors du tournage)",
-        "sector": null
+        "row_number": 0,
+        "table_number": 18,
+        "sector": null,
+        "article": "31_filieres",
+        "filiere": "1 administrative et commerciale"
       }
     }
   },
@@ -5393,25 +5904,40 @@
       "99"
     ],
     "sub_articles": [
-      "32-32.1_barèmes",
-      "32-32.2_barèmes",
+      "32-32.1_baremes",
+      "32-32.2_baremes",
       "32-34.1_dispositio",
       "32-34.2_retraite",
       "32-34.3_taux",
-      "32-35.1_prévoyance",
-      "32-35.2_prévoyance",
-      "32-39.1_rémunérati",
+      "32-35.1_prevoyance",
+      "32-35.2_prevoyance",
+      "32-39.1_remunerati",
       "32-39.2_frais",
       "32-39.3_heures",
-      "32-39.4_congés",
+      "32-39.4_conges",
       "32-3.5_1",
       "32-3.5_2",
-      "32-5.7_rémunérati",
+      "32-5.7_remunerati",
       "32-7.3_1",
       "32-7.3_2",
       "32-7.3_3",
       "32-7.3_4",
       "32-7.3_5"
+    ],
+    "filieres": [
+      "1 administrative et commerciale",
+      "2 Tronc commun",
+      "3 Animation 2D",
+      "4 Animation 3D",
+      "5 Volume",
+      "6 Motion Capture",
+      "7 Artistes de complément",
+      "2 Tronc commun",
+      "3 Animation 2D",
+      "4 Animation 3D",
+      "5 Volume",
+      "6 Motion capture",
+      "7 Artistes de complément"
     ],
     "tables": {
       "81649449": {
@@ -5420,20 +5946,43 @@
           "male": "Cadre / non",
           "female": "Cadre"
         },
-        "daily_salary": 1.0,
+        "5": "Minima 1er janvier 2021",
+        "row_number": 0,
+        "table_number": 0,
         "sector": null,
-        "category": null
+        "category": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
-      "47454381": {
-        "sector": "Coursier",
-        "2": "Coursière",
+      "41255415": {
+        "sector": "Chef de projet vidéo / vod",
+        "2": "Chef de projet vidéo / VOD",
         "job_title": {
-          "male": "Vi",
+          "male": "Iii a",
+          "female": ""
+        },
+        "is_cadre": true,
+        "monthly_salary": 2344.0,
+        "row_number": 1,
+        "table_number": 2,
+        "category": "II",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "87204507": {
+        "sector": "Contrôleur de gestion junior",
+        "2": "Contrôleuse de gestion junior",
+        "job_title": {
+          "male": "Iii b",
           "female": ""
         },
         "is_cadre": false,
-        "daily_salary": 1580.0,
-        "category": "V"
+        "monthly_salary": 2208.0,
+        "row_number": 8,
+        "table_number": 2,
+        "category": "II",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "26159142": {
         "sector": "Réalisation",
@@ -5443,16 +5992,24 @@
         },
         "category": "I",
         "is_cadre": true,
-        "daily_salary": 3502.0
+        "monthly_salary": 3502.0,
+        "row_number": 1,
+        "table_number": 4,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "45507314": {
         "job_title": {
           "male": "Directeur / superviseur de projet adjoint",
           "female": "Directrice / superviseur de projet adjointe"
         },
-        "daily_salary": 2978.0,
+        "monthly_salary": 2978.0,
+        "row_number": 6,
+        "table_number": 4,
         "sector": "Réalisation",
-        "category": "I"
+        "category": "I",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "36282502": {
         "sector": "Animation",
@@ -5462,18 +6019,26 @@
         },
         "category": "I",
         "is_cadre": true,
-        "daily_salary": 2994.0
+        "monthly_salary": 2994.0,
+        "row_number": 12,
+        "table_number": 5,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "70791746": {
         "position": "Confirme",
         "category": "II",
         "is_cadre": true,
-        "daily_salary": 2702.0,
+        "monthly_salary": 2702.0,
+        "row_number": 8,
+        "table_number": 4,
         "sector": "Réalisation",
         "job_title": {
           "male": "Storyboarder",
           "female": "Storyboardeuse"
-        }
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "13038540": {
         "job_title": {
@@ -5482,8 +6047,26 @@
         },
         "category": "V",
         "is_cadre": false,
-        "daily_salary": 1634.0,
-        "sector": null
+        "monthly_salary": 1634.0,
+        "row_number": 14,
+        "table_number": 10,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "16020445": {
+        "job_title": {
+          "male": "1er assistant realisateur",
+          "female": "1er assistante realisatrice"
+        },
+        "category": "II",
+        "is_cadre": true,
+        "monthly_salary": 2301.0,
+        "row_number": 10,
+        "table_number": 4,
+        "sector": "Réalisation",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "22834305": {
         "job_title": {
@@ -5492,19 +6075,27 @@
         },
         "category": "IIIB",
         "is_cadre": false,
-        "daily_salary": 1759.0,
-        "sector": "Production"
+        "monthly_salary": 1759.0,
+        "row_number": 7,
+        "table_number": 7,
+        "sector": "Production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "24829762": {
         "position": "Confirme",
         "category": "IV",
         "is_cadre": false,
-        "daily_salary": 1719.0,
+        "monthly_salary": 1719.0,
+        "row_number": 10,
+        "table_number": 10,
         "sector": null,
         "job_title": {
           "male": "Mouleur volume",
           "female": "Mouleuse volume"
-        }
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "54805564": {
         "job_title": {
@@ -5513,8 +6104,12 @@
         },
         "category": "I",
         "is_cadre": true,
-        "daily_salary": 2832.0,
-        "sector": "Rendu et éclairage"
+        "monthly_salary": 2832.0,
+        "row_number": 4,
+        "table_number": 9,
+        "sector": "Rendu et éclairage",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "39381466": {
         "job_title": {
@@ -5524,19 +6119,27 @@
         "position": "Chef",
         "category": "I",
         "is_cadre": true,
-        "daily_salary": 2593.0,
-        "sector": "Réalisation"
+        "monthly_salary": 2593.0,
+        "row_number": 15,
+        "table_number": 4,
+        "sector": "Réalisation",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "20260343": {
         "position": "Confirme",
         "category": "IIIB",
         "is_cadre": false,
-        "daily_salary": 1904.0,
+        "monthly_salary": 1904.0,
+        "row_number": 16,
+        "table_number": 4,
         "sector": "Réalisation",
         "job_title": {
           "male": "Dessinateur d'animation",
           "female": "Dessinatrice d'animation"
-        }
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "2501541": {
         "job_title": {
@@ -5545,8 +6148,12 @@
         },
         "category": "IIIA",
         "is_cadre": true,
-        "daily_salary": 2300.0,
-        "sector": null
+        "monthly_salary": 2300.0,
+        "row_number": 1,
+        "table_number": 7,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "55490343": {
         "job_title": {
@@ -5555,8 +6162,12 @@
         },
         "category": "IIIB",
         "is_cadre": false,
-        "daily_salary": 2047.0,
-        "sector": "Production"
+        "monthly_salary": 2047.0,
+        "row_number": 11,
+        "table_number": 7,
+        "sector": "Production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "69747279": {
         "job_title": {
@@ -5565,8 +6176,12 @@
         },
         "category": "V",
         "is_cadre": false,
-        "daily_salary": 1704.0,
-        "sector": "Effets visuels numériques"
+        "monthly_salary": 1704.0,
+        "row_number": 10,
+        "table_number": 9,
+        "sector": "Effets visuels numériques",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "5956094": {
         "job_title": {
@@ -5575,8 +6190,12 @@
         },
         "category": "I",
         "is_cadre": true,
-        "daily_salary": 3004.0,
-        "sector": null
+        "monthly_salary": 3004.0,
+        "row_number": 0,
+        "table_number": 5,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "34181692": {
         "job_title": {
@@ -5586,8 +6205,12 @@
         "position": "Chef",
         "category": "II",
         "is_cadre": true,
-        "daily_salary": 2540.0,
-        "sector": "Lay out"
+        "monthly_salary": 2540.0,
+        "row_number": 9,
+        "table_number": 5,
+        "sector": "Lay out",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "8198383": {
         "sector": "Technique",
@@ -5597,7 +6220,11 @@
         },
         "category": "IIIB",
         "is_cadre": false,
-        "daily_salary": 1937.0
+        "monthly_salary": 1937.0,
+        "row_number": 16,
+        "table_number": 6,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "9261315": {
         "sector": "Effets visuels numériques",
@@ -5607,18 +6234,26 @@
         },
         "category": "I",
         "is_cadre": true,
-        "daily_salary": 2917.0
+        "monthly_salary": 2917.0,
+        "row_number": 7,
+        "table_number": 9,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "11108561": {
         "position": "Confirme",
         "category": "IIIB",
         "is_cadre": false,
-        "daily_salary": 1914.0,
+        "monthly_salary": 1914.0,
+        "row_number": 10,
+        "table_number": 5,
         "sector": "Lay out",
         "job_title": {
           "male": "Infographiste lay out",
           "female": "Infographiste lay out"
-        }
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "16102559": {
         "job_title": {
@@ -5627,8 +6262,12 @@
         },
         "category": "IIIA",
         "is_cadre": true,
-        "daily_salary": 2225.0,
-        "sector": "Animation"
+        "monthly_salary": 2225.0,
+        "row_number": 13,
+        "table_number": 5,
+        "sector": "Animation",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "51119619": {
         "job_title": {
@@ -5638,19 +6277,27 @@
         "position": "Chef",
         "category": "II",
         "is_cadre": true,
-        "daily_salary": 2691.0,
-        "sector": "Effets visuels numériques"
+        "monthly_salary": 2691.0,
+        "row_number": 8,
+        "table_number": 9,
+        "sector": "Effets visuels numériques",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "1514304": {
         "position": "Confirme",
         "category": "IIIB",
         "is_cadre": false,
-        "daily_salary": 2258.0,
+        "monthly_salary": 2258.0,
+        "row_number": 15,
+        "table_number": 5,
         "sector": "Animation",
         "job_title": {
           "male": "Animateur",
           "female": "Animatrice"
-        }
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "48834666": {
         "job_title": {
@@ -5659,8 +6306,12 @@
         },
         "category": "IV",
         "is_cadre": false,
-        "daily_salary": 1855.0,
-        "sector": "Animation"
+        "monthly_salary": 1855.0,
+        "row_number": 16,
+        "table_number": 5,
+        "sector": "Animation",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "29141535": {
         "job_title": {
@@ -5670,8 +6321,12 @@
         "position": "Chef",
         "category": "II",
         "is_cadre": true,
-        "daily_salary": 2409.0,
-        "sector": "Compositing"
+        "monthly_salary": 2409.0,
+        "row_number": 18,
+        "table_number": 5,
+        "sector": "Compositing",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "19125428": {
         "job_title": {
@@ -5680,8 +6335,12 @@
         },
         "category": "I",
         "is_cadre": true,
-        "daily_salary": 2820.0,
-        "sector": null
+        "monthly_salary": 2820.0,
+        "row_number": 3,
+        "table_number": 6,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "11784552": {
         "job_title": {
@@ -5691,17 +6350,25 @@
         "position": "Chef",
         "category": "II",
         "is_cadre": true,
-        "daily_salary": 2557.0,
-        "sector": null
+        "monthly_salary": 2557.0,
+        "row_number": 7,
+        "table_number": 6,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "97059959": {
         "job_title": {
           "male": "Responsable technique post prod",
           "female": "Responsable technique post prod"
         },
-        "daily_salary": 2508.0,
+        "monthly_salary": 2508.0,
+        "row_number": 1,
+        "table_number": 6,
         "sector": null,
-        "category": "II"
+        "category": "II",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "37040120": {
         "job_title": {
@@ -5710,19 +6377,27 @@
         },
         "category": "IIIA",
         "is_cadre": true,
-        "daily_salary": 2509.0,
-        "sector": null
+        "monthly_salary": 2509.0,
+        "row_number": 2,
+        "table_number": 6,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "89616736": {
         "position": "Confirme",
         "category": "IIIB",
         "is_cadre": false,
-        "daily_salary": 1837.0,
+        "monthly_salary": 1837.0,
+        "row_number": 13,
+        "table_number": 10,
         "sector": null,
         "job_title": {
           "male": "Mecanicien volume",
           "female": "Mecanicienne volume"
-        }
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "58891444": {
         "job_title": {
@@ -5732,8 +6407,12 @@
         "position": "Chef",
         "category": "II",
         "is_cadre": true,
-        "daily_salary": 2690.0,
-        "sector": null
+        "monthly_salary": 2690.0,
+        "row_number": 10,
+        "table_number": 6,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "29566216": {
         "job_title": {
@@ -5742,8 +6421,12 @@
         },
         "category": "IIIB",
         "is_cadre": false,
-        "daily_salary": 2332.0,
-        "sector": null
+        "monthly_salary": 2332.0,
+        "row_number": 14,
+        "table_number": 6,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "80162481": {
         "job_title": {
@@ -5752,8 +6435,12 @@
         },
         "category": "II",
         "is_cadre": true,
-        "daily_salary": 2280.0,
-        "sector": "Technique"
+        "monthly_salary": 2280.0,
+        "row_number": 17,
+        "table_number": 6,
+        "sector": "Technique",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "9761918": {
         "job_title": {
@@ -5762,8 +6449,12 @@
         },
         "category": "I",
         "is_cadre": true,
-        "daily_salary": 2885.0,
-        "sector": "Production"
+        "monthly_salary": 2885.0,
+        "row_number": 10,
+        "table_number": 7,
+        "sector": "Production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "32519370": {
         "job_title": {
@@ -5772,8 +6463,12 @@
         },
         "category": "II",
         "is_cadre": true,
-        "daily_salary": 2572.0,
-        "sector": "Production"
+        "monthly_salary": 2572.0,
+        "row_number": 4,
+        "table_number": 7,
+        "sector": "Production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "20649104": {
         "job_title": {
@@ -5783,26 +6478,38 @@
         "position": "Chef",
         "category": "IIIA",
         "is_cadre": true,
-        "daily_salary": 2235.0,
-        "sector": null
+        "monthly_salary": 2235.0,
+        "row_number": 1,
+        "table_number": 8,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "40616009": {
         "job_title": {
           "male": "Charge de production",
           "female": "Chargee de production"
         },
-        "daily_salary": 1941.0,
+        "monthly_salary": 1941.0,
+        "row_number": 6,
+        "table_number": 7,
         "sector": "Production",
-        "category": "IIIA"
+        "category": "IIIA",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "49938300": {
         "job_title": {
           "male": "Operateur scan /",
           "female": "Operatrice scan"
         },
-        "daily_salary": 1581.0,
+        "monthly_salary": 1581.0,
+        "row_number": 6,
+        "table_number": 8,
         "sector": null,
-        "category": "V"
+        "category": "V",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "13296268": {
         "job_title": {
@@ -5811,19 +6518,27 @@
         },
         "category": "IIIB",
         "is_cadre": false,
-        "daily_salary": 2380.0,
-        "sector": "Rendu et éclairage"
+        "monthly_salary": 2380.0,
+        "row_number": 5,
+        "table_number": 9,
+        "sector": "Rendu et éclairage",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "18648588": {
         "position": "Confirme",
         "category": "IIIA",
         "is_cadre": true,
-        "daily_salary": 2368.0,
+        "monthly_salary": 2368.0,
+        "row_number": 9,
+        "table_number": 9,
         "sector": "Effets visuels numériques",
         "job_title": {
           "male": "Infographiste des effets visuels numeriques",
           "female": "Infographiste des effets visuels numeriques"
-        }
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "29555062": {
         "job_title": {
@@ -5833,8 +6548,12 @@
         "position": "Chef",
         "category": "II",
         "is_cadre": true,
-        "daily_salary": 2377.0,
-        "sector": null
+        "monthly_salary": 2377.0,
+        "row_number": 2,
+        "table_number": 10,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "18034020": {
         "job_title": {
@@ -5844,8 +6563,12 @@
         "position": "Chef",
         "category": "IIIA",
         "is_cadre": true,
-        "daily_salary": 2072.0,
-        "sector": null
+        "monthly_salary": 2072.0,
+        "row_number": 12,
+        "table_number": 10,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "20081257": {
         "job_title": {
@@ -5854,8 +6577,12 @@
         },
         "category": "IIIB",
         "is_cadre": false,
-        "daily_salary": 1701.0,
-        "sector": null
+        "monthly_salary": 1701.0,
+        "row_number": 2,
+        "table_number": 11,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
       "24956974": {
         "job_title": {
@@ -5864,10 +6591,14 @@
         },
         "category": "V",
         "is_cadre": false,
-        "daily_salary": 1595.0,
-        "sector": null
+        "monthly_salary": 1595.0,
+        "row_number": 3,
+        "table_number": 11,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
-      "60183804": {
+      "82047702": {
         "sector": "Réalisation",
         "job_title": {
           "male": "Realisateur",
@@ -5875,425 +6606,14 @@
         },
         "category": "I",
         "is_cadre": true,
-        "daily_salary": 4135.0
+        "daily_salary": 190.0,
+        "monthly_salary": 4135.0,
+        "row_number": 3,
+        "table_number": 12,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
-      "51068696": {
-        "job_title": {
-          "male": "Directeur effets dynamiques et des simulations",
-          "female": "Directrice effets dynamiques et des simulations"
-        },
-        "category": "I",
-        "is_cadre": true,
-        "daily_salary": 3541.0,
-        "sector": null
-      },
-      "34774170": {
-        "job_title": {
-          "male": "Stereographe",
-          "female": "Stereographe"
-        },
-        "position": "Chef",
-        "category": "II",
-        "is_cadre": true,
-        "daily_salary": 3184.0,
-        "sector": "Post production"
-      },
-      "40474881": {
-        "job_title": {
-          "male": "Assistant mouleur volume",
-          "female": "Assistante mouleuse volume"
-        },
-        "category": "V",
-        "is_cadre": false,
-        "daily_salary": 1901.0,
-        "sector": null
-      },
-      "93277302": {
-        "job_title": {
-          "male": "Comptable de production",
-          "female": "Comptable de production"
-        },
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2103.0,
-        "sector": "Production"
-      },
-      "30668425": {
-        "job_title": {
-          "male": "Directeur matte painting",
-          "female": "Directrice matte painting"
-        },
-        "category": "I",
-        "is_cadre": true,
-        "daily_salary": 3351.0,
-        "sector": null
-      },
-      "74449701": {
-        "job_title": {
-          "male": "Dessinateur d'animation",
-          "female": "Dessinatrice d'animation"
-        },
-        "position": "Chef",
-        "category": "I",
-        "is_cadre": true,
-        "daily_salary": 3065.0,
-        "sector": "Réalisation"
-      },
-      "97157805": {
-        "job_title": {
-          "male": "Operateur headcam",
-          "female": "Operatrice headcam"
-        },
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2274.0,
-        "sector": null
-      },
-      "35949434": {
-        "job_title": {
-          "male": "Superviseur data et calcul",
-          "female": "Superviseuse data et calcul"
-        },
-        "category": "IIIA",
-        "is_cadre": true,
-        "daily_salary": 2722.0,
-        "sector": null
-      },
-      "19807449": {
-        "job_title": {
-          "male": "Infographiste technique",
-          "female": "Infographiste technique"
-        },
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2445.0,
-        "sector": "Production"
-      },
-      "86069327": {
-        "job_title": {
-          "male": "Infographiste des effets visuels numeriques",
-          "female": "Infographiste des effets visuels numeriques"
-        },
-        "position": "Chef",
-        "category": "II",
-        "is_cadre": true,
-        "daily_salary": 2994.0,
-        "sector": "Effets visuels numériques"
-      },
-      "36570978": {
-        "position": "Confirme",
-        "category": "IIIA",
-        "is_cadre": true,
-        "daily_salary": 2592.0,
-        "sector": "Effets visuels numériques",
-        "job_title": {
-          "male": "Infographiste des effets visuels numeriques",
-          "female": "Infographiste des effets visuels numeriques"
-        }
-      },
-      "38816813": {
-        "position": "Confirme",
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2298.0,
-        "sector": null,
-        "job_title": {
-          "male": "Decorateur",
-          "female": "Decoratrice"
-        }
-      },
-      "66994085": {
-        "job_title": {
-          "male": "Detecteur d'animation",
-          "female": "Detectrice d'animation"
-        },
-        "category": "IV",
-        "is_cadre": false,
-        "daily_salary": 1918.0,
-        "sector": "Post production"
-      },
-      "54326068": {
-        "sector": "Lay out",
-        "job_title": {
-          "male": "Directeur / superviseur lay out",
-          "female": "Directrice / superviseuse lay out"
-        },
-        "category": "I",
-        "is_cadre": true,
-        "daily_salary": 3446.0
-      },
-      "48278698": {
-        "position": "Confirme",
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2445.0,
-        "sector": "Lay out",
-        "job_title": {
-          "male": "Infographiste lay out nfographiste lay out",
-          "female": ""
-        }
-      },
-      "47062764": {
-        "job_title": {
-          "male": "Chef assistants animateurs",
-          "female": "Cheffe assistants animateurs"
-        },
-        "category": "IIIA",
-        "is_cadre": true,
-        "daily_salary": 2663.0,
-        "sector": "Animation"
-      },
-      "85803451": {
-        "position": "Confirme",
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2690.0,
-        "sector": "Post production",
-        "job_title": {
-          "male": "Stereographe",
-          "female": "Stereographe"
-        }
-      },
-      "383104": {
-        "job_title": {
-          "male": "Assistant animateur",
-          "female": "Assistante animatrice"
-        },
-        "category": "IV",
-        "is_cadre": true,
-        "daily_salary": 2198.0,
-        "sector": "Animation"
-      },
-      "51731854": {
-        "job_title": {
-          "male": "Infographiste compositing",
-          "female": "Infographiste compositing"
-        },
-        "position": "Chef",
-        "category": "II",
-        "is_cadre": true,
-        "daily_salary": 2851.0,
-        "sector": "Compositing"
-      },
-      "39491884": {
-        "position": "Confirme",
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2348.0,
-        "sector": null,
-        "job_title": {
-          "male": "Infographiste textures et shading",
-          "female": "Infographiste textures et shading"
-        }
-      },
-      "51362386": {
-        "job_title": {
-          "male": "Etalonneur numerique",
-          "female": "Etalonneuse numerique"
-        },
-        "position": "Chef",
-        "category": "II",
-        "is_cadre": true,
-        "daily_salary": 2946.0,
-        "sector": "Post production"
-      },
-      "70500184": {
-        "job_title": {
-          "male": "Ingenieur du son",
-          "female": "Ingenieure du son"
-        },
-        "category": "II",
-        "is_cadre": true,
-        "daily_salary": 2947.0,
-        "sector": "Post production"
-      },
-      "11790148": {
-        "daily_salary": 2627.0,
-        "position": "Chef",
-        "category": "II",
-        "is_cadre": true,
-        "sector": null,
-        "job_title": {
-          "male": "Designer",
-          "female": "Designeuse"
-        }
-      },
-      "98622039": {
-        "job_title": {
-          "male": "Bruiteur",
-          "female": "Bruiteuse"
-        },
-        "category": "IIIA",
-        "is_cadre": true,
-        "daily_salary": 2747.0,
-        "sector": "Post production"
-      },
-      "42829104": {
-        "job_title": {
-          "male": "Assistant stereographe",
-          "female": "Assistante stereographe"
-        },
-        "category": "V",
-        "is_cadre": false,
-        "daily_salary": 2230.0,
-        "sector": "Post production"
-      },
-      "27321884": {
-        "job_title": {
-          "male": "Monteur d'image / son / animatique",
-          "female": "Monteuse d'image / son / animatique"
-        },
-        "position": "Chef",
-        "category": "II",
-        "is_cadre": true,
-        "daily_salary": 4396.0,
-        "sector": "Post production"
-      },
-      "25810688": {
-        "position": "Confirme",
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 3032.0,
-        "sector": "Post production",
-        "job_title": {
-          "male": "Monteur d'image / son / animatique",
-          "female": "Monteuse d'image / son / animatique"
-        }
-      },
-      "5335418": {
-        "job_title": {
-          "male": "Assistant operateur son",
-          "female": "Assistante operatrice son"
-        },
-        "category": "V",
-        "is_cadre": false,
-        "daily_salary": 1954.0,
-        "sector": "Post production"
-      },
-      "50279088": {
-        "job_title": {
-          "male": "Operateur son",
-          "female": "Operatrice son"
-        },
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2650.0,
-        "sector": "Post production"
-      },
-      "65595567": {
-        "job_title": {
-          "male": "Responsable d'exploitation",
-          "female": "Responsable d'exploitation"
-        },
-        "category": "II",
-        "is_cadre": true,
-        "daily_salary": 2685.0,
-        "sector": null
-      },
-      "46351590": {
-        "job_title": {
-          "male": "Operateur data et calcul",
-          "female": "Operatrice data et calcul"
-        },
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2124.0,
-        "sector": null
-      },
-      "76260584": {
-        "sector": "Production",
-        "job_title": {
-          "male": "Directeur de production",
-          "female": "Directrice de production"
-        },
-        "category": "I",
-        "is_cadre": true,
-        "daily_salary": 3398.0
-      },
-      "93299989": {
-        "job_title": {
-          "male": "Superviseur de production",
-          "female": "Superviseuse de production"
-        },
-        "category": "II",
-        "is_cadre": true,
-        "daily_salary": 3026.0,
-        "sector": "Production"
-      },
-      "34353300": {
-        "job_title": {
-          "male": "Administrateur de production",
-          "female": "Administratrice de production"
-        },
-        "category": "IIIA",
-        "is_cadre": true,
-        "daily_salary": 2637.0,
-        "sector": "Production"
-      },
-      "91880106": {
-        "job_title": {
-          "male": "Charge de production",
-          "female": "Chargee de production"
-        },
-        "category": "IIIA",
-        "is_cadre": true,
-        "daily_salary": 2314.0,
-        "sector": "Production"
-      },
-      "52555070": {
-        "job_title": {
-          "male": "Coordinateur de production",
-          "female": "Coordinatrice de production"
-        },
-        "category": "IV",
-        "is_cadre": false,
-        "daily_salary": 1901.0,
-        "sector": "Production"
-      },
-      "31665027": {
-        "2": "INFOGRAPHISTE RENDU ECLAIRAGE `INFOGRAPHISTE RENDU ECLAIRAGE",
-        "position": "Confirme",
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2274.0,
-        "sector": "Rendu et éclairage",
-        "job_title": {
-          "male": "Directeur / superviseur rendu eclairage",
-          "female": "Directrice / superviseuse rendu eclairage"
-        }
-      },
-      "11866777": {
-        "job_title": {
-          "male": "Assistant infographiste de modelisation",
-          "female": "Assistante infographiste de modelisation"
-        },
-        "category": "V",
-        "is_cadre": false,
-        "daily_salary": 901.0,
-        "sector": null
-      },
-      "7998962": {
-        "position": "Confirme",
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2592.0,
-        "sector": null,
-        "job_title": {
-          "male": "Infographiste d'effets dynamiques / simulations",
-          "female": "Infographiste d'effets dynamiques / simulations"
-        }
-      },
-      "31638119": {
-        "job_title": {
-          "male": "Infographiste matte painting",
-          "female": "Infographiste matte painting"
-        },
-        "category": "IIIB",
-        "is_cadre": false,
-        "daily_salary": 2836.0,
-        "sector": null
-      },
-      "57201171": {
+      "87177841": {
         "sector": "Effets visuels numériques",
         "job_title": {
           "male": "Directeur des effets visuels numeriques",
@@ -6301,9 +6621,619 @@
         },
         "category": "I",
         "is_cadre": true,
-        "daily_salary": 3541.0
+        "daily_salary": 163.0,
+        "weekly_salary": "817,15 €",
+        "monthly_salary": 3541.0,
+        "row_number": 4,
+        "table_number": 18,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
-      "58356276": {
+      "90257857": {
+        "job_title": {
+          "male": "Stereographe",
+          "female": "Stereographe"
+        },
+        "position": "Chef",
+        "category": "II",
+        "is_cadre": true,
+        "daily_salary": 146.0,
+        "weekly_salary": "839,91 €",
+        "monthly_salary": 3184.0,
+        "row_number": 6,
+        "table_number": 14,
+        "sector": "Post production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "5525379": {
+        "job_title": {
+          "male": "Assistant mouleur volume",
+          "female": "Assistante mouleuse volume"
+        },
+        "category": "V",
+        "is_cadre": false,
+        "daily_salary": 87.0,
+        "weekly_salary": "501,42 €",
+        "monthly_salary": 1901.0,
+        "row_number": 10,
+        "table_number": 19,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "61519970": {
+        "job_title": {
+          "male": "1er assistant realisateur",
+          "female": "1er assistante realisatrice"
+        },
+        "category": "II",
+        "is_cadre": true,
+        "daily_salary": 135.0,
+        "weekly_salary": "776,38 €",
+        "monthly_salary": 2943.0,
+        "row_number": 12,
+        "table_number": 12,
+        "sector": "Réalisation",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "76454721": {
+        "job_title": {
+          "male": "Comptable de production",
+          "female": "Comptable de production"
+        },
+        "category": "IIIB",
+        "is_cadre": false,
+        "daily_salary": 97.0,
+        "weekly_salary": "554,69 €",
+        "monthly_salary": 2103.0,
+        "row_number": 10,
+        "table_number": 15,
+        "sector": "Production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "11672355": {
+        "job_title": {
+          "male": "Directeur matte painting",
+          "female": "Directrice matte painting"
+        },
+        "category": "I",
+        "is_cadre": true,
+        "daily_salary": 154.0,
+        "weekly_salary": "883,76 €",
+        "monthly_salary": 3351.0,
+        "row_number": 1,
+        "table_number": 18,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "76042069": {
+        "job_title": {
+          "male": "Dessinateur d'animation",
+          "female": "Dessinatrice d'animation"
+        },
+        "position": "Chef",
+        "category": "I",
+        "is_cadre": true,
+        "daily_salary": 141.0,
+        "weekly_salary": "808,57 €",
+        "monthly_salary": 3065.0,
+        "row_number": 17,
+        "table_number": 12,
+        "sector": "Réalisation",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "59963983": {
+        "job_title": {
+          "male": "Operateur headcam",
+          "female": "Operatrice headcam"
+        },
+        "category": "IIIB",
+        "is_cadre": false,
+        "daily_salary": 104.0,
+        "weekly_salary": "599,84 €",
+        "monthly_salary": 2274.0,
+        "row_number": 5,
+        "table_number": 20,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "42796189": {
+        "job_title": {
+          "male": "Superviseur data et calcul",
+          "female": "Superviseuse data et calcul"
+        },
+        "category": "IIIA",
+        "is_cadre": true,
+        "daily_salary": 125.0,
+        "weekly_salary": "718,09 €",
+        "monthly_salary": 2722.0,
+        "row_number": 4,
+        "table_number": 15,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "77726683": {
+        "job_title": {
+          "male": "Infographiste technique",
+          "female": "Infographiste technique"
+        },
+        "category": "IIIB",
+        "is_cadre": false,
+        "daily_salary": 112.0,
+        "weekly_salary": "644,98 €",
+        "monthly_salary": 2445.0,
+        "row_number": 14,
+        "table_number": 15,
+        "sector": "Production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "65619770": {
+        "job_title": {
+          "male": "Infographiste des effets visuels numeriques",
+          "female": "Infographiste des effets visuels numeriques"
+        },
+        "position": "Chef",
+        "category": "II",
+        "is_cadre": true,
+        "daily_salary": 138.0,
+        "weekly_salary": "789,76 €",
+        "monthly_salary": 2994.0,
+        "row_number": 5,
+        "table_number": 18,
+        "sector": "Effets visuels numériques",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "27266559": {
+        "position": "Confirme",
+        "category": "IIIA",
+        "is_cadre": true,
+        "daily_salary": 119.0,
+        "weekly_salary": "683,66 €",
+        "monthly_salary": 2592.0,
+        "row_number": 6,
+        "table_number": 18,
+        "sector": "Effets visuels numériques",
+        "job_title": {
+          "male": "Infographiste des effets visuels numeriques",
+          "female": "Infographiste des effets visuels numeriques"
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "18003842": {
+        "position": "Confirme",
+        "category": "IIIB",
+        "is_cadre": false,
+        "daily_salary": 106.0,
+        "weekly_salary": "606,24 €",
+        "monthly_salary": 2298.0,
+        "row_number": 6,
+        "table_number": 13,
+        "sector": null,
+        "job_title": {
+          "male": "Decorateur",
+          "female": "Decoratrice"
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "43543716": {
+        "job_title": {
+          "male": "Detecteur d'animation",
+          "female": "Detectrice d'animation"
+        },
+        "category": "IV",
+        "is_cadre": false,
+        "daily_salary": 88.0,
+        "weekly_salary": "505,84 €",
+        "monthly_salary": 1918.0,
+        "row_number": 15,
+        "table_number": 14,
+        "sector": "Post production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "16027937": {
+        "sector": "Lay out",
+        "job_title": {
+          "male": "Directeur / superviseur lay out",
+          "female": "Directrice / superviseuse lay out"
+        },
+        "category": "I",
+        "is_cadre": true,
+        "daily_salary": 159.0,
+        "weekly_salary": "795,26 €",
+        "monthly_salary": 3446.0,
+        "row_number": 9,
+        "table_number": 13,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "16371394": {
+        "position": "Confirme",
+        "category": "IIIB",
+        "is_cadre": false,
+        "daily_salary": 112.0,
+        "weekly_salary": "645,01 €",
+        "monthly_salary": 2445.0,
+        "row_number": 11,
+        "table_number": 13,
+        "sector": "Lay out",
+        "job_title": {
+          "male": "Infographiste lay out nfographiste lay out",
+          "female": ""
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "67600339": {
+        "job_title": {
+          "male": "Chef assistants animateurs",
+          "female": "Cheffe assistants animateurs"
+        },
+        "category": "IIIA",
+        "is_cadre": true,
+        "daily_salary": 122.0,
+        "weekly_salary": "702,52 €",
+        "monthly_salary": 2663.0,
+        "row_number": 14,
+        "table_number": 13,
+        "sector": "Animation",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "69853268": {
+        "position": "Confirme",
+        "category": "IIIB",
+        "is_cadre": false,
+        "daily_salary": 124.0,
+        "weekly_salary": "709,47 €",
+        "monthly_salary": 2690.0,
+        "row_number": 7,
+        "table_number": 14,
+        "sector": "Post production",
+        "job_title": {
+          "male": "Stereographe",
+          "female": "Stereographe"
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "50375846": {
+        "job_title": {
+          "male": "Assistant animateur",
+          "female": "Assistante animatrice"
+        },
+        "category": "IV",
+        "is_cadre": true,
+        "daily_salary": 101.0,
+        "weekly_salary": "579,68 €",
+        "monthly_salary": 2198.0,
+        "row_number": 17,
+        "table_number": 13,
+        "sector": "Animation",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "48744024": {
+        "job_title": {
+          "male": "Infographiste compositing",
+          "female": "Infographiste compositing"
+        },
+        "position": "Chef",
+        "category": "II",
+        "is_cadre": true,
+        "daily_salary": 131.0,
+        "weekly_salary": "752,14 €",
+        "monthly_salary": 2851.0,
+        "row_number": 19,
+        "table_number": 13,
+        "sector": "Compositing",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "17435369": {
+        "position": "Confirme",
+        "category": "IIIB",
+        "is_cadre": false,
+        "daily_salary": 108.0,
+        "weekly_salary": "619,40 €",
+        "monthly_salary": 2348.0,
+        "row_number": 10,
+        "table_number": 17,
+        "sector": null,
+        "job_title": {
+          "male": "Infographiste textures et shading",
+          "female": "Infographiste textures et shading"
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "8128621": {
+        "job_title": {
+          "male": "Etalonneur numerique",
+          "female": "Etalonneuse numerique"
+        },
+        "position": "Chef",
+        "category": "II",
+        "is_cadre": true,
+        "daily_salary": 136.0,
+        "weekly_salary": "777,18 €",
+        "monthly_salary": 2946.0,
+        "row_number": 12,
+        "table_number": 14,
+        "sector": "Post production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "33740992": {
+        "job_title": {
+          "male": "Ingenieur du son",
+          "female": "Ingenieure du son"
+        },
+        "category": "II",
+        "is_cadre": true,
+        "daily_salary": 136.0,
+        "weekly_salary": "777,24 €",
+        "monthly_salary": 2947.0,
+        "row_number": 2,
+        "table_number": 14,
+        "sector": "Post production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "96224587": {
+        "job_title": {
+          "male": "Sculpteur 3d",
+          "female": "Sculpteuse 3d"
+        },
+        "position": "Chef",
+        "category": "II",
+        "is_cadre": true,
+        "daily_salary": 121.0,
+        "weekly_salary": "692,85 €",
+        "monthly_salary": 2627.0,
+        "row_number": 3,
+        "table_number": 17,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "14800266": {
+        "job_title": {
+          "male": "Bruiteur",
+          "female": "Bruiteuse"
+        },
+        "category": "IIIA",
+        "is_cadre": true,
+        "daily_salary": 126.0,
+        "weekly_salary": "724,50 €",
+        "monthly_salary": 2747.0,
+        "row_number": 4,
+        "table_number": 14,
+        "sector": "Post production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "90234168": {
+        "job_title": {
+          "male": "Assistant stereographe",
+          "female": "Assistante stereographe"
+        },
+        "category": "V",
+        "is_cadre": false,
+        "daily_salary": 102.0,
+        "weekly_salary": "588,17 €",
+        "monthly_salary": 2230.0,
+        "row_number": 8,
+        "table_number": 14,
+        "sector": "Post production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "33900843": {
+        "job_title": {
+          "male": "Monteur d'image / son / animatique",
+          "female": "Monteuse d'image / son / animatique"
+        },
+        "position": "Chef",
+        "category": "II",
+        "is_cadre": true,
+        "daily_salary": 202.0,
+        "monthly_salary": 4396.0,
+        "row_number": 9,
+        "table_number": 14,
+        "sector": "Post production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "31934096": {
+        "position": "Confirme",
+        "category": "IIIB",
+        "is_cadre": false,
+        "daily_salary": 139.0,
+        "weekly_salary": "799,76 €",
+        "monthly_salary": 3032.0,
+        "row_number": 10,
+        "table_number": 14,
+        "sector": "Post production",
+        "job_title": {
+          "male": "Monteur d'image / son / animatique",
+          "female": "Monteuse d'image / son / animatique"
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "63666326": {
+        "job_title": {
+          "male": "Assistant operateur son",
+          "female": "Assistante operatrice son"
+        },
+        "category": "V",
+        "is_cadre": false,
+        "daily_salary": 90.0,
+        "weekly_salary": "515,47 €",
+        "monthly_salary": 1954.0,
+        "row_number": 17,
+        "table_number": 14,
+        "sector": "Post production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "18118352": {
+        "job_title": {
+          "male": "Operateur son",
+          "female": "Operatrice son"
+        },
+        "category": "IIIB",
+        "is_cadre": false,
+        "daily_salary": 122.0,
+        "weekly_salary": "699,05 €",
+        "monthly_salary": 2650.0,
+        "row_number": 16,
+        "table_number": 14,
+        "sector": "Post production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "40498933": {
+        "job_title": {
+          "male": "Responsable d'exploitation",
+          "female": "Responsable d'exploitation"
+        },
+        "category": "II",
+        "is_cadre": true,
+        "daily_salary": 123.0,
+        "weekly_salary": "708,28 €",
+        "monthly_salary": 2685.0,
+        "row_number": 0,
+        "table_number": 15,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "73169486": {
+        "job_title": {
+          "male": "Operateur data et calcul",
+          "female": "Operatrice data et calcul"
+        },
+        "category": "IIIB",
+        "is_cadre": false,
+        "daily_salary": 98.0,
+        "weekly_salary": "560,41 €",
+        "monthly_salary": 2124.0,
+        "row_number": 5,
+        "table_number": 15,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "25131597": {
+        "sector": "Production",
+        "job_title": {
+          "male": "Directeur de production",
+          "female": "Directrice de production"
+        },
+        "category": "I",
+        "is_cadre": true,
+        "daily_salary": 156.0,
+        "weekly_salary": "896,34 €",
+        "monthly_salary": 3398.0,
+        "row_number": 6,
+        "table_number": 15,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "30687735": {
+        "job_title": {
+          "male": "Superviseur de production",
+          "female": "Superviseuse de production"
+        },
+        "category": "II",
+        "is_cadre": true,
+        "daily_salary": 139.0,
+        "weekly_salary": "798,31 €",
+        "monthly_salary": 3026.0,
+        "row_number": 7,
+        "table_number": 15,
+        "sector": "Production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "53417469": {
+        "job_title": {
+          "male": "Administrateur de production",
+          "female": "Administratrice de production"
+        },
+        "category": "IIIA",
+        "is_cadre": true,
+        "daily_salary": 121.0,
+        "weekly_salary": "695,58 €",
+        "monthly_salary": 2637.0,
+        "row_number": 8,
+        "table_number": 15,
+        "sector": "Production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "50932575": {
+        "job_title": {
+          "male": "Charge de production",
+          "female": "Chargee de production"
+        },
+        "category": "IIIA",
+        "is_cadre": true,
+        "daily_salary": 106.0,
+        "weekly_salary": "610,31 €",
+        "monthly_salary": 2314.0,
+        "row_number": 9,
+        "table_number": 15,
+        "sector": "Production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "69713899": {
+        "job_title": {
+          "male": "Coordinateur de production",
+          "female": "Coordinatrice de production"
+        },
+        "category": "IV",
+        "is_cadre": false,
+        "daily_salary": 87.0,
+        "weekly_salary": "501,50 €",
+        "monthly_salary": 1901.0,
+        "row_number": 11,
+        "table_number": 15,
+        "sector": "Production",
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "92951816": {
+        "job_title": {
+          "male": "Infographiste matte painting",
+          "female": "Infographiste matte painting"
+        },
+        "category": "IIIB",
+        "is_cadre": false,
+        "daily_salary": 130.0,
+        "weekly_salary": "748,15 €",
+        "monthly_salary": 2836.0,
+        "row_number": 2,
+        "table_number": 18,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
+      },
+      "29156394": {
         "job_title": {
           "male": "Plasticien volume",
           "female": "Plasticienne volume"
@@ -6311,21 +7241,33 @@
         "position": "Chef",
         "category": "II",
         "is_cadre": true,
-        "daily_salary": 2804.0,
-        "sector": null
+        "daily_salary": 129.0,
+        "weekly_salary": "739,62 €",
+        "monthly_salary": 2804.0,
+        "row_number": 1,
+        "table_number": 19,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
-      "58015444": {
+      "15045435": {
         "position": "Confirme",
         "category": "IIIB",
         "is_cadre": false,
-        "daily_salary": 2236.0,
+        "daily_salary": 103.0,
+        "weekly_salary": "589,91 €",
+        "monthly_salary": 2236.0,
+        "row_number": 12,
+        "table_number": 19,
         "sector": null,
         "job_title": {
           "male": "Mecanicien volume",
           "female": "Mecanicienne volume"
-        }
+        },
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
-      "97685483": {
+      "82460198": {
         "job_title": {
           "male": "Mouleur volume",
           "female": "Mouleuse volume"
@@ -6333,10 +7275,16 @@
         "position": "Chef",
         "category": "IIIA",
         "is_cadre": true,
-        "daily_salary": 2457.0,
-        "sector": null
+        "daily_salary": 113.0,
+        "weekly_salary": "648,22 €",
+        "monthly_salary": 2457.0,
+        "row_number": 8,
+        "table_number": 19,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
-      "65206102": {
+      "33983652": {
         "job_title": {
           "male": "Mecanicien volume",
           "female": "Mecanicienne volume"
@@ -6344,42 +7292,66 @@
         "position": "Chef",
         "category": "IIIA",
         "is_cadre": true,
-        "daily_salary": 2457.0,
-        "sector": null
+        "daily_salary": 113.0,
+        "weekly_salary": "648,19 €",
+        "monthly_salary": 2457.0,
+        "row_number": 11,
+        "table_number": 19,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
-      "18922942": {
+      "91621657": {
         "job_title": {
           "male": "Assistant mecanicien",
           "female": "Assistante mecanicienne"
         },
         "category": "V",
         "is_cadre": false,
-        "daily_salary": 1858.0,
-        "sector": null
+        "daily_salary": 85.0,
+        "weekly_salary": "490,07 €",
+        "monthly_salary": 1858.0,
+        "row_number": 13,
+        "table_number": 19,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
-      "98851231": {
+      "90242395": {
         "job_title": {
           "male": "Assistant operateur headcam",
           "female": "Assistante operatrice headcam"
         },
         "category": "V",
         "is_cadre": false,
-        "daily_salary": 1929.0,
-        "sector": null
+        "daily_salary": 89.0,
+        "weekly_salary": "508,84 €",
+        "monthly_salary": 1929.0,
+        "row_number": 6,
+        "table_number": 20,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       },
-      "32605213": {
+      "85648637": {
         "job_title": {
           "male": "Assistant operateur retouche en temps reel",
           "female": "Assistante operatrice retouche en temps reel"
         },
         "category": "V",
         "is_cadre": false,
-        "daily_salary": 2154.0,
-        "sector": null
+        "daily_salary": 99.0,
+        "weekly_salary": "568,29 €",
+        "monthly_salary": 2154.0,
+        "row_number": 2,
+        "table_number": 20,
+        "sector": null,
+        "article": "32_dispositio",
+        "filiere": "1 administrative et commerciale"
       }
     }
   },
-  "2-2.1_durée": {
+  "2-2.1_duree": {
     "start_line": 265,
     "title": "Durée",
     "coord": "2-2.1",
@@ -6391,9 +7363,10 @@
       "La présente convention est conclue pour une durée indéterminée."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "2-2.2_révision": {
+  "2-2.2_revision": {
     "start_line": 267,
     "title": "Révision",
     "coord": "2-2.2",
@@ -6421,9 +7394,10 @@
       "représentatives au plan national."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "8-8.1_délégués": {
+  "8-8.1_delegues": {
     "start_line": 352,
     "title": "Délégués du personnel",
     "coord": "8-8.1",
@@ -6439,9 +7413,10 @@
       "réglementaires en vigueur."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "8-8.2_comité": {
+  "8-8.2_comite": {
     "start_line": 358,
     "title": "Comité d’entreprise",
     "coord": "8-8.2",
@@ -6459,9 +7434,10 @@
       "par les dispositions législatives et réglementaires en vigueur."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "8-8.3_comité": {
+  "8-8.3_comite": {
     "start_line": 366,
     "title": "Comité d’hygiène, de sécurité et des conditions de travail",
     "coord": "8-8.3",
@@ -6476,9 +7452,10 @@
       "Celui-ci fonctionne selon les dispositions législatives et réglementaires en vigueur."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "8-8.4_délégués": {
+  "8-8.4_delegues": {
     "start_line": 371,
     "title": "Délégués du personnel et comité d’entreprise : prise en compte des salariés sous contrat à",
     "coord": "8-8.4",
@@ -6542,6 +7519,7 @@
       "9.2 Missions"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "8-9.2_1": {
@@ -6557,6 +7535,7 @@
       "entreprises et des pouvoirs publics."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "8-9.2_2": {
@@ -6572,6 +7551,7 @@
       "branche."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "8-9.2_3": {
@@ -6594,6 +7574,7 @@
       "destinées à répondre aux difficultés identifiées."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "8-9.2_4": {
@@ -6621,9 +7602,10 @@
       "l’organisation judiciaire."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "12-13.1_négociatio": {
+  "12-13.1_negociatio": {
     "start_line": 510,
     "title": "Négociation avec un ou des délégués syndicaux",
     "coord": "12-13.1",
@@ -6636,9 +7618,10 @@
       "désignés dans l’entreprise peuvent négocier et conclure des accords avec l’employeur."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "12-13.2_négociatio": {
+  "12-13.2_negociatio": {
     "start_line": 513,
     "title": "Négociation avec des représentants élus du personnel",
     "coord": "12-13.2",
@@ -6659,9 +7642,10 @@
       "16"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "12-13.3_négociatio": {
+  "12-13.3_negociatio": {
     "start_line": 524,
     "title": "Négociation avec des salariés mandatés",
     "coord": "12-13.3",
@@ -6676,9 +7660,10 @@
       "en application après son dépôt auprès de l’autorité administrative.8"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "12-13.4_négociatio": {
+  "12-13.4_negociatio": {
     "start_line": 529,
     "title": "Négociation avec un représentant de la section syndicale",
     "coord": "12-13.4",
@@ -6724,6 +7709,7 @@
       "Article 15 : Droit au travail des personnes handicapées"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "12-15.1_obligation": {
@@ -6740,6 +7726,7 @@
       "assimilés, dans la proportion de 6% de son effectif total."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "12-15.2_calcul": {
@@ -6752,6 +7739,7 @@
     "number": "15.2",
     "body": [],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "12-15.2.1_date": {
@@ -6775,9 +7763,10 @@
       "Pour les entreprises à établissements multiples et distincts, l’effectif s’apprécie par établissement."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "12-15.2.2_salariés": {
+  "12-15.2.2_salaries": {
     "start_line": 581,
     "title": "Salariés à prendre en compte",
     "coord": "12-15.2.2",
@@ -6793,9 +7782,10 @@
       "à zéro, il n’y a pas d’obligation d’emploi mais la déclaration annuelle doit être souscrite."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "12-15.3_exécution": {
+  "12-15.3_execution": {
     "start_line": 587,
     "title": "Exécution de l’obligation",
     "coord": "12-15.3",
@@ -6886,9 +7876,10 @@
       "dispositions du présent article.15 »"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "19-19.1_salarié": {
+  "19-19.1_salarie": {
     "start_line": 785,
     "title": "Salarié engagé sous contrat à durée indéterminée",
     "coord": "19-19.1",
@@ -6917,9 +7908,10 @@
       "La rupture du contrat peut être notifiée au salarié jusqu’au dernier jour de la période d’essai."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "19-19.2_salarié": {
+  "19-19.2_salarie": {
     "start_line": 804,
     "title": "Salarié engagé sous contrat à durée déterminée (y compris sous contrat à durée déterminée",
     "coord": "19-19.2",
@@ -6961,9 +7953,10 @@
       "La rupture du contrat de travail interviendra conformément aux dispositions légales en vigueur."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "19-21.1_préavis": {
+  "19-21.1_preavis": {
     "start_line": 836,
     "title": "Préavis",
     "coord": "19-21.1",
@@ -6985,9 +7978,10 @@
       "que le salarié aurait reçus s'il avait accompli son travail jusqu'au terme dudit préavis."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "19-21.2_indemnité": {
+  "19-21.2_indemnite": {
     "start_line": 848,
     "title": "Indemnité de licenciement",
     "coord": "19-21.2",
@@ -7001,6 +7995,7 @@
       "Convention collective, cf. Précisions 2)"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "19-21.2.1_licencieme": {
@@ -7020,6 +8015,7 @@
       "mois par année au-delà de 10 ans."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "19-21.2.2_licencieme": {
@@ -7039,9 +8035,10 @@
       "mois par année au-delà de 10 ans."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "19-21.3_départ": {
+  "19-21.3_depart": {
     "start_line": 866,
     "title": "Départ et mise à la retraite",
     "coord": "19-21.3",
@@ -7051,9 +8048,10 @@
     "number": "21.3",
     "body": [],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "19-21.3.1_départ": {
+  "19-21.3.1_depart": {
     "start_line": 867,
     "title": "Départ à la retraite",
     "coord": "19-21.3.1",
@@ -7067,6 +8065,7 @@
       "percevra alors l’indemnité décrite à l’article 21.2.1."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "19-21.3.2_mise": {
@@ -7090,6 +8089,7 @@
       "Article 22 : Médecine du travail"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "19-22.1_visite": {
@@ -7110,6 +8110,7 @@
       "conviendraient le mieux.20 »"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "19-22.2_visites": {
@@ -7134,6 +8135,7 @@
       "licenciement sans indemnité."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "31-31.1_les": {
@@ -7167,6 +8169,7 @@
       "- Production »"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "31-31.2_constructi": {
@@ -7235,6 +8238,7 @@
       "32"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "31-31.4_les": {
@@ -8338,9 +9342,18 @@
       "MOCAP"
     ],
     "sub_articles": [],
+    "filieres": [
+      "1 administrative et commerciale",
+      "2 Tronc Commun",
+      "3 Animation 2D",
+      "4 Animation 3D",
+      "5 Volume",
+      "6 Motion Capture",
+      "7 Artiste de complément"
+    ],
     "tables": []
   },
-  "32-32.1_barèmes": {
+  "32-32.1_baremes": {
     "start_line": 2241,
     "title": "Barèmes salariaux des salariés sous contrat à durée indéterminée ou sous contrat à durée",
     "coord": "32-32.1",
@@ -8906,9 +9919,18 @@
       "affectées à une production, clairement identifiée."
     ],
     "sub_articles": [],
+    "filieres": [
+      "1 administrative et commerciale",
+      "2 Tronc commun",
+      "3 Animation 2D",
+      "4 Animation 3D",
+      "5 Volume",
+      "6 Motion Capture",
+      "7 Artistes de complément"
+    ],
     "tables": []
   },
-  "32-32.2_barèmes": {
+  "32-32.2_baremes": {
     "start_line": 2797,
     "title": "Barèmes salariaux des salariés sous contrat à durée déterminée dit d’usage",
     "coord": "32-32.2",
@@ -9484,6 +10506,14 @@
       "Article 34 : Retraite complémentaire"
     ],
     "sub_articles": [],
+    "filieres": [
+      "2 Tronc commun",
+      "3 Animation 2D",
+      "4 Animation 3D",
+      "5 Volume",
+      "6 Motion capture",
+      "7 Artistes de complément"
+    ],
     "tables": []
   },
   "32-34.1_dispositio": {
@@ -9507,6 +10537,7 @@
       "activités du spectacle et de l'audiovisuel - institution ARRCO n° 190)."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "32-34.2_retraite": {
@@ -9525,6 +10556,7 @@
       "activités du spectacle et de l'audiovisuel - institution AGIRC n° 22)."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "32-34.3_taux": {
@@ -9546,9 +10578,10 @@
       "Article 35 : Prévoyance"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "32-35.1_prévoyance": {
+  "32-35.1_prevoyance": {
     "start_line": 3389,
     "title": "Prévoyance des cadres",
     "coord": "32-35.1",
@@ -9564,9 +10597,10 @@
       "et de l’Audiovisuel, autorisée par arrêté ministériel sous le numéro 1000)."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "32-35.2_prévoyance": {
+  "32-35.2_prevoyance": {
     "start_line": 3395,
     "title": "Prévoyance des non-cadres",
     "coord": "32-35.2",
@@ -9666,9 +10700,10 @@
       "Article 39 : La rémunération du salarié à domicile"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "32-39.1_rémunérati": {
+  "32-39.1_remunerati": {
     "start_line": 3485,
     "title": "Rémunération pour l’exécution des travaux",
     "coord": "32-39.1",
@@ -9693,6 +10728,7 @@
       "une tâche similaire sur la même production."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "32-39.2_frais": {
@@ -9718,6 +10754,7 @@
       "domicile."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "32-39.3_heures": {
@@ -9740,9 +10777,10 @@
       "domicile bénéficie des majorations prévues dans cet accord.39 »"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "32-39.4_congés": {
+  "32-39.4_conges": {
     "start_line": 3523,
     "title": "Congés payés",
     "coord": "32-39.4",
@@ -9943,6 +10981,7 @@
       "3.5 Décompte du temps de travail"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "32-3.5_1": {
@@ -9966,6 +11005,7 @@
       "part, la composition nominative de chaque équipe."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "32-3.5_2": {
@@ -10113,9 +11153,10 @@
       "d’activité ne permet pas d’assurer un horaire collectif minimum."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
-  "32-5.7_rémunérati": {
+  "32-5.7_remunerati": {
     "start_line": 3860,
     "title": "Rémunération",
     "coord": "32-5.7",
@@ -10206,6 +11247,7 @@
       "7.3 Cadres autonomes"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "32-7.3_1": {
@@ -10236,6 +11278,7 @@
       "spécifiques prévues par le présent accord."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "32-7.3_2": {
@@ -10266,6 +11309,7 @@
       "plafond annuel de l’année au cours de laquelle ils sont pris."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "32-7.3_3": {
@@ -10287,6 +11331,7 @@
       "l’équivalent de 1,5 jours de réduction du temps de travail par mois effectué."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "32-7.3_4": {
@@ -10322,6 +11367,7 @@
       "du Travail."
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   },
   "32-7.3_5": {
@@ -10338,6 +11384,7 @@
       "travaillés dans l’année"
     ],
     "sub_articles": [],
+    "filieres": [],
     "tables": []
   }
 }

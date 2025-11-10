@@ -193,6 +193,7 @@ class ConventionScrapper2021():
                 page_number+=1
                 article_parser.parse_page(page,page_number)
         article_parser.parse_sub_articles()
+        article_parser.parse_filieres()
         article_parser.parse_tables()
             
         final_data =  article_parser.get_dict()

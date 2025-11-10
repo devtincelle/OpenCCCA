@@ -1,7 +1,9 @@
 
 import re
 from TableParser import TableParser
-
+from Entities import Filiere
+from Utils import to_english,clean_text
+from typing import List 
 class Article():
     def __init__(self,_start_line=None):
         self.name = None
@@ -11,6 +13,7 @@ class Article():
         self.body = []
         self.tables = []
         self.sub_articles = []
+        self.filieres:List[Filiere] = []
         self.coord = None
         self.pages = []
 
@@ -27,8 +30,9 @@ class Article():
     
     def get_key(self)->str:
         self.coord = self.coord or f"{self.number}"
-        sanitized_title = self.title.lower().split(" ")[0][:10]
+        sanitized_title = to_english(self.title.lower()).split(" ")[0][:10]
         return f"{self.coord}_{sanitized_title}"
+    
     
     def get_coord(self)->str:
         return f"{self.number}"
@@ -44,6 +48,7 @@ class Article():
             "number":self.number,
             "body":self.body,
             "sub_articles":self.sub_articles,
+            "filieres":[ f"{f.name}({f.start_line})" for f in self.filieres],
             "tables":self.tables
         }
     
@@ -152,14 +157,61 @@ class ArticleParser():
         for sa in new_articles:
             self._articles[sa.get_key()] = sa
                     
+    def parse_filieres(self):
+        for key,article in self._articles.items():
+            line_number = article.start_line-1
+            for line in article.body:
+                line_number+=1
+                filiere = self.parse_filiere_line(article,line,line_number)
+                if len(filiere)==0:
+                    continue
+                for f in filiere:
+                    print("---------------------------------------------------------FILIERE------")
+                    print(f)
+                    article.filieres.append(f)
+            
+        
     def parse_tables(self):
         for key,article in self._articles.items():
             print(article.title)
             if len(article.tables)==0:
                 continue
-            article.tables = self._table_parser.parse_raw_tables(article,article.tables)
+            article.tables = self._table_parser.parse_raw_tables(article.get_key(),article.tables,article.filieres)
             
-                
+    def parse_filiere_line(self,article:Article,_line:str,line_number:int=None)->List[Filiere]:
+
+        if "Filière " not in _line:
+            return []
+        print(_line)
+        filieres = _line.split("Filière")
+        print(filieres)
+        flist = []
+
+        for f in filieres[1:]:
+            # split filiere number and name
+            parts = f.split(":", 1)
+            filiere_number = int(parts[0].strip())
+            filiere_name = clean_text(parts[1].split("\n")[0].strip())
+            filiere_key = clean_text(filiere_name).replace(" ","_")
+            corrections = {
+                "exploitation, maintenance et transfert de données":
+                "exploitation, maintenance et transfert des données"
+            }
+            if filiere_name in corrections:
+                print(filiere_name)
+                filiere_name = corrections[filiere_name]
+            filiere = Filiere(
+                name=f"{filiere_number} {filiere_name}",
+                number=filiere_number,
+                line_number=line_number,
+                key=f"{filiere_number}-{filiere_key[0]}",
+                article=article.get_key()
+            )
+            flist.append(filiere) 
+        
+        return flist
+    
+
                     
     def get_dict(self)->dict:
         table = {}

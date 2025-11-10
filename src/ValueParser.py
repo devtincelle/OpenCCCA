@@ -1,6 +1,6 @@
 
 import re
-
+import unicodedata
 
 class ValueParser():
     
@@ -24,6 +24,7 @@ class ValueParser():
             "position":[self._is_chef_or_confirme],
             "sector":[self._is_sector],
             "monthly_salary":[self._is_salary,self._greater_than_900],
+            "weekly_salary":[self._is_salary,self._greater_than_400,self._lower_than_1000],
             "daily_salary":[self._is_salary,self._lower_than_300]
         }
         
@@ -77,20 +78,26 @@ class ValueParser():
         
         return False
     
+    def to_english(self,text: str) -> str:
+        # 1. Normalize the text to decompose accents (é -> e + ́)
+        text = unicodedata.normalize('NFD', text)
+        # 2. Remove accent characters
+        text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
+        # 3. Remove all non-alphanumeric characters (keep letters, numbers, spaces)
+        text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
+        # 4. Optionally collapse multiple spaces and trim
+        text = re.sub(r'\s+', ' ', text).strip()
+        return text
 
     def guess_key(self,value,index=None)->str:
         if value is None:
             return 
-        found = None
         for key,check_list in self._content_guess_table.items():
-            for check in check_list:
-                if check(value,index) ==False:
-                    continue
-                if check(value,index) ==True:
-                    found=key
-                    break
-        return found    
-    import re
+            matches = [ check for check in check_list if check(value,index)]
+            if len(matches) != len(check_list):
+                continue
+            return key  
+        return None
 
     def _is_salary(self,value: str,index=None) -> bool:
         if isinstance(value,int) or isinstance(value,float):
@@ -99,6 +106,7 @@ class ValueParser():
         return bool(pattern.match(value))
     
     def _is_uppercase_job(self,s,index=None):
+        
         """
         Returns True if the string contains only uppercase letters, spaces, slashes, or line breaks.
         """
@@ -108,14 +116,21 @@ class ValueParser():
         # Regex: uppercase letters (including accented), spaces, slashes, line breaks
         pattern = r'^[A-ZÀ-Ÿ0-9\' /\\\n]+$'
         
-        return bool(re.match(pattern, s_clean))
+        
+        return bool(
+            re.match(pattern, s_clean) 
+            and len(s)>4 
+            and self._is_chef_or_confirme(s)==False
+            and self._is_sector(s)==False
+            and self._is_NC_or_C(s)==False
+            )
     
     def _is_long_upper_case(self,value,index=None)->bool:
         return self.is_upper(value) and len(value) > 8 and len(value) < 30
     def _is_roman_AB(self,value,index=None)->bool:
         return value in ["I","II","III","IV","V","IIIA","III A","IIIB","III B","Hors catégorie"]
     def _is_NC_or_C(self,value,index=None)->bool:
-        return value in ["NC","C"]  
+        return value.upper() in ["NC","C"]  
     def _is_phrase(self,value,index=None)->bool:
         return self.is_upper(value)==False and len(value) > 30
     def _is_short_name(self,value,index=None)->bool:
@@ -135,14 +150,25 @@ class ValueParser():
         num = self._extract_number(value)
         if not num:
             return False
-        return num > 900    
+        return num > 900        
+
+    def _greater_than_400(self,value,index=None)->bool:
+        num = self._extract_number(value)
+        if not num:
+            return False
+        return num > 400    
     def _lower_than_300(self,value,index=None)->bool:
         num = self._extract_number(value)
         if not num:
             return False
-        return num < 300    
+        return num < 300     
+    def _lower_than_1000(self,value,index=None)->bool:
+        num = self._extract_number(value)
+        if not num:
+            return False
+        return num < 1000  
     def _is_chef_or_confirme(self,value,index=None)->bool:
-        return value.lower() in ["chef","confirme"]
+        return self.to_english(value.lower()) in ["chef","confirme"]
     def is_upper(self,text,index=None):
         """
         Check if the input string is fully uppercase (letters, including accented, and spaces).
