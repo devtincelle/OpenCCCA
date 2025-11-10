@@ -27,7 +27,9 @@ class ValueParser():
             "daily_salary":[self._is_salary,self._lower_than_300]
         }
         
-    def _extract_number(self,s):
+    def _extract_number(self,s:str):
+        if isinstance(s,str)==False:
+            return s
         """
         Extracts the first number from a string, handling spaces as thousand separators.
         Returns the number as a float or None if no number is found.
@@ -91,8 +93,11 @@ class ValueParser():
     import re
 
     def _is_salary(self,value: str,index=None) -> bool:
+        if isinstance(value,int) or isinstance(value,float):
+            return True
         pattern = re.compile(r'^\s*\d{1,3}(?:[\s.,]\d{3})*(?:,\d{2})?\s*€\s*$')
         return bool(pattern.match(value))
+    
     def _is_uppercase_job(self,s,index=None):
         """
         Returns True if the string contains only uppercase letters, spaces, slashes, or line breaks.
@@ -168,31 +173,32 @@ class ValueParser():
     
     def _split_genders(self,value):
         data = {
-            "neutral":self._lower_capitalise(value),
+            "neutral":"",
             "male":None,
             "female":None
         }
-        words = value.replace("\n"," ").lower().split(" ")
-        job_male = []
-        job_female = []
-        is_male = True
-        first_letters = None
-        for w in words:
-            if not first_letters:
-                half = int(len(w)/2)
-                first_letters = w[:half]
-                job_male.append(w)
-                continue
-            if first_letters in w:
-                is_male=False
-            if is_male==False:
-                job_female.append(w)
-            else:
-                job_male.append(w)
-        data = {
-            "male":self._lower_capitalise(" ".join(job_male)),
-            "female":self._lower_capitalise(" ".join(job_female))
-        }
+        if isinstance(value,str):
+            words = value.replace("\n"," ").lower().split(" ")
+            job_male = []
+            job_female = []
+            is_male = True
+            first_letters = None
+            for w in words:
+                if not first_letters:
+                    half = int(len(w)/2)
+                    first_letters = w[:half]
+                    job_male.append(w)
+                    continue
+                if first_letters in w:
+                    is_male=False
+                if is_male==False:
+                    job_female.append(w)
+                else:
+                    job_male.append(w)
+            data = {
+                "male":self._lower_capitalise(" ".join(job_male)),
+                "female":self._lower_capitalise(" ".join(job_female))
+            }
         return data
 
     def _cadre_to_bool(self,value):

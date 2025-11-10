@@ -10,9 +10,10 @@ import hashlib
 
 class Table:
     """A simple container for table data."""
-    def __init__(self, header: List[str], rows: List[List[str]]):
-        self.header = header
-        self.rows = rows
+    def __init__(self, title:str):
+        self.title = title
+        self.header = []
+        self.entries = []
 
     def to_dataframe(self):
         return pd.DataFrame(self.rows, columns=self.header)
@@ -112,13 +113,10 @@ class TableParser():
         
         
 
-
-
-
-
-    def parse_raw_tables(self, _raw_tables: List[Any]) -> List[Table]:
+    def parse_raw_tables(self, _parent_article,_raw_tables: List[Any]) -> List[Table]:
 
         clean_tables = []
+        article_title = _parent_article.title
         for table in _raw_tables:
             print("--------TABLE---------")
 
@@ -137,9 +135,7 @@ class TableParser():
             
             clean_tables.append(table)
             
-            
-        df = self.parse_complex_tables(clean_tables)   
-        return 
+        return self.parse_complex_tables(article_title,clean_tables)   
         
 
 
@@ -149,7 +145,7 @@ class TableParser():
 
 
         
-    def parse_complex_tables(self,tables: List) -> pd.DataFrame:
+    def parse_complex_tables(self,title,tables: List) -> pd.DataFrame:
         """
         Parse messy multi-row tables from pdfplumber into a clean DataFrame.
         Expected logical columns: Secteur, Fonction, Position, Catégorie, Définition.
@@ -161,6 +157,7 @@ class TableParser():
         current_key = None
         last_job_title = None
         last_category = None
+        last_definition = None
         
         
         for table in tables:
@@ -175,6 +172,9 @@ class TableParser():
                 position= tslice.get("position")
                 sector= tslice.get("sector")
                 category= tslice.get("category")
+                daily_salary= tslice.get("daily_salary")
+                monthly_salary= tslice.get("monthly_salary")
+                is_cadre= tslice.get("is_cadre")
 
                 # apply last values if None 
                 tslice["sector"]= sector or last_sector
@@ -191,19 +191,40 @@ class TableParser():
                     job_title = last_job_title
 
                 definition = tslice.get("definition") 
-                if job_title  and definition:
-                    job_key = self._hash(definition)
-                    tslice["job_title"] = job_title or ""
-                    job_table[job_key] = tslice
-                    current_key = job_key
+ 
+                if job_title:
+                    if definition:
+                        # new entry 
+                        job_key = self._hash(definition)
+                        tslice["job_title"] = job_title or ""
+                        job_table[job_key] = tslice
+                        current_key = job_key
+                        continue
+                    if daily_salary or monthly_salary:
+                        # new entry 
+                        to_hash = daily_salary or monthly_salary
+                        job_key = self._hash(to_hash)
+                        tslice["job_title"] = job_title or ""
+                        job_table[job_key] = tslice
+                        current_key = job_key
+                        continue
+                if current_key and definition and not job_title:
+                    if job_table[current_key].get("definition"):
+                        job_table[current_key]["definition"]+=" "+definition
                 if current_key and job_title:
-                    job_table[job_key]["job_title"]+=" "+job_title
+                    job_table[current_key]["job_title"]+=" "+job_title
+
+                    
                     
         for key,job in job_table.items():
             for key,value in job.items():
                 job[key] = self._parser.conform(key,value)
+                
 
         print(json.dumps(job_table,indent=4))
+        return job_table
+    
+    
             
             
             

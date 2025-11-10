@@ -4,6 +4,7 @@ from TableParser import TableParser
 
 class Article():
     def __init__(self,_start_line=None):
+        self.name = None
         self.title = None
         self.start_line = _start_line
         self.number = None
@@ -36,6 +37,7 @@ class Article():
         
         return {
             "start_line":self.start_line,
+            "title":self.name,
             "title":self.title,
             "coord":self.coord,
             "pages":self.pages,
@@ -152,9 +154,10 @@ class ArticleParser():
                     
     def parse_tables(self):
         for key,article in self._articles.items():
+            print(article.title)
             if len(article.tables)==0:
                 continue
-            article.table = self._table_parser.parse_raw_tables(article.tables)
+            article.tables = self._table_parser.parse_raw_tables(article,article.tables)
             
                 
                     

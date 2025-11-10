@@ -192,8 +192,6 @@ class ConventionScrapper2021():
             for page in pdf.pages:
                 page_number+=1
                 article_parser.parse_page(page,page_number)
-                if page_number>50 :
-                    break 
         article_parser.parse_sub_articles()
         article_parser.parse_tables()
             
