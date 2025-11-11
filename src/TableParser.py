@@ -121,10 +121,6 @@ class TableParser():
             # Add contextual info
             job_data["article"] = table.article
             job_data["page_number"] = table.page_number
-            
-            jobs.append(job_data)
-            continue
-            
 
             # Only keep keys that exist in Job dataclass
             job_field_names = {f.name for f in fields(Job)}

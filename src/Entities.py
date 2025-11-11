@@ -51,8 +51,8 @@ class Article():
             "sub_articles":self.sub_articles,
             "filieres":[ f"{f.name}({f.start_line})" for f in self.filieres],
             "tables":[ asdict(t) for t in self.tables],
-            #"jobs":[ asdict(j) for j in self.jobs]
-            "jobs":self.jobs
+            "jobs":[ asdict(j) for j in self.jobs]
+            #"jobs":self.jobs
         }
     
     def print(self):

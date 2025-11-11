@@ -141,8 +141,9 @@ class ArticleParser():
             if len(article.tables)==0:
                 continue
             for table in article.tables:
-                table_number +=1
+                table_counter +=1
                 table.table_number = table_counter
+                table.article = article.get_key()
                 article.jobs.extend(self._table_parser.parse_jobs(table))
             
     def parse_filiere_line(self,article:Article,_line:str,line_number:int=None)->List[Filiere]:
