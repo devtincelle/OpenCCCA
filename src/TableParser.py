@@ -1,5 +1,6 @@
 from ValueParser import ValueParser
 from Entities import Filiere
+from GuessContext import GuessContext
 import json
 
 import pandas as pd
@@ -56,7 +57,8 @@ class TableParser():
     def _hash(self,_thing)->str:
         return str(int(hashlib.sha1(_thing.encode("utf-8")).hexdigest(), 16) % (10 ** 8))
 
-
+    def is_admin_table(self,table_number:int)->bool:
+        return table_number in [1,2,3]
         
     def parse_complex_tables(self,_article_key,tables:list,filieres:List[Filiere]) -> pd.DataFrame:
         """
@@ -70,7 +72,6 @@ class TableParser():
         current_key = None
         last_job_title = None
         last_category = None
-        last_definition = None
         table_number = -1
         
         for table in tables:
@@ -85,12 +86,13 @@ class TableParser():
 
                 row_number+=1
                 
-                tslice = self.parse_slice(row)
+                tslice = self.parse_slice(row,row_number,table_number)
                 
                 if not tslice:
                     continue
                 tslice["row_number"] = row_number
                 tslice["table_number"] = table_number
+                tslice["table_nb_columns"] = len(table)
                 
                 job_title = tslice.get("job_title")
                 female_job_title = tslice.get("female_job_title")
@@ -119,15 +121,15 @@ class TableParser():
                 if not category:
                     category = last_category
             
-                if job_title:
-                    if female_job_title and not definition :
-                        print(job_title)
+                if job_title:                  
+                    if self.is_admin_table(table_number):
                         # new entry 
-                        job_key = self._hash(job_title+category)
-                        tslice["job_title"] = job_title or female_job_title
+                        print(job_title)
+                        job_key = self._hash(job_title)
+                        tslice["job_title"] = job_title 
                         job_table[job_key] = tslice
                         current_key = job_key
-                        continue                    
+                        continue
                     if definition:
                         # new entry 
                         job_key = self._hash(definition)
@@ -174,19 +176,29 @@ class TableParser():
         ]
     
 
-    def parse_slice(self,row:list)->dict:
+    def parse_slice(self,row:list,row_number:int=None,table_number:int=None)->dict:
         data = {}
-        value_index=0
+        column_index=-1
+        if table_number in [1,2,3]:
+            print("------------------------------------------------------------------------------------------------------------")
+            print(row)
         for value in row:
             if self.is_header(value):
                 return None
-            value_index+=1
+            column_index+=1
             if not value or value=="":
                 continue
-            key = self._parser.guess_key(value,value_index)
+            context = GuessContext(
+                value=value,
+                column_index=column_index,
+                table_number=table_number,
+                row_number=row_number,
+                nb_columns=len(row)
+            )
+            key = self._parser.guess_key(context)
             if key:
                 data[key]=value
             else:
-                data[str(value_index)] = value
+                data[str(column_index)] = value
         return data
         
