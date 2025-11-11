@@ -1,59 +1,11 @@
 
 import re
 from TableParser import TableParser
-from Entities import Filiere
+from Entities import Article,Filiere,Table
 from Utils import to_english,clean_text
 from typing import List 
-class Article():
-    def __init__(self,_start_line=None):
-        self.name = None
-        self.title = None
-        self.start_line = _start_line
-        self.number = None
-        self.body = []
-        self.tables = []
-        self.sub_articles = []
-        self.filieres:List[Filiere] = []
-        self.coord = None
-        self.pages = []
 
-    def __str__(self)->str:
-        return f"<ARTICLE : {self.number } {self.title} --- {self.body[:20]}....{len(self.body)} >"
-    
-    def __repr__(self)->str:
-        return str(self)
-    
-    def add_sub_article(self,_sa):
-        self.coord = self.coord or f"{self.number}"
-        _sa.coord = f"{self.coord}-{_sa.number}"
-        self.sub_articles.append(_sa.get_key())
-    
-    def get_key(self)->str:
-        self.coord = self.coord or f"{self.number}"
-        sanitized_title = to_english(self.title.lower()).split(" ")[0][:10]
-        return f"{self.coord}_{sanitized_title}"
-    
-    
-    def get_coord(self)->str:
-        return f"{self.number}"
-    
-    def get_dict(self)->dict:
-        
-        return {
-            "start_line":self.start_line,
-            "title":self.name,
-            "title":self.title,
-            "coord":self.coord,
-            "pages":self.pages,
-            "number":self.number,
-            "body":self.body,
-            "sub_articles":self.sub_articles,
-            "filieres":[ f"{f.name}({f.start_line})" for f in self.filieres],
-            "tables":self.tables
-        }
-    
-    def print(self):
-        ...
+
 
 class ArticleParser():
     
@@ -133,9 +85,20 @@ class ArticleParser():
             # add line to current article
             if self._articles.get(current_key):
                 self._articles[current_key].body.append(line)
+                
+        # find a way to get the table number rigth again 
         
+        table_number = -1
         if self._articles.get(current_key):
-            self._articles[current_key].tables.append(raw_tables)
+            print("________________________TABLE_____________________")
+            for t in raw_tables:
+                table_number+=1
+                table = Table(
+                    article=current_key,
+                    page_number=_page_number,
+                    rows=t
+                ).clean()
+                self._articles[current_key].tables.append(table)
                     
     def parse_sub_articles(self):
         new_articles = []
@@ -172,11 +135,15 @@ class ArticleParser():
             
         
     def parse_tables(self):
+        table_counter = -1
         for key,article in self._articles.items():
             print(article.title)
             if len(article.tables)==0:
                 continue
-            article.tables = self._table_parser.parse_raw_tables(article.get_key(),article.tables,article.filieres)
+            for table in article.tables:
+                table_number +=1
+                table.table_number = table_counter
+                article.jobs.extend(self._table_parser.parse_jobs(table))
             
     def parse_filiere_line(self,article:Article,_line:str,line_number:int=None)->List[Filiere]:
 

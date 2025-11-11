@@ -12,9 +12,10 @@ class ValueParser():
             "job_title_male":self._lower_capitalise,
             "job_title_female":self._lower_capitalise,
             "sector":self._lower_capitalise,
-            "category":self._upper_strip_spaces,
+            "category":self._conform_category,
             "position":self._lower_capitalise,
             "monthly_salary":self._extract_number,
+            "weekly_salary":self._extract_number,
             "daily_salary":self._extract_number,
             "is_cadre":self._cadre_to_bool
         }
@@ -147,13 +148,18 @@ class ValueParser():
         return self.is_upper(context.value)==False and len(context.value) > 30
     def _is_short_name(self,context:GuessContext=None)->bool:
         return self.is_upper(context.value)==False and len(context.value) < 30    
+    def _is_capitalized(self,word:str)->bool:
+        if len(word)<2:
+            return False
+        return self.is_upper(word[0]) and not self.is_upper(word[1])
     def _is_sector(self,context:GuessContext=None)->bool:
         if len(context.value)<3:
             return False
+        words = context.value.split(" ")
+        capitalized_words = [ w for w in words if self._is_capitalized(w)]
+        all_capitalized = len(capitalized_words) == len(words)
         return (
-            self.is_upper(context.value[0])==True 
-            and context.column_index==0 or context.column_index==1
-            and self.is_upper(context.value[1])==False 
+            all_capitalized 
             and len(context.value) < 30
             )
     def _has_euro_sign(self,context:GuessContext=None)->bool:
@@ -246,7 +252,16 @@ class ValueParser():
         if value == "C":
             return True
         return value    
+    
+    def _conform_category(self,value):
+        if value == "Hors catégorie":
+            return value
+        return self._upper_strip_spaces(value)
+    
+    
     def _upper_strip_spaces(self,value):
+        if value == "Hors catégorie":
+            return value
         return self.strip(value.upper().replace(" ",""))
 
 

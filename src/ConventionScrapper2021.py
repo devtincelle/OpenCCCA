@@ -8,6 +8,7 @@ import os
 import unicodedata
 import re
 from datetime import datetime
+from Entities import Page
 from TableParser import TableParser
 from ArticleParser import ArticleParser
 import re
