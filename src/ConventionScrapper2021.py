@@ -128,7 +128,7 @@ class ConventionScrapper2021():
         
         version = f"IDCC-{data['IDCC']}_B-{data['brochure_number']}_{data['version_consolidated']}"
         return version
-        return
+
 
     def parse(self, _pdf: str = None, _output_json_path: str = None) -> dict:
         if not _pdf:
@@ -144,9 +144,15 @@ class ConventionScrapper2021():
 
             page_number = 0
             
+            
             for page in pdf.pages:
+                if page_number == 0:
+                    version = self.parse_document_version(page.extract_text())
+                    article_parser.set_doc_version(version)
                 page_number+=1
                 article_parser.parse_page(page,page_number)
+                
+                
                 
         article_parser.parse_filieres()
         article_parser.parse_sub_articles()

@@ -40,7 +40,7 @@ class TableParser():
         row_number = -1
         
         for row in table:
-            print(row)
+
             row_number+=1
             
             tslice = self.parse_slice(row,row_number,table_number)
@@ -81,7 +81,6 @@ class TableParser():
             if job_title:                  
                 if self.is_admin_table(table_number):
                     # new entry 
-                    print(job_title)
                     job_key = self._hash(job_title)
                     tslice["job_title"] = job_title 
                     job_table[job_key] = tslice

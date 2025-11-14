@@ -10,6 +10,7 @@ from dataclasses import asdict
 
 class ArticleParser():
     
+    _doc_version = {}
     _articles = {}
     _jobs:List[Job] = []
     _filieres:List[Filiere] = []
@@ -20,6 +21,8 @@ class ArticleParser():
     _table_parser=TableParser()
     _value_parser=ValueParser()
 
+    def set_doc_version(self,_data:str):
+        self._doc_version = _data
 
     def extraire_articles(self,texte: str,_start_line=None):
         """
@@ -95,7 +98,6 @@ class ArticleParser():
         
         table_number = -1
         if self._articles.get(current_key):
-            print("________________________TABLE_____________________")
             for t in raw_tables:
                 table_number+=1
                 table = Table(
@@ -140,6 +142,7 @@ class ArticleParser():
                 if filiere:
                     filiere.article = article.get_key()
                     filiere.start_line = line_number
+                    filiere.source = self._doc_version
                     last_filiere = filiere
                     article.filieres.append(filiere)
                     continue
@@ -177,6 +180,7 @@ class ArticleParser():
                 jobs = self._table_parser.parse_jobs(table)
                 # connect job to filiere according to job title string 
                 for job in jobs:
+                    job.source = self._doc_version
                     for f in self._filieres:
                         if f.has_job(job.job_title["male"]) or f.has_job(job.job_title["female"]):
                             job.filiere = f.name
@@ -223,7 +227,7 @@ class ArticleParser():
             filiere = Filiere(
                 name=f"{filiere_number} {filiere_name}",
                 number=filiere_number,
-                key=f"{filiere_number}-{filiere_key[0]}"
+                slug=f"{filiere_number}-{filiere_key[0]}"
             )
             return filiere
         

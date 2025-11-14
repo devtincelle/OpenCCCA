@@ -4,6 +4,9 @@ import unicodedata
 import re
 
 
+def serialize(text:str)->str:
+    return to_english(clean_text(text)).lower().replace(" ","")
+
 def to_english(text: str) -> str:
         # 1. Normalize the text to decompose accents (é -> e + ́)
         text = unicodedata.normalize('NFD', text)

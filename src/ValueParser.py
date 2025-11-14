@@ -103,7 +103,6 @@ class ValueParser():
     def _is_female_job_title(self,context:GuessContext=None):
         if self._from_admin_table(context)==False:
             return False
-        print(context.value)
         return self._is_job_title(context) and self._first_word_is_female(context)
     
     def _first_word_is_female(self,context:GuessContext=None)->bool:

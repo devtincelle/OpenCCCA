@@ -2,7 +2,7 @@
 import re
 from dataclasses import dataclass,field,fields,asdict
 from typing import Any, Iterator,List,Optional
-from Utils import to_english,clean_text
+from Utils import to_english,clean_text,serialize
 
 
 
@@ -18,6 +18,7 @@ class Article():
         self.tables: List[Table] = []
         self.filieres:List[Filiere] = []
         self.coord = None
+        self.source:str=None
         self.pages = []
 
     def __str__(self)->str:
@@ -57,7 +58,6 @@ class Article():
             #"jobs":self.jobs
         }
     
-    def print(self):
         ...
 
 
@@ -68,19 +68,20 @@ class Filiere:
     name: Optional[str] = None
     number: Optional[str] = None
     text: Optional[str] = None
-    key: Optional[str] = None
+    slug: Optional[str] = None
     article: Optional[str] = None
+    source:str=None
     
     @property
     def id(self):
-        return to_english(self.name).replace(" ","_")
+        return serialize(self.name)
 
     # ----------  equality  ----------
     def __eq__(self, other) -> bool:
         if not isinstance(other, Filiere):
             return NotImplemented
         # both sides must have a non-empty name to be considered equal
-        return bool(self.name and other.name and self.name == other.name)
+        return bool(self.name and other.name and serialize(self.slug) == serialize(other.slug))
 
     # ----------  merge  ----------
     def merge_with(self, other: "Filiere") -> "Filiere":
@@ -95,7 +96,7 @@ class Filiere:
         return Filiere(
             start_line=_pick(self.start_line,other.start_line),
             name=_pick(self.name,other.name),
-            key=_pick(self.key,other.key),
+            slug=_pick(self.slug,other.slug),
             text="".join([self.text,other.text]),
             article=_pick(self.article,other.article)
         )
@@ -135,18 +136,22 @@ class Job:
     table_number: Optional[dict] = None
     category: Optional[str] = None
     position: Optional[str] = None
+    sector: Optional[str] = None
     filiere: Optional[str] = None
     definition: Optional[str] = None
     monthly_salary: Optional[float] = None
     daily_salary: Optional[float] = None
     weekly_salary: Optional[float] = None
     is_cadre: Optional[bool] = None
-    
+    source:str=None
     @property
     def id(self):
-        return to_english((self.job_title.get("male") or self.job_title.get("female"))).replace(" ","_")
+        return self.get_slug()
         
-
+    def get_slug(self)->str:
+        name = self.job_title.get("male") or self.job_title.get("female")
+        if name:
+            return serialize(name)
     # ----------  equality  ----------
     def __eq__(self, other)->bool:
         if not isinstance(other, Job):
@@ -155,6 +160,9 @@ class Job:
         if not self.job_title or not other.job_title:
             return False
         # one common name (male or female) is enough
+        
+        compare = (self.id == other.id)
+        return compare
         return (self.job_title.get("male") == other.job_title.get("male")
                 and self.job_title.get("male") is not None) or \
                (self.job_title.get("female") == other.job_title.get("female")

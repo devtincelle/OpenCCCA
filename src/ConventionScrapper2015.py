@@ -62,7 +62,6 @@ class ConventionScrapper2015():
                 "exploitation, maintenance et transfert des données"
             }
             if filiere_name in corrections:
-                print(filiere_name)
                 filiere_name = corrections[filiere_name]
             filiere = {
                 "name":f"{filiere_number} {filiere_name}",
@@ -160,7 +159,6 @@ class ConventionScrapper2015():
         
         version = f"IDCC-{data['IDCC']}_B-{data['brochure_number']}_{data['version_consolidated']}"
         return version
-        return
 
     def parse(self, _pdf: str = None, _output_json_path: str = None) -> dict:
         if not _pdf:
