@@ -67,6 +67,7 @@ class Filiere:
     start_line: Optional[int] = None
     name: Optional[str] = None
     number: Optional[str] = None
+    page_number: Optional[int] = None
     text: Optional[str] = None
     slug: Optional[str] = None
     article: Optional[str] = None
