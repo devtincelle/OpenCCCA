@@ -162,7 +162,7 @@ class ConventionScrapper2015():
         return version
         return
 
-    def parse_job_table(self, _pdf: str = None, _output_json_path: str = None) -> dict:
+    def parse(self, _pdf: str = None, _output_json_path: str = None) -> dict:
         if not _pdf:
             print("Error pdf is None")
             return {}

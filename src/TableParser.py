@@ -150,6 +150,8 @@ class TableParser():
             "hebdo 35h",
             "hebdo 39h",
             "mensuel sur base 35h"
+            "Responsabilité",
+            "Catégories"
         ]
     
 

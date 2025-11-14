@@ -109,6 +109,8 @@ class ValueParser():
     def _first_word_is_female(self,context:GuessContext=None)->bool:
         return context.value.split(" ")[0][-1] in ['e']
     
+
+        
     def _is_job_title(self,context:GuessContext=None):
         
         """
@@ -265,3 +267,9 @@ class ValueParser():
         return self.strip(value.upper().replace(" ",""))
 
 
+    def line_to_job_title(self,value:str):
+        guess = GuessContext(value=value)
+        if self._is_job_title(guess):
+            return self._lower_capitalise(value)
+            return self._split_genders(value)
+        return None

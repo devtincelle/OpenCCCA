@@ -22,13 +22,13 @@ class OpenCCCA():
     def build_html(self):
         json_path = self._paths.get_data_folder()+"/convention.json"
         if os.path.exists(json_path) == False:
-            OpenCCCA._scrapper.parse_job_table(json_path)
+            OpenCCCA._scrapper.parse(json_path)
         OpenCCCA._builder.generate_fonction_html(json_path)
 
 
     def build_json(self):
         json_path = self._paths.get_data_folder()+"/conv_fonctions.json"
-        OpenCCCA._scrapper.parse_job_table(self._pdf,json_path)
+        OpenCCCA._scrapper.parse(self._pdf,json_path)
         return json_path
 
 

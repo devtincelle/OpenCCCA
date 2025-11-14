@@ -1,8 +1,10 @@
 
 import re
-from dataclasses import dataclass,field,asdict
-from typing import Any, Iterator,List
+from dataclasses import dataclass,field,fields,asdict
+from typing import Any, Iterator,List,Optional
 from Utils import to_english,clean_text
+
+
 
 class Article():
     def __init__(self,_start_line=None):
@@ -59,14 +61,53 @@ class Article():
         ...
 
 
+
 @dataclass
-class Filiere():
-    start_line:int=None
-    name:str=None
-    number:str=None
-    start_line:int=None
-    key:str=None
-    article:str=None
+class Filiere:
+    start_line: Optional[int] = None
+    name: Optional[str] = None
+    number: Optional[str] = None
+    text: Optional[str] = None
+    key: Optional[str] = None
+    article: Optional[str] = None
+    
+    @property
+    def id(self):
+        return to_english(self.name).replace(" ","_")
+
+    # ----------  equality  ----------
+    def __eq__(self, other) -> bool:
+        if not isinstance(other, Filiere):
+            return NotImplemented
+        # both sides must have a non-empty name to be considered equal
+        return bool(self.name and other.name and self.name == other.name)
+
+    # ----------  merge  ----------
+    def merge_with(self, other: "Filiere") -> "Filiere":
+        """Return a new Filiere whose fields are the first non-None value
+        between *self* and *other*.  Lists (jobs) are concatenated and deduplicated."""
+        if not isinstance(other, Filiere):
+            raise TypeError("Can only merge with another Filiere instance")
+
+        def _pick(a, b):
+            return a if a is not None else b
+        
+        return Filiere(
+            start_line=_pick(self.start_line,other.start_line),
+            name=_pick(self.name,other.name),
+            key=_pick(self.key,other.key),
+            text="".join([self.text,other.text]),
+            article=_pick(self.article,other.article)
+        )
+
+      
+
+    # ----------  helper  ----------
+    def has_job(self, _job_title: str) -> bool:
+        if not self.text:
+            return False
+        job = to_english(_job_title.lower().replace(" ", ""))
+        return job in self.text.lower().replace(" ", "")
     
 @dataclass
 class Category():
@@ -85,21 +126,55 @@ class Sector():
     article:str=None
        
 @dataclass
-class Job():
-    key:str=None
-    start_line:int=None
-    job_title:dict=None
-    article:dict=None
-    page_number:dict=None
-    table_number:dict=None
-    category:str=None
-    position:str=None
-    filiere:str=None
-    definition:str=None
-    monthly_salary:float=None
-    daily_salary:float=None
-    weekly_salary:float=None
-    is_cadre:bool=None
+class Job:
+    key: Optional[str] = None
+    start_line: Optional[int] = None
+    job_title: Optional[dict] = None
+    article: Optional[dict] = None
+    page_number: Optional[dict] = None
+    table_number: Optional[dict] = None
+    category: Optional[str] = None
+    position: Optional[str] = None
+    filiere: Optional[str] = None
+    definition: Optional[str] = None
+    monthly_salary: Optional[float] = None
+    daily_salary: Optional[float] = None
+    weekly_salary: Optional[float] = None
+    is_cadre: Optional[bool] = None
+    
+    @property
+    def id(self):
+        return to_english((self.job_title.get("male") or self.job_title.get("female"))).replace(" ","_")
+        
+
+    # ----------  equality  ----------
+    def __eq__(self, other)->bool:
+        if not isinstance(other, Job):
+            return NotImplemented
+        # no title dict on either side → can’t match
+        if not self.job_title or not other.job_title:
+            return False
+        # one common name (male or female) is enough
+        return (self.job_title.get("male") == other.job_title.get("male")
+                and self.job_title.get("male") is not None) or \
+               (self.job_title.get("female") == other.job_title.get("female")
+                and self.job_title.get("female") is not None)
+
+    # ----------  merge  ----------
+    def merge_with(self, other: "Job") -> "Job":
+        """
+        Return a new Job whose fields are the first non-None value
+        between *self* and *other*.  If both are None the field stays None.
+        """
+        if not isinstance(other, Job):
+            raise TypeError("Can only merge with another Job instance")
+
+        def _pick(a, b):
+            return a if a is not None else b
+
+        kwargs = {f.name: _pick(getattr(self, f.name), getattr(other, f.name))
+                  for f in fields(self)}
+        return Job(**kwargs)
     
 @dataclass
 class Page():
