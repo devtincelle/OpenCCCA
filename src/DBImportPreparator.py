@@ -16,6 +16,10 @@ class DBImportPreparator():
 
     '''
     
+    _key_convesrion_table = {
+        "daily_salary"
+    }
+    
     def prepare(self,_dict)->dict:
         jobs = _dict.get("jobs")
         filieres = _dict.get("filieres")

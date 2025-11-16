@@ -3,29 +3,19 @@
 
 import pdfplumber
 import json
-import uuid
 import os
 import unicodedata
 import re
 from datetime import datetime
-from Entities import Page
-from TableParser import TableParser
 from ArticleParser import ArticleParser
+from Utils import parse_french_date
 import re
-from typing import List
 
 class ConventionScrapper2021():
     
-    _bad_keys = [
-        "6- Salari\u00e9s non cadres et cadres int\u00e9gr\u00e9s",
-        "4- LA REDUCTION DU TEMPS DE TRAVAIL",
-        "SOUS FORME DE JOURS DE REPOS SUR L\u2019ANNEE"
-    ]    
-    _bad_key_words = [
-        "On ne peut employer"
-    ]
-    
-    _last_category = None
+    _document_version:str=None
+    _document_version_data:dict=None
+    _document_name:str=None
 
     def __init__(self):
         ...
@@ -50,27 +40,6 @@ class ConventionScrapper2021():
         return text.strip()
     
 
-    def parse_french_date(self,date_str):
-        # Remove 'er', 'e', etc. from day
-        day_str = re.match(r"(\d+)", date_str).group(1)
-        
-        # Replace French month names with numbers
-        months = {
-            "janvier": 1, "février": 2, "fevrier": 2, "mars": 3, "avril": 4,
-            "mai": 5, "juin": 6, "juillet": 7, "août": 8, "aout": 8,
-            "septembre": 9, "octobre": 10, "novembre": 11, "décembre": 12, "decembre": 12
-        }
-        
-        # Extract month and year
-        match = re.search(r"\d+\w* (\w+) (\d{4})", date_str)
-        if not match:
-            return None
-        month_str, year_str = match.groups()
-        month = months.get(month_str.lower())
-        year = int(year_str)
-        day = int(day_str)
-        
-        return datetime(year, month, day).date()
     
     def parse_convention_first_page(self,text:str)->dict:
         data = {}
@@ -84,7 +53,7 @@ class ConventionScrapper2021():
         # Extract date of extension
         extended_match = re.search(r"Etendue par arrêté le (\d{1,2} \w+ \d{4})", text)
         if extended_match:
-            data["extended_by_order"] = self.parse_french_date(extended_match.group(1).strip())
+            data["extended_by_order"] = parse_french_date(extended_match.group(1).strip())
 
         # Extract IDCC
         idcc_match = re.search(r"IDCC\s*:\s*(\d+)", text)
@@ -99,7 +68,7 @@ class ConventionScrapper2021():
         # Extract consolidated version date (fix for ordinals like '1er')
         version_match = re.search(r"Version consolidée au (\d+\w* \w+ \d{4})", text)
         if version_match:
-            data["version_consolidated"] = self.parse_french_date(version_match.group(1).strip())
+            data["version_consolidated"] = str(parse_french_date(version_match.group(1).strip()))
 
         # Extract note
         note_match = re.search(r"En italique\s*:\s*(.*)", text)
@@ -124,9 +93,11 @@ class ConventionScrapper2021():
         '''
         
         data = self.parse_convention_first_page(_text)
-        print(data)
+        self._document_version_data = data
         
         version = f"IDCC-{data['IDCC']}_B-{data['brochure_number']}_{data['version_consolidated']}"
+        self._document_version = version
+        
         return version
 
 
@@ -137,6 +108,7 @@ class ConventionScrapper2021():
         if not os.path.exists(_pdf):
             print("Error pdf does not exist:", _pdf)
             return {}
+        self._document_name = os.path.basename(_pdf)
         
         article_parser = ArticleParser()
         
@@ -160,11 +132,38 @@ class ConventionScrapper2021():
         article_parser.parse_jobs()
             
         final_data =  article_parser.get_dict()
+        
+        
+        
             
         # Save JSON with UTF-8 encoding
         if _output_json_path:
-            with open(_output_json_path, "w", encoding="utf-8") as file:
-                json.dump(final_data, file, ensure_ascii=False, indent=2)
+            output_foler = os.path.dirname(_output_json_path)
+            for key in ["articles","jobs","categories","filieres"]:
+                version_folder = output_foler+"/convention_V"+(self._document_version_data.get('version_consolidated') or "default")
+                os.makedirs(version_folder,exist_ok=True)
+                json_path = version_folder+"/"+self.format_json_name(key)+'.json'
+                with open(json_path, "w", encoding="utf-8") as file:
+                    json.dump(final_data.get(key), file, ensure_ascii=False, indent=2)
 
         return final_data
   
+    
+    def format_json_name(self,_table_name)->str:
+            print(self._document_version_data)
+            return "_".join([
+                "ccfpa",
+                _table_name
+            ])
+
+    ''''
+            "fonction": "Mouleur volume",
+            "version_feminisee": "Mouleuse volume",
+            "category": "IV",
+            "definition": "Fabrique les moules et les versions d\u00e9finitives des objets et personnages dans les mat\u00e9riaux retenus.",
+            "nom": "Mouleur volume",
+            "salaire_brut_mensuel": 1624.0,
+            "salaire_brut_journalier": 82.45,
+            "id": "2ac2b7ba"
+
+    '''

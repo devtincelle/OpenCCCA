@@ -245,7 +245,7 @@ class ArticleParser():
         }
         for key,article in self._articles.items():
             data =  article.get_dict()
-            #table["articles"].append( data)        
+            table["articles"].append( data)        
         for j in self._jobs:
             table["jobs"].append(asdict(j))
                 
