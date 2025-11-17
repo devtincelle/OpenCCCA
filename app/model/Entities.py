@@ -16,6 +16,20 @@ class Convention:
     sectors: Optional[List['Sector']] = field(default_factory=list)
     source:str=None
     
+    def get_dict(self)->dict:
+        table = {}
+        table["id"]=self.id
+        table["name"]=self.name
+        table["source"]=self.source
+        table["version_name"]=self.version_name
+        table["version_data"]=self.version_data
+        table["articles"]=[ item.get_dict() for item in self.articles],
+        table["categories"]=[ asdict(item) for item in self.categories],
+        table["jobs"]=[ asdict(item) for item in self.jobs],
+        table["filieres"]=[ asdict(item) for item in self.filieres],
+        table["sectors"]=[ asdict(item) for item in self.sectors]
+        return table
+    
     
 class Article():
     def __init__(self,_start_line=None):

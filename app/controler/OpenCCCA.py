@@ -50,7 +50,7 @@ class OpenCCCA():
         # join a copy of the pdf with the export 
         pdf_copy = output_folder+"/"+os.path.basename(self._pdf)
         if os.path.exists(pdf_copy) ==False:
-            shutil.copy(self._pdf)
+            shutil.copy(self._pdf,pdf_copy)
         
         return True
     

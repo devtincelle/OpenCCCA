@@ -18,7 +18,7 @@ class ConventionScrapper2021():
             return {}
     
         convention = ConventionParser().parse(_pdf)
-        final_data =  asdict(convention)
+        final_data =  convention.get_dict()
 
         return final_data
   
