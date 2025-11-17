@@ -1,8 +1,7 @@
 
 import re
-import unicodedata
-from GuessContext import GuessContext
-from Utils import to_english
+from model.GuessContext import GuessContext
+from utils.Utils import to_english
 
 class ValueParser():
     

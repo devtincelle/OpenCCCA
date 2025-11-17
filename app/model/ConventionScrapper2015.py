@@ -8,7 +8,7 @@ import os
 import unicodedata
 import re
 from datetime import datetime
-from TableParser import TableParser
+from model.TableParser import TableParser
 
 class ConventionScrapper2015():
     

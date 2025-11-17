@@ -1,15 +1,11 @@
-from ValueParser import ValueParser
-from Entities import Filiere,Table,Job
-from GuessContext import GuessContext
-import json
+from model.ValueParser import ValueParser
+from model.Entities import Filiere,Table,Job
+from model.GuessContext import GuessContext
 from dataclasses import fields
-
-import pandas as pd
-from typing import List, Any
-import re
+from typing import List
 
 import hashlib
-from Utils import to_english
+from utils.Utils import to_english
 
 
 

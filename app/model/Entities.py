@@ -1,11 +1,22 @@
-
-import re
 from dataclasses import dataclass,field,fields,asdict
-from typing import Any, Iterator,List,Optional
-from Utils import to_english,clean_text,serialize
+from typing import Any, Iterator,List,Optional,Dict
+from utils.Utils import to_english,clean_text,serialize
 
 
-
+@dataclass
+class Convention:
+    id: Optional[int] = None
+    name: Optional[str] = None
+    version_name: Optional[str] = None
+    version_data: Optional[Dict] = field(default_factory=dict)
+    articles: Optional[List['Article']] = field(default_factory=list)
+    jobs: Optional[List['Article']] = field(default_factory=list)
+    categories: Optional[List['Category']] = field(default_factory=list)
+    filieres: Optional[List['Filiere']] = field(default_factory=list)
+    sectors: Optional[List['Sector']] = field(default_factory=list)
+    source:str=None
+    
+    
 class Article():
     def __init__(self,_start_line=None):
         self.name = None

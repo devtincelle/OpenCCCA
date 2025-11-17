@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rôles</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        pre { margin: 0; white-space: pre-wrap; }
+
+        th {
+            position: relative;
+        }
+
+        th div {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des fonctions</h1>
+    <table id = "rolesTable">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Fonction</th>
+                <th>Version féminisée</th>
+                <th>Catégorie</th>
+                <th>Définition</th>
+                <th>Salaire mensuel</th>
+                <th>Salaire journalier</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for name, details in roles.items() %}
+            <tr>
+                <td>{{ name }}</td>
+                <td>{{ details.fonction }}</td>
+                <td><pre>{{ details.get('version féminisée', '') }}</pre></td>
+                <td>{{ details.get('category', '') }}</td>
+                <td><pre>{{ details.get('definition', '') }}</pre></td>
+                <td>{{ details.get('salaire_brut_mensuel', '') }}</td>
+                <td>{{ details.get('salaire_brut_journalier', '') }}</td>
+                <td>{{ details.id }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const table = document.getElementById("rolesTable");
+            const headers = table.querySelectorAll("th");
+            let sortColumn = -1;
+            let ascending = true;
+
+            headers.forEach((header, index) => {
+                header.addEventListener("click", () => {
+                    console.log(header)
+                    const tbody = table.querySelector("tbody");
+                    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+                    // Clear other sorted classes
+                    headers.forEach(h => h.classList.remove("sorted-asc", "sorted-desc"));
+
+                    // Toggle sort direction if same column
+                    if (sortColumn === index) {
+                        ascending = !ascending;
+                    } else {
+                        sortColumn = index;
+                        ascending = true;
+                    }
+
+                    header.classList.add(ascending ? "sorted-asc" : "sorted-desc");
+
+                    rows.sort((a, b) => {
+                        const cellA = a.children[index].textContent.trim();
+                        const cellB = b.children[index].textContent.trim();
+
+                        const numA = parseFloat(cellA.replace(',', '.'));
+                        const numB = parseFloat(cellB.replace(',', '.'));
+                        const isNumber = !isNaN(numA) && !isNaN(numB);
+
+                        if (isNumber) {
+                            return ascending ? numA - numB : numB - numA;
+                        }
+
+                        return ascending
+                            ? cellA.localeCompare(cellB, 'fr', { sensitivity: 'base' })
+                            : cellB.localeCompare(cellA, 'fr', { sensitivity: 'base' });
+                    });
+
+                    // Append sorted rows
+                    rows.forEach(row => tbody.appendChild(row));
+                });
+            });
+
+            // === Column Resizing ===
+            headers.forEach((th, index) => {
+                const resizer = document.createElement("div");
+                resizer.style.width = "5px";
+                resizer.style.height = "100%";
+                resizer.style.position = "absolute";
+                resizer.style.top = 0;
+                resizer.style.right = 0;
+                resizer.style.cursor = "col-resize";
+                resizer.style.userSelect = "none";
+                resizer.style.zIndex = 1;
+
+                th.style.position = "relative";
+                th.appendChild(resizer);
+
+                resizer.addEventListener("mousedown", function (e) {
+                    e.preventDefault();
+                    const startX = e.pageX;
+                    const startWidth = th.offsetWidth;
+
+                    const onMouseMove = function (e) {
+                        const newWidth = startWidth + (e.pageX - startX);
+                        th.style.width = newWidth + "px";
+                        // Apply to all cells in the same column
+                        table.querySelectorAll("tr").forEach(row => {
+                            if (row.children[index]) {
+                                row.children[index].style.width = newWidth + "px";
+                            }
+                        });
+                    };
+
+                    const onMouseUp = function () {
+                        document.removeEventListener("mousemove", onMouseMove);
+                        document.removeEventListener("mouseup", onMouseUp);
+                    };
+
+                    document.addEventListener("mousemove", onMouseMove);
+                    document.addEventListener("mouseup", onMouseUp);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
