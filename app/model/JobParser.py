@@ -8,9 +8,8 @@ import hashlib
 from utils.Utils import to_english
 
 
-# old class replaced by JobParser
 
-class TableParser():
+class JobParser():
     
     _parser = ValueParser()
     _known_headers = [

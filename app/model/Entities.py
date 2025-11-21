@@ -174,8 +174,8 @@ class Job:
     daily_salary: Optional[float] = None
     weekly_salary: Optional[float] = None
     is_cadre: Optional[bool] = None
-    source:str=None
-    parsing_id:int=None
+    source:Optional[str]=None
+    parsing_id:Optional[int]=None
     
     @property
     def id(self):

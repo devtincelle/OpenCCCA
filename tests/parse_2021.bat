@@ -6,7 +6,7 @@ REM Go to project root (one directory up from tests)
 cd /d "%SCRIPT_DIR%.."
 
 set pdf="resources/la-convention-collective-nationale-de-lanimation-et-la-grille-des-minima.pdf"
-set output_folder="D:\1_TRAVAIL\WEB\wamp64\www\CCCA\wp-content\plugins\CCPFA\data\source"
+set output_folder="export"
 
 REM Activate the virtual environment
 call .venv\Scripts\activate.bat 

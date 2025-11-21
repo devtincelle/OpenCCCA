@@ -1,6 +1,6 @@
 
 import re
-from model.TableParser import TableParser
+from model.JobParser import JobParser
 from model.ValueParser import ValueParser
 from model.Entities import Article,Filiere,Table,Job,Category,Convention,Sector
 from utils.Utils import to_english,clean_text,parse_french_date
@@ -21,7 +21,7 @@ class ConventionParser():
     _last_article_key = None
     _document_lines = []
     _line = -1
-    _table_parser=TableParser()
+    _job_parser=JobParser()
     _value_parser=ValueParser()
     _document_version:str =None
     _document_version_data:dict=None
@@ -297,7 +297,7 @@ class ConventionParser():
                 table_counter +=1
                 table.table_number = table_counter
                 table.article = article.get_key()
-                jobs = self._table_parser.parse_jobs(table)
+                jobs = self._job_parser.parse_jobs(table)
                 # connect job to filiere according to job title string 
                 for job in jobs:
                     job.source = self._document_version
@@ -322,11 +322,11 @@ class ConventionParser():
                     merged[job.id] = job
                 else:                        # merge into the representative
                     merged[rep.id] = rep.merge_with(job)
-        for job in self._jobs:
-            job.parsing_id = self._parsing_id
 
         unique_list = list(merged.values())
         self._jobs = unique_list
+        for job in self._jobs:
+            job.parsing_id = self._parsing_id
         return unique_list
             
     def parse_filiere_from_line(self,_line:str)->Filiere:
