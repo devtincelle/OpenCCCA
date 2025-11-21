@@ -14,6 +14,7 @@ class Convention:
     categories: Optional[List['Category']] = field(default_factory=list)
     filieres: Optional[List['Filiere']] = field(default_factory=list)
     sectors: Optional[List['Sector']] = field(default_factory=list)
+    parsing_id:int=None
     source:str=None
     
     def get_dict(self)->dict:
@@ -45,6 +46,7 @@ class Article():
         self.coord = None
         self.source:str=None
         self.pages = []
+        self.parsing_id:int=None
 
     def __str__(self)->str:
         return f"<ARTICLE : {self.number } {self.title} --- {self.body[:20]}....{len(self.body)} >"
@@ -97,6 +99,7 @@ class Filiere:
     slug: Optional[str] = None
     article: Optional[str] = None
     source:str=None
+    parsing_id:int=None
     
     @property
     def id(self):
@@ -143,6 +146,7 @@ class Category():
     number:str=None
     key:str=None
     article:str=None
+    parsing_id:int=None
     
 @dataclass
 class Sector():
@@ -151,6 +155,7 @@ class Sector():
     number:str=None
     key:str=None 
     article:str=None
+    parsing_id:int=None
        
 @dataclass
 class Job:
@@ -170,6 +175,8 @@ class Job:
     weekly_salary: Optional[float] = None
     is_cadre: Optional[bool] = None
     source:str=None
+    parsing_id:int=None
+    
     @property
     def id(self):
         return self.get_slug()

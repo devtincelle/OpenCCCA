@@ -59,7 +59,7 @@ class ConventionParser():
         self._build_article_list()
         
         convention = Convention(
-            id=self._parsing_id,
+            parsing_id=self._parsing_id,
             articles=self._articles,
             jobs=self._jobs,
             categories=self._categories,
@@ -164,6 +164,7 @@ class ConventionParser():
             article = Article(_start_line)
             article.title = titre.replace(".","")
             article.number = numero
+            article.parsing_id = self._parsing_id
             articles.append(article)
         
         return articles
@@ -258,6 +259,7 @@ class ConventionParser():
                 line_number+=1
                 filiere = self.parse_filiere_from_line(line)
                 if filiere:
+                    filiere.parsing_id = self._parsing_id
                     filiere.article = article.get_key()
                     filiere.start_line = line_number
                     filiere.source = self._document_version
@@ -320,6 +322,8 @@ class ConventionParser():
                     merged[job.id] = job
                 else:                        # merge into the representative
                     merged[rep.id] = rep.merge_with(job)
+        for job in self._jobs:
+            job.parsing_id = self._parsing_id
 
         unique_list = list(merged.values())
         self._jobs = unique_list
