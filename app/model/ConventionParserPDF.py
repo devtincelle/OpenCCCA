@@ -10,7 +10,7 @@ import pdfplumber
 import os
 import uuid
 
-class ConventionParser():
+class ConventionParserPDF():
     
     _article_table:dict = {}
     _articles:List[Article] = []

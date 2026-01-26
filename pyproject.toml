@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "OpenCCCA"
 version = "0.1.0"
-description = "Scrap data from legal pdf job document (french animation industry) "
+description = "Scrap data from legal pdf and html job document (french animation industry) "
 authors = [
   {name="Alexandre Cormier", email="contat@alexandrecormier.com"}
 ]
@@ -13,8 +13,21 @@ readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
 dependencies = [
-    "pdfplumber"
+  beautifulsoup4==4.14.3,
+  bs4==0.0.2,
+  cffi==2.0.0,
+  charset-normalizer==3.4.4,
+  cryptography==46.0.3,
+  Jinja2==3.1.6,
+  MarkupSafe==3.0.3,
+  pdfminer.six==20251107,
+  pdfplumber==0.11.8,
+  pillow==12.0.0,
+  pycparser==2.23,
+  pypdfium2==5.0.0,
+  soupsieve==2.8.3,
+  typing_extensions==4.15.0
 ]
 
 [tool.setuptools.packages.find]
-where = ["app"]
+where = ["src"]

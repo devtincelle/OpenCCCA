@@ -1,18 +1,27 @@
 
 
 from utils.PathManager import PathManager
-from model.ConventionScrapper2015 import ConventionScrapper2015
+#from model.ConventionScrapper2015 import ConventionScrapper2015
 from model.ConventionScrapper2021 import ConventionScrapper2021
+from model.ConventionScrapper2024 import ConventionScrapper2024
+from model.ConventionScrapperAbstract import ConventionScrapperAbstract
 from view.ConventionViewBuilder import ConventionViewBuilder
 import os
 import json
 import shutil
+from typing import Dict
 
 class OpenCCCA():
     
-    _scrapper:ConventionScrapper2021= ConventionScrapper2021()
+    _scrapper:ConventionScrapperAbstract= None
     _builder:ConventionViewBuilder= ConventionViewBuilder()
     _paths:PathManager = PathManager()
+    
+    _conventions_files:Dict[str,dict]= {
+        "2015":"CCN_production_animation_consolidee_01032015.pdf",
+        "2021":"la-convention-collective-nationale-de-lanimation-et-la-grille-des-minima.pdf",
+        "2024":"gov_site_copypaste.html"
+    }
     
 
     def __init__(self):
@@ -29,16 +38,40 @@ class OpenCCCA():
                     "ccfpa",
                     _table_name
                 ])
+                
 
-
-    def export_json(self,_output_folder:str=None,_pdf:str=None,):
+    def _get_scrapper(self,_year:str,_file:str)->ConventionScrapperAbstract:
+        extension = _file.split(".")[-1]
+        if extension == "pdf":
+            if _year=="2015":
+                ...
+                #return ConventionScrapper2015            
+            if _year=="2021":
+                return ConventionScrapper2021()
+        if extension == "html":
+            if _year=="2024":
+                return ConventionScrapper2024()
+        return ConventionScrapperAbstract()
         
-        self._pdf = _pdf or self._paths.get_data_folder()+"/la-convention-collective-nationale-de-lanimation-et-la-grille-des-minima.pdf"
-        output_folder = _output_folder or self._paths.get_export_folder()
-        ...
 
-        data = OpenCCCA._scrapper.parse(self._pdf)
+
+    def export_json(self,_output_folder:str=None,_year:str="2024",_file=None):
+        
+        file = _file or self._paths.get_data_folder()+"/"+OpenCCCA._conventions_files.get(_year)
+        file = file.replace("\\","/")
+        output_folder = _output_folder or self._paths.get_export_folder()
+        
+        print(file)
+
+        scrapper = self._get_scrapper(_year,file)
+        print(scrapper)
+        data = scrapper.parse(file)
        # Save JSON with UTF-8 encoding
+       
+        print(data)
+        
+        if not data :
+            return 
        
         version_folder = output_folder+"/convention_V"+(data.get("version_data").get('version_consolidated') or "default")
         for key in ["articles","jobs","categories","filieres"]:
@@ -47,10 +80,10 @@ class OpenCCCA():
             with open(json_path, "w", encoding="utf-8") as file:
                 json.dump(data.get(key), file, ensure_ascii=False, indent=2)
                 
-        # join a copy of the pdf with the export 
-        pdf_copy = output_folder+"/"+os.path.basename(self._pdf)
+        # join a copy of the source with the export 
+        pdf_copy = output_folder+"/"+os.path.basename(file)
         if os.path.exists(pdf_copy) ==False:
-            shutil.copy(self._pdf,pdf_copy)
+            shutil.copy(file,pdf_copy)
         
         return True
     

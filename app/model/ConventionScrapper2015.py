@@ -8,9 +8,9 @@ import os
 import unicodedata
 import re
 from datetime import datetime
-from model.TableParser import TableParser
-
-class ConventionScrapper2015():
+from model.JobParser import TableParser
+from model.ConventionScrapperAbstract import ConventionScrapperAbstract
+class ConventionScrapper2015(ConventionScrapperAbstract):
     
     _bad_keys = [
         "6- Salari\u00e9s non cadres et cadres int\u00e9gr\u00e9s",
@@ -160,12 +160,12 @@ class ConventionScrapper2015():
         version = f"IDCC-{data['IDCC']}_B-{data['brochure_number']}_{data['version_consolidated']}"
         return version
 
-    def parse(self, _pdf: str = None, _output_json_path: str = None) -> dict:
-        if not _pdf:
+    def parse(self, file: str = None) -> dict:
+        if not file:
             print("Error pdf is None")
             return {}
-        if not os.path.exists(_pdf):
-            print("Error pdf does not exist:", _pdf)
+        if not os.path.exists(file):
+            print("Error pdf does not exist:", file)
             return {}
         
         filieres = []
@@ -175,7 +175,7 @@ class ConventionScrapper2015():
         document_version_string = None
         
         
-        with pdfplumber.open(_pdf) as pdf:
+        with pdfplumber.open(file) as pdf:
             last_headers = None
             current_filiere = None
             page_number = 0
@@ -251,13 +251,7 @@ class ConventionScrapper2015():
         final_data["jobs"] = clean_table
         final_data["filieres"] = [ f["name"] for f in filieres ]
         final_data["categories"] = categories
-        
-
-        # Save JSON with UTF-8 encoding
-        if _output_json_path:
-            with open(_output_json_path, "w", encoding="utf-8") as file:
-                json.dump(final_data, file, ensure_ascii=False, indent=2)
-
+    
         return final_data
 
     def is_category(self,text):

@@ -4,20 +4,20 @@
 
 import os
 from dataclasses import asdict
-from model.ConventionParser import ConventionParser
+from model.ConventionParserPDF  import ConventionParserPDF
+from model.ConventionScrapperAbstract import ConventionScrapperAbstract
+class ConventionScrapper2021(ConventionScrapperAbstract):
 
-class ConventionScrapper2021():
-
-    def parse(self, _pdf: str = None) -> dict:
+    def parse(self, file: str = None) -> dict:
         
-        if not _pdf:
+        if not file:
             print("Error pdf is None")
             return {}
-        if not os.path.exists(_pdf):
-            print("Error pdf does not exist:", _pdf)
+        if not os.path.exists(file):
+            print("Error pdf does not exist:", file)
             return {}
     
-        convention = ConventionParser().parse(_pdf)
+        convention = ConventionParserPDF().parse(file)
         final_data =  convention.get_dict()
 
         return final_data

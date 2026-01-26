@@ -10,7 +10,7 @@ class Convention:
     version_name: Optional[str] = None
     version_data: Optional[Dict] = field(default_factory=dict)
     articles: Optional[List['Article']] = field(default_factory=list)
-    jobs: Optional[List['Article']] = field(default_factory=list)
+    jobs: Optional[List['Job']] = field(default_factory=list)
     categories: Optional[List['Category']] = field(default_factory=list)
     filieres: Optional[List['Filiere']] = field(default_factory=list)
     sectors: Optional[List['Sector']] = field(default_factory=list)
