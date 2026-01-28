@@ -5,7 +5,11 @@ from utils.Utils import to_english
 
 class ValueParser():
     
-    def __init__(self):
+    
+    source_type:str = "pdf"
+    
+    def __init__(self,source_type="pdf"):
+        self.source_type = source_type
         self._conform_table:dict = {
             "job_title":self._split_genders,
             "job_title_male":self._lower_capitalise,
@@ -52,6 +56,13 @@ class ValueParser():
             return False
         return self._is_paragraph(context)
     
+    def _contains_link_words(self,_text:str)->bool:
+            link_words = [" de "," une "," ou "," qui "," le "," un "," avec "]
+            for w in link_words:
+                if w in _text:
+                    return True
+            return False
+    
     def _is_paragraph(self,context:GuessContext=None):
         """
         Returns True if the string looks like a paragraph:
@@ -60,9 +71,15 @@ class ValueParser():
         """
         s_clean = context.value.strip()
         
+        if "Emplois qui requièrent" in s_clean:
+            return False 
+        
         # Minimum length threshold
         if len(s_clean) < 40:
-            return False
+            return self._contains_link_words(s_clean)
+                
+        if self._contains_link_words(s_clean):
+            return True
         
         if context.column_index:
             if context.column_index <3:
@@ -97,7 +114,9 @@ class ValueParser():
     def _from_admin_table(self,context:GuessContext=None):
         if context.table_number:
             return context.table_number in [1,2,3] and context.nb_columns < 20
-        return False
+        return False   
+    def _from_html_table(self,context:GuessContext=None):
+        return context.source == "html"
         
     def _is_female_job_title(self,context:GuessContext=None):
         if self._from_admin_table(context)==False:
@@ -123,9 +142,9 @@ class ValueParser():
         if len(s_clean)<2:
             return False
         
-        if self._from_admin_table(context):
+        if self._from_admin_table(context) or self.source_type=="html":
             is_capitalised = bool(self.is_upper(s_clean[0]) and self.is_upper(s_clean[1])==False)
-            return is_capitalised and self._is_roman_AB(context)==False
+            return is_capitalised and self._is_roman_AB(context)==False and self._is_paragraph(context) ==False
         
         is_uppercase =  re.match(pattern, s_clean) 
         return bool(

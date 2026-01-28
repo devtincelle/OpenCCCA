@@ -1,0 +1,81 @@
+[
+  [
+    {
+      "start_line": null,
+      "name": "Filière 1 administrative et commerciale",
+      "number": null,
+      "page_number": null,
+      "text": "Filière 1 administrative et commerciale",
+      "slug": "filiere1administrativeetcommerciale",
+      "article": null,
+      "source": "legifrance",
+      "parsing_id": 8071183
+    },
+    {
+      "start_line": null,
+      "name": "Filière 2 tronc commun",
+      "number": null,
+      "page_number": null,
+      "text": "Filière 2 tronc commun",
+      "slug": "filiere2tronccommun",
+      "article": null,
+      "source": "legifrance",
+      "parsing_id": 8071183
+    },
+    {
+      "start_line": null,
+      "name": "Filière 3 animation 2D",
+      "number": null,
+      "page_number": null,
+      "text": "Filière 3 animation 2D",
+      "slug": "filiere3animation2d",
+      "article": null,
+      "source": "legifrance",
+      "parsing_id": 8071183
+    },
+    {
+      "start_line": null,
+      "name": "Filière 4 animation 3D",
+      "number": null,
+      "page_number": null,
+      "text": "Filière 4 animation 3D",
+      "slug": "filiere4animation3d",
+      "article": null,
+      "source": "legifrance",
+      "parsing_id": 8071183
+    },
+    {
+      "start_line": null,
+      "name": "Filière 5 volume",
+      "number": null,
+      "page_number": null,
+      "text": "Filière 5 volume",
+      "slug": "filiere5volume",
+      "article": null,
+      "source": "legifrance",
+      "parsing_id": 8071183
+    },
+    {
+      "start_line": null,
+      "name": "Filière 6 motion capture",
+      "number": null,
+      "page_number": null,
+      "text": "Filière 6 motion capture",
+      "slug": "filiere6motioncapture",
+      "article": null,
+      "source": "legifrance",
+      "parsing_id": 8071183
+    },
+    {
+      "start_line": null,
+      "name": "Filière 7 artiste de complément",
+      "number": null,
+      "page_number": null,
+      "text": "Filière 7 artiste de complément",
+      "slug": "filiere7artistedecomplement",
+      "article": null,
+      "source": "legifrance",
+      "parsing_id": 8071183
+    }
+  ]
+]

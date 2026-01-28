@@ -19,7 +19,7 @@ class ConventionScrapper2024(ConventionScrapperAbstract):
                 print("Error file is None")
                 return {}
             
-            with open(file,"r") as f:
+            with open(file,"r", encoding="utf-8") as f:
                 html = f.read()
                 convention = ConventionParserHTML().parse(html)
                 final_data =  convention.get_dict()

@@ -8,10 +8,15 @@ from model.Entities import Article,Filiere,Table,Job,Category,Convention,Sector
 import uuid
 import re
 from bs4 import BeautifulSoup
+from model.JobParser import JobParser
+from model.ValueParser import ValueParser
 from typing import Optional, List
 from utils.Utils import to_english,clean_text,parse_french_date,serialize
 
 class ConventionParserHTML:
+    
+    value_parser = ValueParser("html")
+    job_parser = JobParser("html")
 
     def __init__(self):
         self._parsing_id = int(uuid.uuid4().int % 10_000_000)
@@ -42,6 +47,8 @@ class ConventionParserHTML:
             if node.name == "p" and "salaires minima" in node.text.lower():
                 current_contract_type = node.text.strip()
                 continue
+            
+            current_sector = None
 
             # -------- Tables
             if node.name == "table":
@@ -49,6 +56,7 @@ class ConventionParserHTML:
                 table = self._parse_table(
                     node,
                     table_index,
+                    current_sector,
                     current_filiere,
                     current_contract_type,
                     convention
@@ -89,6 +97,7 @@ class ConventionParserHTML:
         self,
         table_html,
         table_number: int,
+        sector:Sector,
         filiere: Filiere,
         contract_type: str,
         convention: Convention
@@ -112,11 +121,14 @@ class ConventionParserHTML:
         )
 
         table = table.clean()
+        
+        
 
         self._extract_jobs_from_table(
             table,
             headers,
             filiere,
+            sector,
             convention
         )
 
@@ -131,54 +143,22 @@ class ConventionParserHTML:
         table: Table,
         headers: list[str],
         filiere: Filiere,
+        sector: Sector,
         convention: Convention
     ):
 
         current_sector = None
         current_category = None
+        
+        jobs = self.job_parser.parse_jobs(table)
+        
+        print(jobs)
+        
+        for job in jobs:
+            job.filiere = filiere
+            job.sector = sector
+            convention.jobs.append(job)
 
-        for row in table.rows[1:]:
-            if len(row) < 3:
-                continue
-
-            col = 0
-
-            # ---- Sector
-            if self._looks_like_sector(row[col]):
-                current_sector = self._get_or_create_sector(row[col], convention)
-                col += 1
-
-            # ---- Job title
-            job_title = row[col]
-            col += 1
-
-            # ---- Position (optional)
-            position = None
-            if "Position" in headers:
-                position = row[col] or None
-                col += 1
-
-            # ---- Category
-            current_category = self._get_or_create_category(row[col], convention)
-            col += 1
-
-            salary_data = row[col:]
-
-            job = Job(
-                key=serialize(job_title),
-                job_title={"male": job_title, "female": None},
-                category=current_category.name if current_category else None,
-                position=position,
-                sector=current_sector.name if current_sector else None,
-                filiere=filiere.name if filiere else None,
-                source=convention.source,
-                parsing_id=self._parsing_id
-            )
-
-            self._assign_salary(job, headers[col:], salary_data)
-
-            if job not in convention.jobs:
-                convention.jobs.append(job)
 
     # --------------------------------------------------
     # Salary mapping

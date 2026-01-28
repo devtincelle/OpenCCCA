@@ -10,7 +10,7 @@ class PathManager():
         return self._root+"/app/view/templates"
 
     def get_data_folder(self):
-        return self._root+"/resources"
+        return self._root+"/../resources"
     
     def get_export_folder(self):
         return self._root+"/export"

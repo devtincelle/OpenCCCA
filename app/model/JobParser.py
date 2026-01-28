@@ -12,10 +12,15 @@ from utils.Utils import to_english
 class JobParser():
     
     _parser = ValueParser()
+    source_type = "pdf"
     _known_headers = [
         "Responsabilité",
         "Responsabilité"
     ]
+    
+    def __init__(self,source_type:str="pdf"):
+        self.source_type = source_type
+        self._parser.source_type = source_type
     
     def _hash(self,_thing)->str:
         return str(int(hashlib.sha1(_thing.encode("utf-8")).hexdigest(), 16) % (10 ** 8))
@@ -44,6 +49,9 @@ class JobParser():
             row_number+=1
             
             tslice = self.parse_slice(row,row_number,table_number)
+            
+            print("-------------------------------------------------------------------------------------")
+            print(tslice)
             
             
             if not tslice:
@@ -160,6 +168,7 @@ class JobParser():
     def parse_slice(self,row:list,row_number:int=None,table_number:int=None)->dict:
         data = {}
         column_index=-1
+        print(row)
         for value in row:
             if self.is_header(value):
                 return None
@@ -174,6 +183,8 @@ class JobParser():
                 nb_columns=len(row)
             )
             key = self._parser.guess_key(context)
+            print(context)
+            print(key)
             if key:
                 if data.get(key) and isinstance(data.get(key),str):
                     ...
