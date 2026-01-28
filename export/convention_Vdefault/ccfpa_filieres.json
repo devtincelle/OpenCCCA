@@ -2,80 +2,94 @@
   [
     {
       "start_line": null,
-      "name": "Filière 1 administrative et commerciale",
-      "number": null,
+      "name": "1 administrative et commerciale",
+      "number": 1,
       "page_number": null,
-      "text": "Filière 1 administrative et commerciale",
-      "slug": "filiere1administrativeetcommerciale",
+      "text": null,
+      "slug": "1-a",
       "article": null,
       "source": "legifrance",
-      "parsing_id": 8071183
+      "parsing_id": [
+        7366985
+      ]
     },
     {
       "start_line": null,
-      "name": "Filière 2 tronc commun",
-      "number": null,
+      "name": "2 tronc commun",
+      "number": 2,
       "page_number": null,
-      "text": "Filière 2 tronc commun",
-      "slug": "filiere2tronccommun",
+      "text": null,
+      "slug": "2-t",
       "article": null,
       "source": "legifrance",
-      "parsing_id": 8071183
+      "parsing_id": [
+        7366985
+      ]
     },
     {
       "start_line": null,
-      "name": "Filière 3 animation 2D",
-      "number": null,
+      "name": "3 animation 2d",
+      "number": 3,
       "page_number": null,
-      "text": "Filière 3 animation 2D",
-      "slug": "filiere3animation2d",
+      "text": null,
+      "slug": "3-a",
       "article": null,
       "source": "legifrance",
-      "parsing_id": 8071183
+      "parsing_id": [
+        7366985
+      ]
     },
     {
       "start_line": null,
-      "name": "Filière 4 animation 3D",
-      "number": null,
+      "name": "4 animation 3d",
+      "number": 4,
       "page_number": null,
-      "text": "Filière 4 animation 3D",
-      "slug": "filiere4animation3d",
+      "text": null,
+      "slug": "4-a",
       "article": null,
       "source": "legifrance",
-      "parsing_id": 8071183
+      "parsing_id": [
+        7366985
+      ]
     },
     {
       "start_line": null,
-      "name": "Filière 5 volume",
-      "number": null,
+      "name": "5 volume",
+      "number": 5,
       "page_number": null,
-      "text": "Filière 5 volume",
-      "slug": "filiere5volume",
+      "text": null,
+      "slug": "5-v",
       "article": null,
       "source": "legifrance",
-      "parsing_id": 8071183
+      "parsing_id": [
+        7366985
+      ]
     },
     {
       "start_line": null,
-      "name": "Filière 6 motion capture",
-      "number": null,
+      "name": "6 motion capture",
+      "number": 6,
       "page_number": null,
-      "text": "Filière 6 motion capture",
-      "slug": "filiere6motioncapture",
+      "text": null,
+      "slug": "6-m",
       "article": null,
       "source": "legifrance",
-      "parsing_id": 8071183
+      "parsing_id": [
+        7366985
+      ]
     },
     {
       "start_line": null,
-      "name": "Filière 7 artiste de complément",
-      "number": null,
+      "name": "7 artiste de complément",
+      "number": 7,
       "page_number": null,
-      "text": "Filière 7 artiste de complément",
-      "slug": "filiere7artistedecomplement",
+      "text": null,
+      "slug": "7-a",
       "article": null,
       "source": "legifrance",
-      "parsing_id": 8071183
+      "parsing_id": [
+        7366985
+      ]
     }
   ]
 ]

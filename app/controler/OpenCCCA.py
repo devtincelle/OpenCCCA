@@ -55,17 +55,17 @@ class OpenCCCA():
         
 
 
-    def export_json(self,_output_folder:str=None,_year:str="2024",_file=None):
+    def export_json(self,_output_folder:str=None,_year:str="2024",_file_path=None):
         
-        file = _file or self._paths.get_data_folder()+"/"+OpenCCCA._conventions_files.get(_year)
-        file = file.replace("\\","/")
+        file_path = _file_path or self._paths.get_data_folder()+"/"+OpenCCCA._conventions_files.get(_year)
+        file_path = file_path.replace("\\","/")
         output_folder = _output_folder or self._paths.get_export_folder()
         
-        print(file)
+        print(file_path)
 
-        scrapper = self._get_scrapper(_year,file)
+        scrapper = self._get_scrapper(_year,file_path)
         print(scrapper)
-        data = scrapper.parse(file)
+        data = scrapper.parse(file_path)
        # Save JSON with UTF-8 encoding
        
         print(data)
@@ -81,9 +81,9 @@ class OpenCCCA():
                 json.dump(data.get(key), file, ensure_ascii=False, indent=2)
                 
         # join a copy of the source with the export 
-        pdf_copy = output_folder+"/"+os.path.basename(file)
-        if os.path.exists(pdf_copy) ==False:
-            shutil.copy(file,pdf_copy)
+        source_copy = output_folder+"/"+os.path.basename(file_path)
+        if os.path.exists(source_copy) ==False:
+            shutil.copy(file_path,source_copy)
         
         return True
     

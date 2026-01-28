@@ -17,3 +17,5 @@ REM Deactivate the virtual environment
 call deactivate
 
 pause
+
+start "" %output_folder%

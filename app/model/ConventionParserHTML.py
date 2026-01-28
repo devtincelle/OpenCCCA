@@ -10,6 +10,7 @@ import re
 from bs4 import BeautifulSoup
 from model.JobParser import JobParser
 from model.ValueParser import ValueParser
+from model.FiliereParser import FiliereParser
 from typing import Optional, List
 from utils.Utils import to_english,clean_text,parse_french_date,serialize
 
@@ -17,6 +18,7 @@ class ConventionParserHTML:
     
     value_parser = ValueParser("html")
     job_parser = JobParser("html")
+    filiere_parser = FiliereParser("html")
 
     def __init__(self):
         self._parsing_id = int(uuid.uuid4().int % 10_000_000)
@@ -73,16 +75,11 @@ class ConventionParserHTML:
 
     def _parse_filiere(self, p, convention: Convention) -> Filiere:
         raw = clean_text(p.text)
-        match = re.match(r"Filière\s+(\d+)\s*:\s*(.+)", raw, re.I)
-
-        filiere = Filiere(
-            number=match.group(1) if match else None,
-            name=match.group(2) if match else raw,
-            slug=serialize(raw),
-            text=raw,
-            parsing_id=self._parsing_id,
-            source=convention.source
-        )
+        print(raw)
+        filiere = self.filiere_parser.parse_from_line(raw)
+        filiere.parsing_id=self._parsing_id,
+        filiere.source=convention.source
+    
 
         if filiere not in convention.filieres:
             convention.filieres.append(filiere)

@@ -2,6 +2,7 @@
 import re
 from model.JobParser import JobParser
 from model.ValueParser import ValueParser
+from model.FiliereParser import FiliereParser
 from model.Entities import Article,Filiere,Table,Job,Category,Convention,Sector
 from utils.Utils import to_english,clean_text,parse_french_date
 from typing import List,Dict
@@ -23,6 +24,7 @@ class ConventionParserPDF():
     _line = -1
     _job_parser=JobParser()
     _value_parser=ValueParser()
+    _filiere_parser=FiliereParser()
     _document_version:str =None
     _document_version_data:dict=None
     _document_name:str=None
@@ -257,7 +259,7 @@ class ConventionParserPDF():
             line_number = article.start_line-1
             for line in article.body:
                 line_number+=1
-                filiere = self.parse_filiere_from_line(line)
+                filiere = self._filiere_parser.parse_from_line(line)
                 if filiere:
                     filiere.parsing_id = self._parsing_id
                     filiere.article = article.get_key()
@@ -330,28 +332,9 @@ class ConventionParserPDF():
         return unique_list
             
     def parse_filiere_from_line(self,_line:str)->Filiere:
+        return self.filiere_parser.parse_from_line(_line)
 
-        if "Filière " not in _line:
-            return 
-        filieres = _line.split("Filière")
-        for f in filieres[1:]:
-            # split filiere number and name
-            parts = f.split(":", 1)
-            filiere_number = int(parts[0].strip())
-            filiere_name = clean_text(parts[1].split("\n")[0].strip())
-            filiere_key = clean_text(filiere_name).replace(" ","_")
-            corrections = {
-                "exploitation, maintenance et transfert de données":
-                "exploitation, maintenance et transfert des données"
-            }
-            if filiere_name in corrections:
-                filiere_name = corrections[filiere_name]
-            filiere = Filiere(
-                name=f"{filiere_number} {filiere_name}",
-                number=filiere_number,
-                slug=f"{filiere_number}-{filiere_key[0]}"
-            )
-            return filiere
+
         
 
     
