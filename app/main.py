@@ -16,5 +16,9 @@ if __name__=="__main__":
     output_folder = args.output_folder 
         
     openccca = OpenCCCA()
-    openccca.export_json(output_folder,year,input_file)
-    
+    if year is not None:
+        openccca.export_json(output_folder,year,input_file)
+    else:
+        for year in ["2015","2021","2024"]:
+            openccca.export_json(output_folder,year,input_file)
+        

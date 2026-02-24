@@ -1,9 +1,9 @@
 
 
 from utils.PathManager import PathManager
-#from model.ConventionScrapper2015 import ConventionScrapper2015
-from model.ConventionScrapper2021 import ConventionScrapper2021
-from model.ConventionScrapper2024 import ConventionScrapper2024
+from controler.ConventionScrapper2015 import ConventionScrapper2015
+from controler.ConventionScrapper2021 import ConventionScrapper2021
+from controler.ConventionScrapper2024 import ConventionScrapper2024
 from model.ConventionScrapperAbstract import ConventionScrapperAbstract
 from view.ConventionViewBuilder import ConventionViewBuilder
 import os
@@ -44,8 +44,7 @@ class OpenCCCA():
         extension = _file.split(".")[-1]
         if extension == "pdf":
             if _year=="2015":
-                ...
-                #return ConventionScrapper2015            
+                return ConventionScrapper2015()            
             if _year=="2021":
                 return ConventionScrapper2021()
         if extension == "html":

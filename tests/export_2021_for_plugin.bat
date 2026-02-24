@@ -8,7 +8,6 @@ cd /d "%SCRIPT_DIR%.."
 set year=2024
 
 set output_folder="D:\1_TRAVAIL\WEB\wamp64\www\CCCA\wp-content\plugins\CCPFA\data\source\%year%"
-mkdir %output_folder%
 
 REM Activate the virtual environment
 call .venv\Scripts\activate.bat 
