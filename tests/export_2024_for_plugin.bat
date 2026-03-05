@@ -5,9 +5,11 @@ set SCRIPT_DIR=%~dp0
 REM Go to project root (one directory up from tests)
 cd /d "%SCRIPT_DIR%.."
 
-set year=2024
+set year=all
 
-set output_folder=%SCRIPT_DIR%\output\%year%"
+set "output_folder=%SCRIPT_DIR%\output\%RANDOM%"
+mkdir %output_folder%
+set "output_folder=%output_folder%\%year%"
 mkdir %output_folder%
 
 REM Activate the virtual environment

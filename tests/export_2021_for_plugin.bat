@@ -7,7 +7,9 @@ cd /d "%SCRIPT_DIR%.."
 
 set year=2021
 
-set output_folder=%SCRIPT_DIR%\output\%year%"
+set "output_folder=%SCRIPT_DIR%\output\%RANDOM%"
+mkdir %output_folder%
+set "output_folder=%output_folder%\%year%"
 mkdir %output_folder%
 
 REM Activate the virtual environment
