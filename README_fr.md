@@ -156,7 +156,7 @@ CADRE_CATEGORIES        = {"IV", "V", "Hors catégorie"}
 
 ```bat
 cd tests
-run_test.bat
+export_all_years_for_plugin.bat
 ```
 
 Les résultats sont sauvegardés dans `tests/output/YYYYMMDD_HHMM/all/`.
