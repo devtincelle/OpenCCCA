@@ -11,3 +11,6 @@ todo :
 
 
     Ia model trained on data correction
+
+
+    TODO : bring back filieres and catégories 
