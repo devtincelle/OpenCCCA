@@ -5,7 +5,7 @@ set SCRIPT_DIR=%~dp0
 REM Go to project root (one directory up from tests)
 cd /d "%SCRIPT_DIR%.."
 
-set output_folder="D:\1_TRAVAIL\WEB\wamp64\www\CCCA\wp-content\plugins\CCPFA\data\source"
+set output_folder=%SCRIPT_DIR%\output\all"
 
 REM Activate the virtual environment
 call .venv\Scripts\activate.bat 

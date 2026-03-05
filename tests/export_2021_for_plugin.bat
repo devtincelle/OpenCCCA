@@ -7,7 +7,7 @@ cd /d "%SCRIPT_DIR%.."
 
 set year=2021
 
-set output_folder="D:\1_TRAVAIL\WEB\wamp64\www\CCCA\wp-content\plugins\CCPFA\data\source\%year%"
+set output_folder=%SCRIPT_DIR%\output\%year%"
 mkdir %output_folder%
 
 REM Activate the virtual environment
@@ -21,6 +21,6 @@ python app\main.py -y %year% -of %output_folder%
 REM Deactivate the virtual environment
 call deactivate
 
-
-echo.%output_folder%
 pause
+
+%output_folder%/ccfpa_jobs.json

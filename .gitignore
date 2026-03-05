@@ -6,3 +6,5 @@
 /src/__pycache__
 /.venv/Lib
 /.venv
+/tests/output/all
+/tests/output/2015

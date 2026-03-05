@@ -7,7 +7,7 @@ cd /d "%SCRIPT_DIR%.."
 
 set year=2015
 
-set output_folder="D:\1_TRAVAIL\WEB\wamp64\www\CCCA\wp-content\plugins\CCPFA\data\source\%year%"
+set output_folder=%SCRIPT_DIR%\output\%year%"
 mkdir %output_folder%
 
 REM Activate the virtual environment
@@ -22,3 +22,5 @@ REM Deactivate the virtual environment
 call deactivate
 
 pause
+
+%output_folder%\convention_V2015-03-01\ccfpa_jobs.json

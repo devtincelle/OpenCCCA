@@ -72,7 +72,7 @@ class OpenCCCA():
         if not data :
             return 
        
-        version_folder = output_folder+"/convention_V"+(data.get("version_data").get('version_consolidated') or "default")
+        version_folder = output_folder+"/convention_V"+(data.get("version_data").get('version_consolidated') or _year)
         for key in ["articles","jobs","categories","filieres"]:
             os.makedirs(version_folder,exist_ok=True)
             json_path = version_folder+"/"+self.format_json_name(key)+'.json'
