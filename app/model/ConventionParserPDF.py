@@ -79,7 +79,6 @@ class ConventionParserPDF():
         for key,article in self._article_table.items():
             if not article:
                 continue
-            print(article)
             self._articles.append(article)
     
     def parse_convention_first_page(self,text:str)->dict:

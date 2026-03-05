@@ -1,306 +1,256 @@
-
 import re
 from model.GuessContext import GuessContext
 from utils.Utils import to_english
 
+
 class ValueParser():
-    
-    
-    source_type:str = "pdf"
-    non_job_titles = [
+
+    source_type: str = "pdf"
+
+    # Titles that look like job titles but are actually category descriptions
+    _non_job_titles: set = {
         "Décès beaux-parents",
         "Mariage du salarié",
         "Mariage d'un enfant",
-        "Emplois qui requièrent un haut niveau de connaissances ou une expérience professionnelle équivalente",
-        "Emplois qui requièrent le niveau 1 de l'education nationale ou une expérience professionnelle équivalente",
-        "Emplois qui requièrent le niveau 2 de l'education nationale ou une expérience professionnelle équivalente",
-        "Emplois qui requièrent le niveau 3 de l'education nationale ou une expérience professionnelle équivalente",
-        "Emplois qui requièrent le niveau 4 de l'education nationale ou une expérience professionnelle équivalente",
-        "Emplois qui requièrent le niveau 5 de l'education nationale ou une expérience professionnelle équivalente"
-    ]
-    
-    def __init__(self,source_type="pdf"):
-        self.source_type = source_type
-        self._conform_table:dict = {
-            "job_title":self._split_genders,
-            "job_title_male":self._lower_capitalise,
-            "job_title_female":self._lower_capitalise,
-            "sector":self._lower_capitalise,
-            "category":self._conform_category,
-            "position":self._lower_capitalise,
-            "monthly_salary":self._extract_number,
-            "weekly_salary":self._extract_number,
-            "daily_salary":self._extract_number,
-            "is_cadre":self._cadre_to_bool
-        }
-        self._content_guess_table:dict = {
-            "job_title":[self._is_job_title],
-            "category":[self._is_roman_AB],
-            "is_cadre":[self._is_NC_or_C],
-            "definition":[self._is_definition],
-            "position":[self._is_chef_or_confirme],
-            "sector":[self._is_sector],
-            "monthly_salary":[self._is_salary,self._greater_than_900],
-            "weekly_salary":[self._is_salary,self._greater_than_400,self._lower_than_1000],
-            "daily_salary":[self._is_salary,self._lower_than_300]
-        }
-        
-    def _extract_number(self,text):
-        if isinstance(text,str)==False:
-            return text
-        """
-        Extracts the first number from a string, handling spaces as thousand separators.
-        Returns the number as a float or None if no number is found.
-        """
-        # Remove spaces that are inside numbers
-        s_cleaned = re.sub(r'(?<=\d) (?=\d)', '', text)
-        
-        # Match the first float or integer
-        match = re.search(r'-?\d+(?:\.\d+)?', s_cleaned)
-        if match:
-            return float(match.group())
-        return None
+    }
 
-    
-    def _is_definition(self,context:GuessContext=None):
+    # Prefix that identifies category-description rows (handled by _is_paragraph anyway,
+    # but kept as a fast-path check)
+    _EMPLOIS_PREFIX = "Emplois qui requièrent"
+
+    def __init__(self, source_type: str = "pdf"):
+        self.source_type = source_type
+        self._conform_table: dict = {
+            "job_title":        self._split_genders,
+            "job_title_male":   self._lower_capitalise,
+            "job_title_female": self._lower_capitalise,
+            "sector":           self._lower_capitalise,
+            "category":         self._conform_category,
+            "position":         self._lower_capitalise,
+            "monthly_salary":   self._extract_number,
+            "weekly_salary":    self._extract_number,
+            "daily_salary":     self._extract_number,
+            "is_cadre":         self._cadre_to_bool,
+        }
+        self._content_guess_table: dict = {
+            "job_title":      [self._is_job_title],
+            "category":       [self._is_roman_AB],
+            "is_cadre":       [self._is_NC_or_C],
+            "definition":     [self._is_definition],
+            "position":       [self._is_chef_or_confirme],
+            "sector":         [self._is_sector],
+            "monthly_salary": [self._is_salary, self._greater_than_900],
+            "weekly_salary":  [self._is_salary, self._greater_than_400, self._lower_than_1000],
+            "daily_salary":   [self._is_salary, self._lower_than_300],
+        }
+
+    # ─────────────────────────────────────────
+    # Number extraction
+    # ─────────────────────────────────────────
+
+    def _extract_number(self, text) -> float | None:
+        if not isinstance(text, str):
+            return text
+        # collapse spaces used as thousand separators
+        cleaned = re.sub(r'(?<=\d) (?=\d)', '', text)
+        match = re.search(r'-?\d+(?:\.\d+)?', cleaned)
+        return float(match.group()) if match else None
+
+    # ─────────────────────────────────────────
+    # Content classifiers
+    # ─────────────────────────────────────────
+
+    def _contains_link_words(self, text: str) -> bool:
+        link_words = [" de ", " une ", " ou ", " qui ", " le ", " un ", " avec "]
+        return any(w in text for w in link_words)
+
+    def _is_paragraph(self, context: GuessContext) -> bool:
+        s = context.value.strip()
+        if s.startswith(self._EMPLOIS_PREFIX):
+            return False
+        if len(s) >= 40:
+            return self._contains_link_words(s) or bool(re.search(r'[.!?()]', s))
+        if len(s) >= 15:
+            return self._contains_link_words(s)
+        return False
+
+    def _is_definition(self, context: GuessContext) -> bool:
         if self._from_admin_table(context):
             return False
         return self._is_paragraph(context)
-    
-    def _contains_link_words(self,_text:str)->bool:
-            link_words = [" de "," une "," ou "," qui "," le "," un "," avec "]
-            for w in link_words:
-                if w in _text:
-                    return True
-            return False
-    
-    def _is_paragraph(self,context:GuessContext=None):
-        """
-        Returns True if the string looks like a paragraph:
-        - Contains multiple sentences ('.', '!', or '?')
-        - Longer than a minimum length (e.g., 40 characters)
-        """
-        s_clean = context.value.strip()
-        
-        if "Emplois qui requièrent" in s_clean:
-            return False 
-        
-        # Minimum length threshold
-        if len(s_clean) < 40:
-            return self._contains_link_words(s_clean)
-                
-        if self._contains_link_words(s_clean):
-            return True
-        
-        if context.column_index:
-            if context.column_index <3:
-             return False
-        
-        # Check if there is at least one sentence-ending punctuation
-        if re.search(r'[.!?()]', s_clean):
-            return True
-        
-        return False
-    
 
-    def guess_key(self,context:GuessContext=None)->str:
+    def _is_job_title(self, context: GuessContext) -> bool:
+        s = context.value.strip()
+
+        if len(s) < 2:
+            return False
+        if s in self._non_job_titles:
+            return False
+        if s.startswith(self._EMPLOIS_PREFIX):
+            return False
+        if self._is_roman_AB(context):
+            return False
+        if self._is_paragraph(context):
+            return False
+        if self._is_NC_or_C(context):
+            return False
+
+        if self._from_admin_table(context) or self.source_type == "html":
+            # HTML / admin tables: title-cased (first letter up, second down)
+            return self._is_title_case_start(s) and not self._is_roman_AB(context)
+
+        # PDF tables: all-uppercase, min length 5
+        pattern = r'^[A-ZÀ-Ÿ0-9\' /\\\n]+$'
+        return bool(
+            re.match(pattern, s)
+            and len(s) > 5
+            and not self._is_chef_or_confirme(context)
+            and not self._is_sector(context)
+        )
+
+    def _is_title_case_start(self, s: str) -> bool:
+        """First char uppercase, second char lowercase — e.g. 'Monteur'."""
+        return len(s) >= 2 and self.is_upper(s[0]) and not self.is_upper(s[1])
+
+    def _is_roman_AB(self, context: GuessContext) -> bool:
+        return context.value.strip() in {
+            "I", "II", "III", "IV", "V",
+            "IIIA", "III A", "IIIB", "III B",
+            "Hors catégorie",
+        }
+
+    def _is_NC_or_C(self, context: GuessContext) -> bool:
+        return context.value.strip().upper() in {"NC", "C"}
+
+    def _is_chef_or_confirme(self, context: GuessContext) -> bool:
+        return to_english(context.value.lower().strip()) in {"chef", "confirme"}
+
+    def _is_sector(self, context: GuessContext) -> bool:
+        """
+        A sector is a short title-cased phrase (all words capitalised).
+        Guard against short job titles by requiring at least 2 words OR
+        checking it's not already flagged as a job title.
+        """
+        s = context.value.strip()
+        if len(s) < 3 or len(s) > 40:
+            return False
+        words = s.split()
+        if not all(self._is_capitalized(w) for w in words):
+            return False
+        # single-word capitalized strings are ambiguous — require 2+ words for sector
+        return len(words) >= 2
+
+    def _is_capitalized(self, word: str) -> bool:
+        return len(word) >= 2 and self.is_upper(word[0]) and not self.is_upper(word[1])
+
+    def _is_salary(self, context: GuessContext) -> bool:
+        v = context.value
+        if isinstance(v, (int, float)):
+            return True
+        pattern = re.compile(r'^\s*\d{1,3}(?:[\s.,]\d{3})*(?:[.,]\d{2})?\s*€?\s*$')
+        return bool(pattern.match(str(v)))
+
+    def _greater_than_900(self, context: GuessContext) -> bool:
+        n = self._extract_number(str(context.value))
+        return n is not None and n > 900
+
+    def _greater_than_400(self, context: GuessContext) -> bool:
+        n = self._extract_number(str(context.value))
+        return n is not None and n > 400
+
+    def _lower_than_300(self, context: GuessContext) -> bool:
+        n = self._extract_number(str(context.value))
+        return n is not None and n < 300
+
+    def _lower_than_1000(self, context: GuessContext) -> bool:
+        n = self._extract_number(str(context.value))
+        return n is not None and n < 1000
+
+    def _from_admin_table(self, context: GuessContext) -> bool:
+        return bool(context.table_number and context.table_number in {1, 2, 3} and context.nb_columns < 20)
+
+    def _is_phrase(self, context: GuessContext) -> bool:
+        return not self.is_upper(context.value) and len(context.value) > 30
+
+    # ─────────────────────────────────────────
+    # Key guesser
+    # ─────────────────────────────────────────
+
+    def guess_key(self, context: GuessContext) -> str | None:
         if context is None:
-            return 
-        for key,check_list in self._content_guess_table.items():
-            matches = [ check for check in check_list if check(context)]
-            if len(matches) != len(check_list):
-                continue
-            return key  
+            return None
+        for key, checks in self._content_guess_table.items():
+            if all(check(context) for check in checks):
+                return key
         return None
 
-    def _is_salary(self,context:GuessContext=None) -> bool:
-        if isinstance(context.value,int) or isinstance(context.value,float):
-            return True
-        pattern = re.compile(r'^\s*\d{1,3}(?:[\s.,]\d{3})*(?:,\d{2})?\s*€\s*$')
-        return bool(pattern.match(context.value))
-    
-    def _is_index2(self,context:GuessContext=None):
-        return context.column_index==2
-        
-    def _from_admin_table(self,context:GuessContext=None):
-        if context.table_number:
-            return context.table_number in [1,2,3] and context.nb_columns < 20
-        return False   
-    def _from_html_table(self,context:GuessContext=None):
-        return context.source == "html"
-        
-    def _is_female_job_title(self,context:GuessContext=None):
-        if self._from_admin_table(context)==False:
-            return False
-        return self._is_job_title(context) and self._first_word_is_female(context)
-    
-    def _first_word_is_female(self,context:GuessContext=None)->bool:
-        return context.value.split(" ")[0][-1] in ['e']
-    
+    # ─────────────────────────────────────────
+    # Conformers
+    # ─────────────────────────────────────────
 
-        
-    def _is_job_title(self,context:GuessContext=None):
-        
-        """
-        Returns True if the string contains only uppercase letters, spaces, slashes, or line breaks.
-        """
-        # Remove leading/trailing spaces
-        s_clean = context.value.strip()
-        
-        # Regex: uppercase letters (including accented), spaces, slashes, line breaks
-        pattern = r'^[A-ZÀ-Ÿ0-9\' /\\\n]+$'
-        
-        if len(s_clean)<2:
-            return False
-        
-        if s_clean in self.non_job_titles:
-            return False
-        
-        if self._from_admin_table(context) or self.source_type=="html":
-            is_capitalised = bool(self.is_upper(s_clean[0]) and self.is_upper(s_clean[1])==False)
-            return is_capitalised and self._is_roman_AB(context)==False and self._is_paragraph(context) ==False
-        
-        is_uppercase =  re.match(pattern, s_clean) 
-        return bool(
-            is_uppercase
-            and len(context.value)>5
-            and self._is_roman_AB(context)==False
-            and self._is_chef_or_confirme(context)==False
-            and self._is_sector(context)==False
-            and self._is_paragraph(context)==False
-            and self._is_NC_or_C(context)==False
-            )
-    
-    def _is_long_upper_case(self,context:GuessContext=None)->bool:
-        return self.is_upper(context.value) and len(context.value) > 8 and len(context.value) < 30
-    def _is_roman_AB(self,context:GuessContext=None)->bool:
-        return context.value in ["I","II","III","IV","V","IIIA","III A","IIIB","III B","Hors catégorie"]
-    def _is_NC_or_C(self,context:GuessContext=None)->bool:
-        return context.value.upper() in ["NC","C"]  
-    def _is_phrase(self,context:GuessContext=None)->bool:
-        return self.is_upper(context.value)==False and len(context.value) > 30
-    def _is_short_name(self,context:GuessContext=None)->bool:
-        return self.is_upper(context.value)==False and len(context.value) < 30    
-    def _is_capitalized(self,word:str)->bool:
-        if len(word)<2:
-            return False
-        return self.is_upper(word[0]) and not self.is_upper(word[1])
-    def _is_sector(self,context:GuessContext=None)->bool:
-        if len(context.value)<3:
-            return False
-        words = context.value.split(" ")
-        capitalized_words = [ w for w in words if self._is_capitalized(w)]
-        all_capitalized = len(capitalized_words) == len(words)
-        return (
-            all_capitalized 
-            and len(context.value) < 30
-            )
-    def _has_euro_sign(self,context:GuessContext=None)->bool:
-        return "€" in context.value
-    def _greater_than_900(self,context:GuessContext=None)->bool:
-        num = self._extract_number(context.value)
-        if not num:
-            return False
-        return num > 900        
-
-    def _greater_than_400(self,context:GuessContext=None)->bool:
-        num = self._extract_number(context.value)
-        if not num:
-            return False
-        return num > 400    
-    def _lower_than_300(self,context:GuessContext=None)->bool:
-        num = self._extract_number(context.value)
-        if not num:
-            return False
-        return num < 300     
-    def _lower_than_1000(self,context:GuessContext=None)->bool:
-        num = self._extract_number(context.value)
-        if not num:
-            return False
-        return num < 1000  
-    def _is_chef_or_confirme(self,context:GuessContext=None)->bool:
-        return to_english(context.value.lower()) in ["chef","confirme"]
-    
-    def is_upper(self,text=None):
-        """
-        Check if the input string is fully uppercase (letters, including accented, and spaces).
-
-        Args:
-            text (str): Input string.
-
-        Returns:
-            bool: True if all letters are uppercase, False otherwise.
-        """
-        # Remove non-letter characters for the check
-        letters_only = ''.join(c for c in text if c.isalpha())
-        return letters_only.isupper() and len(letters_only) > 0
-    
-    def strip(self,_value)->str:
-        return _value.replace("\n"," ")
-    
-    def conform(self,key,value):
+    def conform(self, key: str, value):
         if not value:
             return value
-        if not self._conform_table.get(key):
-            return value
-        conformed = self._conform_table[key](value)
-        return conformed
+        fn = self._conform_table.get(key)
+        return fn(value) if fn else value
 
-    def _lower_capitalise(self,value):
-        return self.strip(value.lower().capitalize())
-    
-    def _split_genders(self,value):
-        data = {
-            "neutral":"",
-            "male":None,
-            "female":None
-        }
-        if isinstance(value,str):
-            words = value.replace("\n"," ").lower().split(" ")
-            job_male = []
-            job_female = []
-            is_male = True
-            first_letters = None
-            for w in words:
-                if not first_letters:
-                    half = int(len(w)/2)
-                    first_letters = w[:half]
-                    job_male.append(w)
-                    continue
-                if first_letters in w:
-                    is_male=False
-                if is_male==False:
-                    job_female.append(w)
-                else:
-                    job_male.append(w)
-            data = {
-                "male":self._lower_capitalise(" ".join(job_male)),
-                "female":self._lower_capitalise(" ".join(job_female))
-            }
-        return data
+    def strip(self, value: str) -> str:
+        return value.replace("\n", " ").strip()
 
-    def _cadre_to_bool(self,value):
+    def _lower_capitalise(self, value: str) -> str:
+        return self.strip(value).lower().capitalize()
+
+    def _cadre_to_bool(self, value):
         if value == "NC":
             return False
         if value == "C":
             return True
-        return value    
-    
-    def _conform_category(self,value):
+        return value
+
+    def _conform_category(self, value: str) -> str:
         if value == "Hors catégorie":
             return value
-        return self._upper_strip_spaces(value)
-    
-    
-    def _upper_strip_spaces(self,value):
-        if value == "Hors catégorie":
-            return value
-        return self.strip(value.upper().replace(" ",""))
+        return self.strip(value).upper().replace(" ", "")
 
+    def _split_genders(self, value) -> dict:
+        """
+        Split a job title string into male/female variants.
 
-    def line_to_job_title(self,value:str):
-        guess = GuessContext(value=value)
-        if self._is_job_title(guess):
+        Titles are written like:  "Monteur / Monteuse"  or  "MONTEUR/MONTEUSE"
+        Strategy:
+          1. Try splitting on ' / ' or '/'
+          2. Fall back to the original value as male only
+        """
+        if not isinstance(value, str):
+            return {"male": None, "female": None}
+
+        cleaned = self.strip(value)
+
+        # try explicit separator first
+        for sep in (" / ", "/"):
+            if sep in cleaned:
+                parts = [p.strip() for p in cleaned.split(sep, 1)]
+                return {
+                    "male":   self._lower_capitalise(parts[0]),
+                    "female": self._lower_capitalise(parts[1]) if len(parts) > 1 else None,
+                }
+
+        # no separator — treat whole string as male title
+        return {
+            "male":   self._lower_capitalise(cleaned),
+            "female": None,
+        }
+
+    # ─────────────────────────────────────────
+    # Utilities
+    # ─────────────────────────────────────────
+
+    def is_upper(self, text: str) -> bool:
+        letters = [c for c in text if c.isalpha()]
+        return len(letters) > 0 and all(c == c.upper() for c in letters)
+
+    def line_to_job_title(self, value: str):
+        context = GuessContext(value=value)
+        if self._is_job_title(context):
             return self._lower_capitalise(value)
-            return self._split_genders(value)
         return None

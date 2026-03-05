@@ -8,3 +8,4 @@
 /.venv
 /tests/output/all
 /tests/output/2015
+/tests/output

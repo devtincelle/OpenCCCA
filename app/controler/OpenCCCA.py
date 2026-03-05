@@ -66,8 +66,6 @@ class OpenCCCA():
         print(scrapper)
         data = scrapper.parse(file_path)
        # Save JSON with UTF-8 encoding
-       
-        print(data)
         
         if not data :
             return 

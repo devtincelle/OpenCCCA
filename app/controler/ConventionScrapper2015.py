@@ -13,9 +13,11 @@ class ConventionScrapper2015(ConventionScrapperAbstract):
         if not os.path.exists(file):
             print("Error pdf does not exist:", file)
             return {}
-    
-        convention = ConventionParserPDF().parse(file)
-        final_data =  convention.get_dict()
 
-        return final_data
+        convention = ConventionParserPDF().parse(file)
+        if not convention:
+            print("Error: parser returned nothing")
+            return {}
+
+        return convention.filter_invalid().enrich().get_dict()
   

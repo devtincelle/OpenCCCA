@@ -155,7 +155,6 @@ class ConventionScrapper2015(ConventionScrapperAbstract):
         '''
         
         data = self.parse_convention_first_page(_text)
-        print(data)
         
         version = f"IDCC-{data['IDCC']}_B-{data['brochure_number']}_{data['version_consolidated']}"
         return version

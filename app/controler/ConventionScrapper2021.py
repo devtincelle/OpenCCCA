@@ -1,11 +1,7 @@
-
-
-
-
 import os
-from dataclasses import asdict
-from model.ConventionParserPDF  import ConventionParserPDF
+from model.ConventionParserPDF import ConventionParserPDF
 from model.ConventionScrapperAbstract import ConventionScrapperAbstract
+
 class ConventionScrapper2021(ConventionScrapperAbstract):
 
     def parse(self, file: str = None) -> dict:
@@ -16,11 +12,10 @@ class ConventionScrapper2021(ConventionScrapperAbstract):
         if not os.path.exists(file):
             print("Error pdf does not exist:", file)
             return {}
-    
+
         convention = ConventionParserPDF().parse(file)
-        final_data =  convention.get_dict()
+        if not convention:
+            print("Error: parser returned nothing")
+            return {}
 
-        return final_data
-  
-    
-
+        return convention.filter_invalid().enrich().get_dict()

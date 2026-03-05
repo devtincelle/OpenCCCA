@@ -19,9 +19,13 @@ class ConventionScrapper2024(ConventionScrapperAbstract):
                 print("Error file is None")
                 return {}
             
-            with open(file,"r", encoding="utf-8") as f:
-                html = f.read()
-                convention = ConventionParserHTML().parse(html)
-                final_data =  convention.get_dict()
+            with open(file, "r", encoding="utf-8") as f:
+                html = f.read()                              # ← only this needs the file open
 
-                return final_data
+            convention = ConventionParserHTML().parse(html)
+            if not convention:
+                print("Error: parser returned nothing")
+                return {}
+
+            final_data = convention.filter_invalid().enrich().get_dict()
+            return final_data

@@ -75,7 +75,6 @@ class ConventionParserHTML:
 
     def _parse_filiere(self, p, convention: Convention) -> Filiere:
         raw = clean_text(p.text)
-        print(raw)
         filiere = self.filiere_parser.parse_from_line(raw)
         filiere.parsing_id=self._parsing_id,
         filiere.source=convention.source
@@ -149,11 +148,9 @@ class ConventionParserHTML:
         
         jobs = self.job_parser.parse_jobs(table)
         
-        print(jobs)
-        
         for job in jobs:
-            job.filiere = filiere
-            job.sector = sector
+            job.filiere = filiere.slug or filiere.name
+            job.sector  = sector.name if sector else None
             convention.jobs.append(job)
 
 

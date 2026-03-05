@@ -50,10 +50,6 @@ class JobParser():
             
             tslice = self.parse_slice(row,row_number,table_number)
             
-            print("-------------------------------------------------------------------------------------")
-            print(tslice)
-            
-            
             if not tslice:
                 continue
             tslice["row_number"] = row_number
@@ -168,7 +164,6 @@ class JobParser():
     def parse_slice(self,row:list,row_number:int=None,table_number:int=None)->dict:
         data = {}
         column_index=-1
-        print(row)
         for value in row:
             if self.is_header(value):
                 return None
@@ -183,8 +178,6 @@ class JobParser():
                 nb_columns=len(row)
             )
             key = self._parser.guess_key(context)
-            print(context)
-            print(key)
             if key:
                 if data.get(key) and isinstance(data.get(key),str):
                     ...

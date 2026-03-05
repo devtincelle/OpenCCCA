@@ -17,7 +17,6 @@ class FiliereParser():
         if "Filière " not in _line:
             return 
         filieres = _line.split("Filière")
-        print(filieres)
         for f in filieres[1:]:
             if ":" in f:
                 return self._parse_with_semicolumn(f)
