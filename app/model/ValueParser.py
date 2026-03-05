@@ -7,6 +7,17 @@ class ValueParser():
     
     
     source_type:str = "pdf"
+    non_job_titles = [
+        "Décès beaux-parents",
+        "Mariage du salarié",
+        "Mariage d'un enfant",
+        "Emplois qui requièrent un haut niveau de connaissances ou une expérience professionnelle équivalente",
+        "Emplois qui requièrent le niveau 1 de l'education nationale ou une expérience professionnelle équivalente",
+        "Emplois qui requièrent le niveau 2 de l'education nationale ou une expérience professionnelle équivalente",
+        "Emplois qui requièrent le niveau 3 de l'education nationale ou une expérience professionnelle équivalente",
+        "Emplois qui requièrent le niveau 4 de l'education nationale ou une expérience professionnelle équivalente",
+        "Emplois qui requièrent le niveau 5 de l'education nationale ou une expérience professionnelle équivalente"
+    ]
     
     def __init__(self,source_type="pdf"):
         self.source_type = source_type
@@ -140,6 +151,9 @@ class ValueParser():
         pattern = r'^[A-ZÀ-Ÿ0-9\' /\\\n]+$'
         
         if len(s_clean)<2:
+            return False
+        
+        if s_clean in self.non_job_titles:
             return False
         
         if self._from_admin_table(context) or self.source_type=="html":

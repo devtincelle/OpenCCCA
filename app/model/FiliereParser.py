@@ -22,6 +22,32 @@ class FiliereParser():
             if ":" in f:
                 return self._parse_with_semicolumn(f)
             return self._parse_with_spaces(f)
+        
+    def parse_2015_filieres(self,_raw_string:str)->list:
+        if "Filière " not in _raw_string:
+            return []
+        filieres = _raw_string.split("Filière")
+        data = []
+
+        for f in filieres[1:]:
+            # split filiere number and name
+            parts = f.split(":", 1)
+            filiere_number = int(parts[0].strip())
+            filiere_name = self.clean_text(parts[1].split("\n")[0].strip())
+            filiere_key = self.clean_text(filiere_name).replace(" ","_")
+            corrections = {
+                "exploitation, maintenance et transfert de données":
+                "exploitation, maintenance et transfert des données"
+            }
+            if filiere_name in corrections:
+                filiere_name = corrections[filiere_name]
+            filiere = {
+                "name":f"{filiere_number} {filiere_name}",
+                "number":filiere_number,
+                "key":f"{filiere_number}-{filiere_key[0]}"
+            }
+            data.append(filiere) 
+        return data
 
         
     def _parse_with_semicolumn(self,_line:str)->Filiere:
