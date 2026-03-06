@@ -1,6 +1,7 @@
 import re
 from model.GuessContext import GuessContext
 from utils.Utils import to_english
+from typing import Optional
 
 
 class ValueParser():
@@ -212,21 +213,17 @@ class ValueParser():
             return value
         return self.strip(value).upper().replace(" ", "")
 
-    def _split_genders(self, value) -> dict:
-        """
-        Split a job title string into male/female variants.
+    FEMININE_SUFFIXES = [
+        "euse", "rice", "ière", "ienne", "ante", "ette", "elle", "onne"
+    ]
 
-        Titles are written like:  "Monteur / Monteuse"  or  "MONTEUR/MONTEUSE"
-        Strategy:
-          1. Try splitting on ' / ' or '/'
-          2. Fall back to the original value as male only
-        """
+    def _split_genders(self, value) -> dict:
         if not isinstance(value, str):
             return {"male": None, "female": None}
 
         cleaned = self.strip(value)
 
-        # try explicit separator first
+        # 1. explicit separator — easy case
         for sep in (" / ", "/"):
             if sep in cleaned:
                 parts = [p.strip() for p in cleaned.split(sep, 1)]
@@ -235,11 +232,40 @@ class ValueParser():
                     "female": self._lower_capitalise(parts[1]) if len(parts) > 1 else None,
                 }
 
-        # no separator — treat whole string as male title
+        # 2. no separator — try to find where female form starts
+        words = cleaned.lower().split()
+        split_index = self._find_female_split(words)
+
+        if split_index:
+            male   = " ".join(words[:split_index])
+            female = " ".join(words[split_index:])
+            return {
+                "male":   self._lower_capitalise(male),
+                "female": self._lower_capitalise(female),
+            }
+
+        # 3. no female form detected
         return {
             "male":   self._lower_capitalise(cleaned),
             "female": None,
         }
+
+    def _find_female_split(self, words: list) -> Optional[int]:
+        """
+        Find the index where the female repetition starts.
+        Strategy: look for a word that ends with a feminine suffix
+        AND the next word looks like the start of a repeated title.
+        """
+        FEMININE_SUFFIXES = ("euse", "rice", "ière", "ienne", "ante", "ette", "elle", "onne")
+        
+        for i, word in enumerate(words):
+            if any(word.endswith(s) for s in FEMININE_SUFFIXES):
+                # check the next word starts a new title (capitalized or matches first word)
+                next_index = i + 1
+                if next_index < len(words):
+                    # female part starts after this word
+                    return next_index
+        return None
 
     # ─────────────────────────────────────────
     # Utilities

@@ -115,7 +115,7 @@ class ValidateJob:
                 r.error("job_title", f"Looks like a header row: {title[:40]!r}")
 
         if not any([job.monthly_salary, job.daily_salary, job.weekly_salary]):
-            r.error("salary", "No salary defined")
+            r.warn("salary", "No salary defined")
 
         return r
 
@@ -146,10 +146,10 @@ class ValidateArticle:
     def validate(article) -> ValidationResult:
         r = ValidationResult(entity="Article", key=f"{article.number or '?'}_{article.title or ''}")
 
-        if not article.number:
-            r.error("number", "Article has no number")
         if not article.title:
-            r.warn("title", "No title")
+            r.error("title", "No title")
+        if not article.number:
+            r.warn("number", "Article has no number")
         if not article.body:
             r.warn("body", "Empty body")
         if not article.pages:
