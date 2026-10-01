@@ -5,7 +5,7 @@ set SCRIPT_DIR=%~dp0
 REM Go to project root (one directory up from tests)
 cd /d "%SCRIPT_DIR%.."
 
-set year=all
+set year=2024
 
 set "output_folder=%SCRIPT_DIR%\output\%RANDOM%"
 mkdir %output_folder%

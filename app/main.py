@@ -19,6 +19,6 @@ if __name__=="__main__":
     if year is not None:
         openccca.export_json(output_folder,year,input_file)
     else:
-        for year in ["2015","2021","2024"]:
+        for year in ["2015","2021","2024","2026"]:
             openccca.export_json(output_folder,year,input_file)
         

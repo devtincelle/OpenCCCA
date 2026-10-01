@@ -4,6 +4,7 @@ from utils.PathManager import PathManager
 from controler.ConventionScrapper2015 import ConventionScrapper2015
 from controler.ConventionScrapper2021 import ConventionScrapper2021
 from controler.ConventionScrapper2024 import ConventionScrapper2024
+from controler.ConventionScrapper2026 import ConventionScrapper2026
 from model.ConventionScrapperAbstract import ConventionScrapperAbstract
 from view.ConventionViewBuilder import ConventionViewBuilder
 import os
@@ -20,7 +21,8 @@ class OpenCCCA():
     _conventions_files:Dict[str,dict]= {
         "2015":"CCN_production_animation_consolidee_01032015.pdf",
         "2021":"la-convention-collective-nationale-de-lanimation-et-la-grille-des-minima.pdf",
-        "2024":"gov_site_copypaste.html"
+        "2024":"gov_site_copypaste_2024.html",
+        "2026":"avenantn021-naopfa2026corrvdef-grilles52100.pdf",
     }
     
 
@@ -46,7 +48,9 @@ class OpenCCCA():
             if _year=="2015":
                 return ConventionScrapper2015()            
             if _year=="2021":
-                return ConventionScrapper2021()
+                return ConventionScrapper2021()            
+            if _year=="2026":
+                return ConventionScrapper2026()
         if extension == "html":
             if _year=="2024":
                 return ConventionScrapper2024()
